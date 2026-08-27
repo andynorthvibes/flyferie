@@ -16,8 +16,9 @@ export const metadata: Metadata = {
   title: "Flyferie.no – Finn din neste reise",
   description: "Oppdag weekendturer, skjulte perler, blåturer og inspirerende reisemål i Europa.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon-v9.png",
+    shortcut: "/favicon-v9.png",
+    apple: "/apple-touch-icon-v9.png",
   },
 };
 

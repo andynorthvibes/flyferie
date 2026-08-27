@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { copy, destinations, type Lang } from "@/lib/content";
 
 export function SiteHome({ lang }: { lang: Lang }) {
@@ -9,7 +10,9 @@ export function SiteHome({ lang }: { lang: Lang }) {
     <main>
       <header className="absolute inset-x-0 top-0 z-20 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 lg:px-8">
-          <Link href={`/${lang}`} className="text-2xl font-bold tracking-tight">flyferie<span className="text-[#f4c16d]">.no</span></Link>
+          <Link href={`/${lang}`} aria-label="Flyferie.no – forsiden" className="flex items-center">
+            <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[230px] sm:w-[270px]" />
+          </Link>
           <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex">
             {t.nav.map((item) => <a key={item} href="#utforsk" className="transition hover:text-[#f4c16d]">{item}</a>)}
           </nav>
@@ -91,7 +94,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
           </article>
         </div>
       </section>
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65"><div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p className="text-xl font-bold text-white">flyferie<span className="text-[#f4c16d]">.no</span></p><p className="text-sm">© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p></div></footer>
+      <footer className="bg-[#102f2b] px-5 py-10 text-white/65"><div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" /><p className="text-sm">© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p></div></footer>
     </main>
   );
 }

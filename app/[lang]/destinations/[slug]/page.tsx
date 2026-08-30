@@ -118,7 +118,7 @@ export default async function DestinationPage({ params }: PageProps) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/75 via-transparent to-transparent" />
             <figcaption className="absolute bottom-5 left-6 text-xs font-medium text-white/80">
-              {norwegian ? "Brandenburger Tor ved solnedgang" : "Brandenburg Gate at sunset"} · Morn the Gorn
+              {norwegian ? "Brandenburger Tor ved solnedgang" : "Brandenburg Gate at sunset"} · {norwegian ? "Foto" : "Photo"}: Morn the Gorn
             </figcaption>
           </figure>
         </div>
@@ -173,7 +173,7 @@ export default async function DestinationPage({ params }: PageProps) {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#173f39]/70 via-transparent to-transparent" />
                       <figcaption className="absolute bottom-3 left-5 text-xs text-white/75">
-                        {norwegian ? weekendImages[index].altNo : weekendImages[index].altEn} · {weekendImages[index].credit}
+                        {norwegian ? weekendImages[index].altNo : weekendImages[index].altEn} · {norwegian ? "Foto" : "Photo"}: {weekendImages[index].credit}
                       </figcaption>
                     </figure>
                     <div className="p-7">

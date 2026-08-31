@@ -105,7 +105,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             <h2 className="display text-4xl font-bold sm:text-5xl">{t.weekendTitle}</h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-[#48645f]">{t.weekendText}</p>
           </div>
-          <a href="#alle-byer" className="font-bold text-[#1e776e]">{t.all} →</a>
+          <Link href={`/${lang}/destinations`} className="font-bold text-[#1e776e]">{t.all} →</Link>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((place) => {

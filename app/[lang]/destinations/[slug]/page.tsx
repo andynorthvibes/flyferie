@@ -57,7 +57,7 @@ export default async function DestinationPage({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
       <header className="border-b border-white/10 bg-[#102f2b]">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-5 sm:py-5">
           <Link href={"/" + lang} aria-label="Flyferie.no – forsiden">
             <Image
               src="/flyferie-logo-v9.png"
@@ -65,7 +65,7 @@ export default async function DestinationPage({ params }: PageProps) {
               width={480}
               height={200}
               priority
-              className="h-auto w-[190px] sm:w-[225px]"
+              className="h-auto w-[168px] sm:w-[225px]"
             />
           </Link>
           <Link
@@ -81,16 +81,16 @@ export default async function DestinationPage({ params }: PageProps) {
         className="overflow-hidden text-white"
         style={{ background: "linear-gradient(135deg, " + place.color + ", #102f2b 68%)" }}
       >
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:py-24">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:gap-12 sm:py-16 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:py-24">
           <div>
             <Link href={"/" + lang} className="text-sm font-bold text-[#ffd078]">
               ← {norwegian ? "Tilbake til forsiden" : "Back to the home page"}
             </Link>
-            <p className="mt-10 text-sm font-bold uppercase tracking-[.22em] text-[#ffd078]">
+            <p className="mt-7 text-xs font-bold uppercase tracking-[.2em] text-[#ffd078] sm:mt-10 sm:text-sm sm:tracking-[.22em]">
               {norwegian ? place.countryNo : place.countryEn}
             </p>
-            <h1 className="display mt-3 text-6xl font-bold sm:text-8xl">{displayName}</h1>
-            <p className="mt-6 max-w-2xl text-xl leading-9 text-white/80">
+            <h1 className="display mt-2 text-[52px] font-bold leading-none sm:mt-3 sm:text-8xl">{displayName}</h1>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/80 sm:mt-6 sm:text-xl sm:leading-9">
               {guide
                 ? norwegian
                   ? guide.introNo
@@ -102,7 +102,7 @@ export default async function DestinationPage({ params }: PageProps) {
           </div>
 
           {media ? (
-            <figure className="relative min-h-[360px] overflow-hidden rounded-[34px] border border-white/15 shadow-2xl">
+            <figure className="relative min-h-[280px] overflow-hidden rounded-[26px] border border-white/15 shadow-2xl sm:min-h-[360px] sm:rounded-[34px]">
               <Image
                 src={media.hero.src}
                 alt={norwegian ? media.hero.altNo : media.hero.altEn}
@@ -124,7 +124,7 @@ export default async function DestinationPage({ params }: PageProps) {
 
       {guide ? (
         <>
-          <section className="mx-auto max-w-6xl px-5 py-14">
+          <section className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
             <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
               {norwegian ? "Passer særlig for" : "Especially good for"}
             </p>
@@ -136,9 +136,9 @@ export default async function DestinationPage({ params }: PageProps) {
               ))}
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
               {guide.facts.map((fact) => (
-                <article key={fact.labelEn} className="rounded-[24px] border border-[#17332f]/10 bg-white p-6">
+                <article key={fact.labelEn} className="rounded-[20px] border border-[#17332f]/10 bg-white p-5 sm:rounded-[24px] sm:p-6">
                   <p className="text-xs font-bold uppercase tracking-[.16em] text-[#e16f59]">
                     {norwegian ? fact.labelNo : fact.labelEn}
                   </p>
@@ -151,17 +151,17 @@ export default async function DestinationPage({ params }: PageProps) {
           </section>
 
           <section className="bg-[#173f39] text-white">
-            <div className="mx-auto max-w-6xl px-5 py-16 lg:py-20">
+            <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
               <p className="text-sm font-bold uppercase tracking-[.2em] text-[#ffd078]">
                 {norwegian ? "Helgeplan" : "Weekend plan"}
               </p>
-              <h2 className="display mt-3 text-4xl font-bold sm:text-5xl">
+              <h2 className="display mt-2 text-[36px] font-bold leading-tight sm:mt-3 sm:text-5xl">
                 {norwegian ? displayName + " på 48 timer" : "48 hours in " + displayName}
               </h2>
-              <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              <div className="mt-7 grid gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-3">
                 {media && guide.weekend.map((item, index) => (
                   <article key={item.timeEn} className="overflow-hidden rounded-[28px] border border-white/15 bg-white/[.06]">
-                    <figure className="relative h-56">
+                    <figure className="relative h-48 sm:h-56">
                       <Image
                         src={media.weekend[index].src}
                         alt={norwegian ? media.weekend[index].altNo : media.weekend[index].altEn}
@@ -174,7 +174,7 @@ export default async function DestinationPage({ params }: PageProps) {
                         {norwegian ? media.weekend[index].altNo : media.weekend[index].altEn} · {norwegian ? "Foto" : "Photo"}: {media.weekend[index].photographer}
                       </figcaption>
                     </figure>
-                    <div className="p-7">
+                    <div className="p-6 sm:p-7">
                     <p className="text-sm font-bold uppercase tracking-[.16em] text-[#ffd078]">
                       {norwegian ? item.timeNo : item.timeEn}
                     </p>
@@ -191,18 +191,18 @@ export default async function DestinationPage({ params }: PageProps) {
             </div>
           </section>
 
-          <section className="mx-auto max-w-6xl px-5 py-16 lg:py-20">
-            <div className="grid gap-12 lg:grid-cols-2">
+          <section className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
+            <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
                   {norwegian ? "Hvor bør dere bo?" : "Where should you stay?"}
                 </p>
-                <h2 className="display mt-3 text-4xl font-bold">
+                <h2 className="display mt-2 text-[36px] font-bold leading-tight sm:mt-3 sm:text-4xl">
                   {norwegian ? "Velg område etter type tur" : "Choose an area that fits the trip"}
                 </h2>
                 <div className="mt-8 space-y-4">
                   {guide.districts.map((district) => (
-                    <article key={district.name} className="rounded-[24px] border border-[#17332f]/10 bg-white p-6">
+                    <article key={district.name} className="rounded-[20px] border border-[#17332f]/10 bg-white p-5 sm:rounded-[24px] sm:p-6">
                       <h3 className="text-xl font-bold">{district.name}</h3>
                       <p className="mt-2 leading-7 text-[#48645f]">
                         {norwegian ? district.textNo : district.textEn}
@@ -216,12 +216,12 @@ export default async function DestinationPage({ params }: PageProps) {
                 <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
                   {norwegian ? "Greit å vite" : "Good to know"}
                 </p>
-                <h2 className="display mt-3 text-4xl font-bold">
+                <h2 className="display mt-2 text-[36px] font-bold leading-tight sm:mt-3 sm:text-4xl">
                   {norwegian ? "Små tips som gjør helgen enklere" : "Small tips for an easier weekend"}
                 </h2>
                 <div className="mt-8 space-y-4">
                   {guide.tips.map((tip) => (
-                    <article key={tip.titleEn} className="rounded-[24px] bg-[#f5e8d3] p-6">
+                    <article key={tip.titleEn} className="rounded-[20px] bg-[#f5e8d3] p-5 sm:rounded-[24px] sm:p-6">
                       <h3 className="text-xl font-bold">
                         {norwegian ? tip.titleNo : tip.titleEn}
                       </h3>

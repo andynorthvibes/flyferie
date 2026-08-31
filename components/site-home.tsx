@@ -23,8 +23,8 @@ export function SiteHome({ lang }: { lang: Lang }) {
   const nav = [
     [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
-    [lang === "no" ? "Inspirasjon" : "Inspiration", "#inspiration"],
-    ["Thailand", "#thailand"]
+    [lang === "no" ? "Inspirasjon" : "Inspiration", `/${lang}/guides/hidden-gems`],
+    ["Thailand", `/${lang}/guides/thailand`]
   ];
 
   return (
@@ -53,7 +53,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             <p className="mt-5 max-w-2xl text-base leading-7 text-white/90 sm:mt-7 sm:text-xl sm:leading-8">{t.intro}</p>
             <div className="mt-7 flex flex-wrap gap-3 sm:mt-9">
               <a href="#alle-byer" className="rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] transition hover:bg-[#ffd08b]">{t.explore} →</a>
-              <a href="#inspiration" className="rounded-full border border-white/60 bg-white/10 px-6 py-3.5 font-bold backdrop-blur-sm transition hover:bg-white/20">{t.inspiration}</a>
+              <Link href={`/${lang}/guides/hidden-gems`} className="rounded-full border border-white/60 bg-white/10 px-6 py-3.5 font-bold backdrop-blur-sm transition hover:bg-white/20">{t.inspiration}</Link>
             </div>
           </div>
         </div>
@@ -61,13 +61,13 @@ export function SiteHome({ lang }: { lang: Lang }) {
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-px overflow-hidden rounded-t-[28px] bg-white/20 sm:grid-cols-3 lg:rounded-t-[34px]">
             {[
               [lang === "no" ? "Weekend med gjengen" : "Weekend with friends", "Berlin · Krakow · Gdansk", "#utforsk"],
-              [lang === "no" ? "Skjulte perler" : "Hidden gems", "Tbilisi · Skopje · Katowice", "#inspiration"],
-              [lang === "no" ? "Opplev Thailand" : "Discover Thailand", "Bangkok · Ao Nang · Krabi", "#thailand"]
+              [lang === "no" ? "Skjulte perler" : "Hidden gems", "Tbilisi · Skopje · Katowice", `/${lang}/guides/hidden-gems`],
+              [lang === "no" ? "Opplev Thailand" : "Discover Thailand", "Bangkok · Ao Nang · Krabi", `/${lang}/guides/thailand`]
             ].map(([title, sub, href]) => (
-              <a key={title} href={href} className="group bg-[#123b36]/90 px-5 py-4 backdrop-blur-md transition hover:bg-[#1e6258] sm:px-6 sm:py-5 lg:px-8">
+              <Link key={title} href={href} className="group bg-[#123b36]/90 px-5 py-4 backdrop-blur-md transition hover:bg-[#1e6258] sm:px-6 sm:py-5 lg:px-8">
                 <p className="text-sm font-bold text-[#ffd28a]">{title} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
                 <p className="mt-1 text-xs text-white/65">{sub}</p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -195,7 +195,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             {thailand.map((place) => {
               const photo = hero(place.slug);
               return (
-                <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-[380px] overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-xl sm:min-h-[430px] sm:rounded-[34px]">
+                <Link key={place.slug} href={`/${lang}/guides/thailand`} className="group relative min-h-[380px] overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-xl sm:min-h-[430px] sm:rounded-[34px]">
                   <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/25 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">

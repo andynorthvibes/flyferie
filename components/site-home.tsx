@@ -155,14 +155,14 @@ export function SiteHome({ lang }: { lang: Lang }) {
 
       <section id="inspiration" className="bg-[#173f39] px-5 py-12 text-white lg:px-8 lg:py-14">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
-          <Link href={`/${lang}/destinations/tbilisi`} className="group relative min-h-[410px] overflow-hidden rounded-[26px] sm:min-h-[460px] sm:rounded-[30px] lg:row-span-2">
+          <Link href={`/${lang}/guides/hidden-gems`} className="group relative min-h-[410px] overflow-hidden rounded-[26px] sm:min-h-[460px] sm:rounded-[30px] lg:row-span-2">
             <Image src={hero("tbilisi").src} alt={lang === "no" ? hero("tbilisi").altNo : hero("tbilisi").altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/30 to-transparent" />
             <div className="absolute bottom-0 p-6 sm:p-8 lg:p-10">
               <p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Litt utenfor allfarvei" : "Beyond the usual route"}</p>
               <h2 className="display mt-3 text-[36px] font-bold leading-[1.05] sm:mt-4 sm:text-5xl">{t.hidden}</h2>
               <p className="mt-4 max-w-xl text-base leading-7 text-white/80 sm:text-lg sm:leading-8">{t.hiddenText}</p>
-              <p className="mt-6 font-bold">Tbilisi · {t.read} →</p>
+              <p className="mt-6 font-bold">{lang === "no" ? "Oppdag de skjulte perlene" : "Discover the hidden gems"} →</p>
             </div>
           </Link>
           <InspirationCard lang={lang} slug="skopje" label={lang === "no" ? "Overrask gjengen" : "Surprise the group"} title={t.blue} text={t.blueText} />

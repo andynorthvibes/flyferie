@@ -59,10 +59,10 @@ export default async function AllDestinationsPage({ params }: PageProps) {
         </div>
       </header>
 
-      <section className="bg-[#173f39] px-5 py-14 text-white lg:px-8 lg:py-20">
+      <section className="bg-[#173f39] px-5 py-10 text-white lg:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl">
           <Link href={`/${lang}`} className="text-sm font-bold text-[#ffd078]">← {norwegian ? "Tilbake til forsiden" : "Back to the home page"}</Link>
-          <p className="mt-10 text-sm font-bold uppercase tracking-[.22em] text-[#f4c16d]">{norwegian ? "Finn din neste tur" : "Find your next trip"}</p>
+          <p className="mt-7 text-sm font-bold uppercase tracking-[.22em] text-[#f4c16d]">{norwegian ? "Finn din neste tur" : "Find your next trip"}</p>
           <h1 className="display mt-3 text-5xl font-bold sm:text-7xl">{norwegian ? "Alle reisemål" : "All destinations"}</h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">
             {norwegian ? "Hele Flyferie samlet på ett sted – alfabetisk, oversiktlig og klart for nye byer etter hvert som vi bygger flere guider." : "Every Flyferie destination in one place – alphabetical, easy to browse and ready to grow as we add new guides."}
@@ -72,7 +72,7 @@ export default async function AllDestinationsPage({ params }: PageProps) {
 
       <DestinationGrid lang={lang} title={norwegian ? "Europa" : "Europe"} places={europe} displayName={displayName} />
 
-      <section className="bg-[#f4d7a1] px-5 py-14 lg:px-8 lg:py-20">
+      <section className="bg-[#f4d7a1] px-5 py-10 lg:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-bold uppercase tracking-[.22em] text-[#b94f3d]">{norwegian ? "En helt egen reise" : "A journey of its own"}</p>
           <h2 className="display mt-3 text-4xl font-bold sm:text-5xl">Thailand</h2>
@@ -95,7 +95,7 @@ export default async function AllDestinationsPage({ params }: PageProps) {
 
 function DestinationGrid({ lang, title, places, displayName }: { lang: Lang; title: string; places: typeof destinations; displayName: (slug: string, fallback: string) => string }) {
   return (
-    <section className="px-5 py-14 lg:px-8 lg:py-20">
+    <section className="px-5 py-10 lg:px-8 lg:py-12">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-end justify-between gap-5">
           <h2 className="display text-4xl font-bold sm:text-5xl">{title}</h2>
@@ -110,7 +110,7 @@ function DestinationGrid({ lang, title, places, displayName }: { lang: Lang; tit
 }
 
 function DestinationCard({ lang, place, name }: { lang: Lang; place: (typeof destinations)[number]; name: string }) {
-  const photo = destinationMedia[place.slug].hero;
+  const photo = place.slug === "manchester" ? destinationMedia.manchester.weekend[1] : destinationMedia[place.slug].hero;
 
   return (
     <Link href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-[330px] overflow-hidden rounded-[26px] bg-[#17332f] text-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">

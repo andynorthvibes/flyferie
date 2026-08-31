@@ -71,7 +71,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="alle-byer" className="border-b border-[#17332f]/10 bg-[#fffaf1] py-12 lg:py-16">
+      <section id="alle-byer" className="border-b border-[#17332f]/10 bg-[#fffaf1] pb-6 pt-10 lg:pb-8 lg:pt-12">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex items-end justify-between gap-5">
             <div>
@@ -98,7 +98,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="utforsk" className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+      <section id="utforsk" className="mx-auto max-w-7xl px-5 pb-12 pt-8 lg:px-8 lg:pb-14 lg:pt-10">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">Flyferie-favoritter</p>
@@ -125,7 +125,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             );
           })}
         </div>
-        <div className="mt-12 border-t border-[#17332f]/10 pt-10 lg:mt-14 lg:pt-12">
+        <div className="mt-10 border-t border-[#17332f]/10 pt-8 lg:mt-12 lg:pt-10">
           <div className="flex items-end justify-between gap-5">
             <div>
               <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">{lang === "no" ? "Mer å oppleve" : "More to discover"}</p>
@@ -151,7 +151,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="inspiration" className="bg-[#173f39] px-5 py-14 text-white lg:px-8 lg:py-18">
+      <section id="inspiration" className="bg-[#173f39] px-5 py-12 text-white lg:px-8 lg:py-14">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
           <Link href={`/${lang}/destinations/tbilisi`} className="group relative min-h-[460px] overflow-hidden rounded-[30px] lg:row-span-2">
             <Image src={hero("tbilisi").src} alt={lang === "no" ? hero("tbilisi").altNo : hero("tbilisi").altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
@@ -177,7 +177,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="thailand" className="relative overflow-hidden bg-[#f4d7a1] px-5 py-14 text-[#17332f] lg:px-8 lg:py-20">
+      <section id="thailand" className="relative overflow-hidden bg-[#f4d7a1] px-5 py-12 text-[#17332f] lg:px-8 lg:py-14">
         <div className="absolute -right-28 -top-28 h-80 w-80 rounded-full bg-[#ef855f]/25 blur-3xl" />
         <div className="absolute -bottom-36 -left-28 h-96 w-96 rounded-full bg-[#2d9587]/25 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">

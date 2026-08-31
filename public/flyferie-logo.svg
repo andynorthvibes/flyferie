@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 160" role="img" aria-labelledby="title">
+  <title id="title">flyferie.no</title>
+  <path fill="#2F4A63" d="M29 17h96c0 18-15 32-33 32H60l-8 65c-2 20-13 30-33 30L29 17Z"/>
+  <path d="M20 139C42 82 91 58 145 43" fill="none" stroke="#3D857C" stroke-width="9" stroke-linecap="round"/>
+  <text x="175" y="111" fill="#2F4A63" font-family="DM Sans, Avenir Next, Arial, sans-serif" font-size="86" font-weight="600" letter-spacing="-4">flyferie</text>
+  <text x="490" y="111" fill="#3D857C" font-family="DM Sans, Avenir Next, Arial, sans-serif" font-size="86" font-weight="600" letter-spacing="-4">.no</text>
+</svg>

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-  <rect width="160" height="160" rx="28" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">Flyferie</title>
   <path fill="#2F4A63" d="M29 17h96c0 18-15 32-33 32H60l-8 65c-2 20-13 30-33 30L29 17Z"/>
   <path d="M20 139C42 82 91 58 145 43" fill="none" stroke="#3D857C" stroke-width="9" stroke-linecap="round"/>
 </svg>

@@ -1,11 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { copy, destinations, type Lang } from "@/lib/content";
+import { destinationMedia } from "@/lib/destination-media";
+
+const featuredSlugs = ["berlin", "krakow", "madrid", "malaga", "manchester", "amsterdam"];
+const compactSlugs = ["nice", "milan", "helsinki", "copenhagen", "palma-de-mallorca", "gothenburg", "katowice", "skopje"];
 
 export function SiteHome({ lang }: { lang: Lang }) {
   const t = copy[lang];
   const other = lang === "no" ? "en" : "no";
-  const featured = destinations.slice(0, 6);
+  const bySlug = Object.fromEntries(destinations.map((place) => [place.slug, place]));
+  const featured = featuredSlugs.map((slug) => bySlug[slug]);
+  const compact = compactSlugs.map((slug) => bySlug[slug]);
+  const cityName = (slug: string, fallback: string) => {
+    if (lang === "en") return fallback;
+    return ({ milan: "Milano", copenhagen: "København", gothenburg: "Gøteborg" } as Record<string, string>)[slug] ?? fallback;
+  };
+  const hero = (slug: string) => destinationMedia[slug].hero;
+
   return (
     <main>
       <header className="absolute inset-x-0 top-0 z-20 text-white">
@@ -36,11 +48,11 @@ export function SiteHome({ lang }: { lang: Lang }) {
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-px overflow-hidden rounded-t-[28px] bg-white/20 sm:grid-cols-3 lg:rounded-t-[34px]">
             {[
-              [lang === "no" ? "Weekend med gjengen" : "Weekend with friends", "Berlin · Krakow · Madrid"],
-              [lang === "no" ? "Skjulte perler" : "Hidden gems", "Tbilisi · Skopje · Katowice"],
-              [lang === "no" ? "Blåtur" : "Mystery trip", lang === "no" ? "La destinasjonen overraske" : "Let the destination surprise you"],
-            ].map(([title, sub]) => (
-              <a key={title} href="#inspiration" className="group bg-[#123b36]/85 px-6 py-5 backdrop-blur-md transition hover:bg-[#1e6258] lg:px-8">
+              [lang === "no" ? "Weekend med gjengen" : "Weekend with friends", "Berlin · Krakow · Madrid", "#utforsk"],
+              [lang === "no" ? "Skjulte perler" : "Hidden gems", "Tbilisi · Skopje · Katowice", "#inspiration"],
+              [lang === "no" ? "Blåtur" : "Mystery trip", lang === "no" ? "La destinasjonen overraske" : "Let the destination surprise you", "#inspiration"],
+            ].map(([title, sub, href]) => (
+              <a key={title} href={href} className="group bg-[#123b36]/85 px-6 py-5 backdrop-blur-md transition hover:bg-[#1e6258] lg:px-8">
                 <p className="text-sm font-bold text-[#ffd28a]">{title} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
                 <p className="mt-1 text-xs text-white/65">{sub}</p>
               </a>
@@ -56,45 +68,88 @@ export function SiteHome({ lang }: { lang: Lang }) {
             <h2 className="display text-4xl font-bold sm:text-5xl">{t.weekendTitle}</h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-[#48645f]">{t.weekendText}</p>
           </div>
-          <a href="#all" className="font-bold text-[#1e776e]">{t.all} →</a>
+          <a href="#alle-byer" className="font-bold text-[#1e776e]">{t.all} →</a>
         </div>
+
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((place, index) => (
-            <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-72 overflow-hidden rounded-[28px] p-6 text-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl" style={{ background: `linear-gradient(145deg, ${place.color}, #17332f)` }}>
-              <span className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold backdrop-blur-sm">{lang === "no" ? place.tagNo : place.tagEn}</span>
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-sm text-white/75">{lang === "no" ? place.countryNo : place.countryEn}</p>
-                <h3 className="display mt-1 text-4xl font-bold">{place.name}</h3>
-                <div className="mt-4 h-px bg-white/25" />
-                <p className="mt-4 text-sm font-bold">{lang === "no" ? "Oppdag byen" : "Discover the city"} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
-              </div>
-              <span className="absolute right-5 top-3 text-7xl font-bold text-white/[.07]">0{index + 1}</span>
-            </Link>
-          ))}
+          {featured.map((place) => {
+            const photo = hero(place.slug);
+            return (
+              <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-80 overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/35 to-black/5" />
+                <span className="absolute left-6 top-6 rounded-full bg-[#17332f]/75 px-3 py-1.5 text-xs font-bold backdrop-blur-sm">{lang === "no" ? place.tagNo : place.tagEn}</span>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-sm text-white/75">{lang === "no" ? place.countryNo : place.countryEn}</p>
+                  <h3 className="display mt-1 text-4xl font-bold">{cityName(place.slug, place.name)}</h3>
+                  <div className="mt-4 h-px bg-white/25" />
+                  <p className="mt-4 text-sm font-bold">{lang === "no" ? "Oppdag byen" : "Discover the city"} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        <div id="alle-byer" className="mt-12">
+          <p className="mb-5 text-sm font-bold uppercase tracking-[.18em] text-[#e16f59]">{lang === "no" ? "Flere byer å utforske" : "More cities to explore"}</p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+            {compact.map((place) => {
+              const photo = hero(place.slug);
+              return (
+                <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#17332f] text-white shadow-sm">
+                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 13vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/95 via-transparent to-transparent" />
+                  <h3 className="absolute bottom-0 left-0 right-0 p-3 text-sm font-bold leading-tight">{cityName(place.slug, place.name)} <span className="inline-block transition group-hover:translate-x-1">→</span></h3>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       <section id="inspiration" className="bg-[#173f39] px-5 py-20 text-white lg:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
-          <article className="rounded-[30px] bg-[#f2b85c] p-8 text-[#17332f] lg:col-span-2 lg:p-12">
-            <p className="text-sm font-bold uppercase tracking-[.18em]">{lang === "no" ? "Litt utenfor allfarvei" : "Beyond the usual route"}</p>
-            <h2 className="display mt-5 max-w-xl text-4xl font-bold sm:text-5xl">{t.hidden}</h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8">{t.hiddenText}</p>
-            <button className="mt-8 rounded-full bg-[#17332f] px-5 py-3 font-bold text-white">{t.read} →</button>
-          </article>
-          <article className="rounded-[30px] border border-white/15 bg-white/5 p-8 lg:p-10">
-            <span className="text-4xl">🎁</span>
-            <h2 className="display mt-6 text-3xl font-bold">{t.blue}</h2>
-            <p className="mt-4 leading-7 text-white/75">{t.blueText}</p>
-            <button className="mt-8 font-bold text-[#f4c16d]">{t.read} →</button>
-          </article>
-          <article className="rounded-[30px] border border-white/15 bg-[#23574f] p-8 lg:col-span-3 lg:flex lg:items-center lg:justify-between lg:p-10">
-            <div><p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Sesongguide" : "Seasonal guide"}</p><h2 className="display mt-3 text-3xl font-bold sm:text-4xl">{t.christmas}</h2><p className="mt-3 text-white/75">{t.christmasText}</p></div>
-            <button className="mt-7 rounded-full bg-white px-5 py-3 font-bold text-[#17332f] lg:mt-0">{t.read} →</button>
-          </article>
+        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
+          <Link href={`/${lang}/destinations/tbilisi`} className="group relative min-h-[460px] overflow-hidden rounded-[30px] lg:row-span-2">
+            <Image src={hero("tbilisi").src} alt={lang === "no" ? hero("tbilisi").altNo : hero("tbilisi").altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/30 to-transparent" />
+            <div className="absolute bottom-0 p-8 lg:p-10">
+              <p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Litt utenfor allfarvei" : "Beyond the usual route"}</p>
+              <h2 className="display mt-4 text-4xl font-bold sm:text-5xl">{t.hidden}</h2>
+              <p className="mt-4 max-w-xl text-lg leading-8 text-white/80">{t.hiddenText}</p>
+              <p className="mt-6 font-bold">Tbilisi · {t.read} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
+            </div>
+          </Link>
+
+          <Link href={`/${lang}/destinations/skopje`} className="group relative min-h-[270px] overflow-hidden rounded-[30px]">
+            <Image src={hero("skopje").src} alt={lang === "no" ? hero("skopje").altNo : hero("skopje").altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#102f2b]/95 via-[#102f2b]/65 to-transparent" />
+            <div className="absolute inset-0 flex max-w-md flex-col justify-end p-8">
+              <p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Overrask gjengen" : "Surprise the group"}</p>
+              <h2 className="display mt-3 text-3xl font-bold">{t.blue}</h2>
+              <p className="mt-3 text-white/80">{t.blueText}</p>
+              <p className="mt-5 font-bold">Skopje · {t.read} →</p>
+            </div>
+          </Link>
+
+          <Link href={`/${lang}/destinations/krakow`} className="group relative min-h-[270px] overflow-hidden rounded-[30px]">
+            <Image src="/destinations/krakow/christmas-market.jpg" alt={lang === "no" ? "Julemarkedet på markedsplassen i Krakow" : "Christmas market on Krakow Main Square"} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#102f2b]/95 via-[#102f2b]/65 to-transparent" />
+            <div className="absolute inset-0 flex max-w-md flex-col justify-end p-8">
+              <p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Sesongguide" : "Seasonal guide"}</p>
+              <h2 className="display mt-3 text-3xl font-bold">{t.christmas}</h2>
+              <p className="mt-3 text-white/80">{t.christmasText}</p>
+              <p className="mt-5 font-bold">Krakow · {t.read} →</p>
+            </div>
+          </Link>
         </div>
       </section>
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65"><div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" /><p className="text-sm">© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p></div></footer>
+
+      <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
+          <p className="text-sm">© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+        </div>
+      </footer>
     </main>
   );
 }

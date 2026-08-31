@@ -64,7 +64,7 @@ export const destinationMedia: Record<string, DestinationMedia> = {
       "altEn": "Krakow Main Square",
       "photographer": "Andrzej Otrębski",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Krakow_Rynek_Glowny_panorama_2.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Krakow_Rynek_Glowny_panorama_1.jpg"
     },
     "weekend": [
       {
@@ -96,11 +96,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "madrid": {
     "hero": {
       "src": "/destinations/madrid/hero.jpg",
-      "altNo": "Madrid sentrum",
-      "altEn": "Central Madrid",
-      "photographer": "Diario de Madrid",
-      "license": "CC BY 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Madrid_y_Buenos_Aires_prosiguen_los_trabajos_conjuntos_sobre_Gran_V%C3%ADa_y_la_avenida_de_Corrientes_01.jpg"
+      "altNo": "Gran Vía i Madrid",
+      "altEn": "Gran Vía in Madrid",
+      "photographer": "Eric Titcombe",
+      "license": "CC BY 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inicio_de_la_Gran_V%C3%ADa_edited.jpg"
     },
     "weekend": [
       {
@@ -132,11 +132,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "malaga": {
     "hero": {
       "src": "/destinations/malaga/hero.jpg",
-      "altNo": "Málaga og Alcazaba",
-      "altEn": "Málaga and the Alcazaba",
-      "photographer": "Fernando",
-      "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alcazaba_de_M%C3%A1laga_overview.jpg"
+      "altNo": "Málaga sett fra Alcazaba",
+      "altEn": "Málaga from the Alcazaba",
+      "photographer": "Javier Almenara",
+      "license": "CC BY 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%A1laga_Desde_El_Mirador_De_La_Alcazaba_(261488481).jpeg"
     },
     "weekend": [
       {
@@ -170,9 +170,9 @@ export const destinationMedia: Record<string, DestinationMedia> = {
       "src": "/destinations/manchester/hero.jpg",
       "altNo": "Manchester sentrum",
       "altEn": "Manchester city centre",
-      "photographer": "Peter McDermott",
-      "license": "CC BY-SA 2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manchester_City_Centre_-_geograph.org.uk_-_4255184.jpg"
+      "photographer": "Manc360",
+      "license": "CC0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manchester_Skyline_2018.jpg"
     },
     "weekend": [
       {
@@ -204,11 +204,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "katowice": {
     "hero": {
       "src": "/destinations/katowice/hero.jpg",
-      "altNo": "Katowice og Spodek",
-      "altEn": "Katowice and Spodek",
-      "photographer": "Krzysztof Popławski",
+      "altNo": "Moderne Katowice sentrum",
+      "altEn": "Modern central Katowice",
+      "photographer": "Bern1894",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katowice_-_panorama_z_ul._Wojew%C3%B3dzkiej.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Modern_Katowice.jpg"
     },
     "weekend": [
       {
@@ -240,11 +240,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "amsterdam": {
     "hero": {
       "src": "/destinations/amsterdam/hero.jpg",
-      "altNo": "Kanalene i Amsterdam",
-      "altEn": "Amsterdam canals",
-      "photographer": "Fons Heijnsbroek",
-      "license": "CC BY 2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oosterdoksdraaibrug.jpg"
+      "altNo": "Kanalhusene i Amsterdam",
+      "altEn": "Amsterdam canal houses",
+      "photographer": "Diliff",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg"
     },
     "weekend": [
       {
@@ -276,11 +276,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "nice": {
     "hero": {
       "src": "/destinations/nice/hero.jpg",
-      "altNo": "Nice og Promenade des Anglais",
-      "altEn": "Nice and the Promenade des Anglais",
-      "photographer": "Alexander Migl",
+      "altNo": "Nice sett fra Castle Hill",
+      "altEn": "Nice from Castle Hill",
+      "photographer": "Spike",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Promenade_des_Anglais_Nice_IMG_1260.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nice_from_Castle_Hill_01.jpg"
     },
     "weekend": [
       {
@@ -348,11 +348,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "helsinki": {
     "hero": {
       "src": "/destinations/helsinki/hero.jpg",
-      "altNo": "Helsinki ved sjøen",
-      "altEn": "Helsinki waterfront",
-      "photographer": "WanderingTrad",
+      "altNo": "Helsinki domkirke en sommerkveld",
+      "altEn": "Helsinki Cathedral on a summer evening",
+      "photographer": "Szilas",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helsinki_Western_Harbour_2019_02.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helsinki_Cathedral_in_a_summer_evening.jpg"
     },
     "weekend": [
       {
@@ -384,11 +384,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "copenhagen": {
     "hero": {
       "src": "/destinations/copenhagen/hero.jpg",
-      "altNo": "Nyhavn i København",
-      "altEn": "Nyhavn in Copenhagen",
+      "altNo": "De fargerike husene i Nyhavn",
+      "altEn": "Colourful houses in Nyhavn",
       "photographer": "Jorge Láscar from Melbourne, Australia",
       "license": "CC BY 2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nyhavn_waterfront_(34621580652).jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colourful_fa%C3%A7ades_-_Nyhavn_(Panorama)_(34784192335).jpg"
     },
     "weekend": [
       {
@@ -420,11 +420,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "skopje": {
     "hero": {
       "src": "/destinations/skopje/hero.jpg",
-      "altNo": "Skopje og Steinbroen",
-      "altEn": "Skopje and the Stone Bridge",
-      "photographer": "Pudelek (Marcin Szala)",
+      "altNo": "Steinbroen og elven Vardar i Skopje",
+      "altEn": "Stone Bridge and the Vardar River in Skopje",
+      "photographer": "Dristovski",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skopje_-_panorama_from_fortress.JPG"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D0%B8%D0%BE%D1%82_%D0%BC%D0%BE%D1%81%D1%82_%D0%B2%D0%BE_%D0%A1%D0%BA%D0%BE%D0%BF%D1%98%D0%B5_-_%D0%A0._%D0%9C%D0%B0%D0%BA%D0%B5%D0%B4%D0%BE%D0%BD%D0%B8%D1%98%D0%B0.jpg"
     },
     "weekend": [
       {
@@ -492,11 +492,11 @@ export const destinationMedia: Record<string, DestinationMedia> = {
   "gothenburg": {
     "hero": {
       "src": "/destinations/gothenburg/hero.jpg",
-      "altNo": "Gøteborg ved havnen",
-      "altEn": "Gothenburg harbour",
-      "photographer": "Pasi Mämmelä from Göteborg, Sweden",
-      "license": "CC BY 2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eriksbergs_bockkran_-_Flickr_-_Pasi_Mammela.jpg"
+      "altNo": "Gøteborg sentrum ved vannet",
+      "altEn": "Gothenburg city waterfront",
+      "photographer": "Amjad Sheikh",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_Panorama.jpg"
     },
     "weekend": [
       {

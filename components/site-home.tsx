@@ -187,6 +187,9 @@ export function SiteHome({ lang }: { lang: Lang }) {
             <p className="text-sm font-bold uppercase tracking-[.24em] text-[#b94f3d]">{lang === "no" ? "En helt egen reise" : "A journey of its own"}</p>
             <h2 className="display mt-3 text-[42px] font-bold leading-none sm:mt-4 sm:text-6xl">{lang === "no" ? "Opplev Thailand" : "Discover Thailand"}</h2>
             <p className="mt-4 text-base leading-7 text-[#365b55] sm:mt-5 sm:text-lg sm:leading-8">{lang === "no" ? "Thailand står for seg selv på Flyferie: storbyenergi i Bangkok, strandliv i Ao Nang og Krabis dramatiske natur – samlet uten å blande det med de europeiske weekendbyene." : "Thailand has its own place on Flyferie: Bangkok's big-city energy, Ao Nang's beaches and Krabi's dramatic nature, presented separately from the European city breaks."}</p>
+            <Link href={`/${lang}/guides/thailand`} className="mt-6 inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white">
+              {lang === "no" ? "Planlegg Thailand-reisen" : "Plan your Thailand journey"} →
+            </Link>
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {thailand.map((place) => {

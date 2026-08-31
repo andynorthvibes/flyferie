@@ -16,6 +16,17 @@ export const destinations = [
   { slug: "skopje", name: "Skopje", countryNo: "Nord-Makedonia", countryEn: "North Macedonia", tagNo: "Rimelig og særegent", tagEn: "Affordable and distinctive", color: "#9b7950" },
   { slug: "palma-de-mallorca", name: "Palma de Mallorca", countryNo: "Spania", countryEn: "Spain", tagNo: "Strand og storby", tagEn: "Beach and city", color: "#2c8b84" },
   { slug: "gothenburg", name: "Gothenburg", countryNo: "Sverige", countryEn: "Sweden", tagNo: "Kortreist og sosialt", tagEn: "Close and sociable", color: "#507b75" },
+  { slug: "oslo", name: "Oslo", countryNo: "Norge", countryEn: "Norway", tagNo: "Fjordby på hjemmebane", tagEn: "A capital by the fjord", color: "#2e7180" },
+  { slug: "monaco", name: "Monaco", countryNo: "Monaco", countryEn: "Monaco", tagNo: "Luksus ved Rivieraen", tagEn: "Riviera glamour", color: "#2f8290" },
+  { slug: "cannes", name: "Cannes", countryNo: "Frankrike", countryEn: "France", tagNo: "Strand og filmglamour", tagEn: "Beach and film glamour", color: "#d07a55" },
+  { slug: "barcelona", name: "Barcelona", countryNo: "Spania", countryEn: "Spain", tagNo: "Arkitektur og bystrand", tagEn: "Architecture and city beach", color: "#c45f4d" },
+  { slug: "rome", name: "Rome", countryNo: "Italia", countryEn: "Italy", tagNo: "Historie rundt hvert hjørne", tagEn: "History around every corner", color: "#a85f4c" },
+  { slug: "gran-canaria", name: "Gran Canaria", countryNo: "Spania", countryEn: "Spain", tagNo: "Sol hele vinteren", tagEn: "Winter sunshine", color: "#268b87" },
+  { slug: "gdansk", name: "Gdansk", countryNo: "Polen", countryEn: "Poland", tagNo: "Fargerik havneby", tagEn: "Colourful harbour city", color: "#527d87" },
+  { slug: "frankfurt", name: "Frankfurt", countryNo: "Tyskland", countryEn: "Germany", tagNo: "Skyskrapere og gamleby", tagEn: "Skyline and Old Town", color: "#596c7c" },
+  { slug: "hamburg", name: "Hamburg", countryNo: "Tyskland", countryEn: "Germany", tagNo: "Havn, fotball og uteliv", tagEn: "Harbour, football and nightlife", color: "#3f6f7a" },
+  { slug: "bangkok", name: "Bangkok", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Storbyenergi og street food", tagEn: "Big-city energy and street food", color: "#9d584b" },
+  { slug: "ao-nang", name: "Ao Nang", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strender og øyhopping", tagEn: "Beaches and island hopping", color: "#2f8a7c" },
 ];
 
 export const copy = {

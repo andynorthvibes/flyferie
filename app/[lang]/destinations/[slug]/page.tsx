@@ -43,11 +43,15 @@ export default async function DestinationPage({ params }: PageProps) {
   const norwegianNames: Record<string, string> = {
     milan: "Milano",
     copenhagen: "København",
-    gothenburg: "Gøteborg"
+    gothenburg: "Gøteborg",
+    rome: "Roma"
   };
   const displayName = norwegian ? (norwegianNames[slug] ?? place.name) : place.name;
 
   const media = destinationMedia[slug];
+  const imageCredits = media
+    ? Array.from(new Map([media.hero, ...media.weekend].map((photo) => [photo.sourceUrl || photo.photographer, photo])).values())
+    : [];
 
 
   return (
@@ -243,16 +247,18 @@ export default async function DestinationPage({ params }: PageProps) {
             <section className="border-t border-[#17332f]/10 bg-[#fffaf1]">
               <div className="mx-auto max-w-6xl px-5 py-8 text-xs leading-6 text-[#48645f]">
                 <p className="font-bold text-[#17332f]">
-                  {norwegian ? "Bildelisenser" : "Image licences"}
+                  {norwegian ? "Bildekreditering" : "Photo credits"}
                 </p>
                 <p className="mt-2">
-                  {[media.hero, ...media.weekend].map((photo, index) => (
-                    <span key={photo.sourceUrl}>
+                  {imageCredits.map((photo, index) => (
+                    <span key={photo.src}>
                       {index > 0 && " · "}
-                      <a className="underline" href={photo.sourceUrl} target="_blank" rel="noreferrer">
-                        {photo.photographer}
-                      </a>
-                      {" · " + photo.license}
+                      {photo.sourceUrl ? (
+                        <a className="underline" href={photo.sourceUrl} target="_blank" rel="noreferrer">
+                          {photo.photographer}
+                        </a>
+                      ) : photo.photographer}
+                      {photo.license ? " · " + photo.license : ""}
                     </span>
                   ))}
                 </p>

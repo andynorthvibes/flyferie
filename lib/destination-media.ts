@@ -526,3 +526,175 @@ export const destinationMedia: Record<string, DestinationMedia> = {
     ]
   }
 };
+
+const flyferiePhoto = (src: string, altNo: string, altEn: string): DestinationPhoto => ({
+  src,
+  altNo,
+  altEn,
+  photographer: "Flyferie",
+  license: "",
+  sourceUrl: ""
+});
+
+Object.assign(destinationMedia, {
+  manchester: {
+    ...destinationMedia.manchester,
+    weekend: [
+      flyferiePhoto("/destinations/manchester/flyferie-1.jpg", "United Trinity-statuen ved Old Trafford", "The United Trinity statue at Old Trafford"),
+      flyferiePhoto("/destinations/manchester/flyferie-2.jpg", "Old Trafford fra tribunen", "Old Trafford from the stands"),
+      flyferiePhoto("/destinations/manchester/flyferie-3.jpg", "Kanalene i Manchester", "Manchester canals")
+    ]
+  },
+  berlin: {
+    ...destinationMedia.berlin,
+    weekend: [
+      flyferiePhoto("/destinations/berlin/flyferie-1.jpg", "Konzerthaus på Gendarmenmarkt", "Konzerthaus at Gendarmenmarkt"),
+      flyferiePhoto("/destinations/berlin/flyferie-2.jpg", "Checkpoint Charlie", "Checkpoint Charlie"),
+      flyferiePhoto("/destinations/berlin/flyferie-3.jpg", "Seierssøylen i Berlin", "Berlin Victory Column")
+    ]
+  },
+  tbilisi: {
+    hero: flyferiePhoto("/destinations/tbilisi/flyferie-hero.jpg", "Gamle Tbilisi i kveldsregn", "Old Tbilisi on a rainy evening"),
+    weekend: [
+      destinationMedia.tbilisi.weekend[0],
+      flyferiePhoto("/destinations/tbilisi/flyferie-2.jpg", "Utsikt over Tbilisi", "View across Tbilisi"),
+      flyferiePhoto("/destinations/tbilisi/flyferie-3.jpg", "Tbilisi opplyst om kvelden", "Tbilisi illuminated at night")
+    ]
+  },
+  krakow: {
+    hero: flyferiePhoto("/destinations/krakow/flyferie-hero.jpg", "Mariakirken i Krakow om kvelden", "St Mary's Basilica in Krakow at night"),
+    weekend: [
+      destinationMedia.krakow.weekend[0],
+      flyferiePhoto("/destinations/krakow/flyferie-2.jpg", "Wawel-slottet om kvelden", "Wawel Castle at night"),
+      flyferiePhoto("/destinations/krakow/flyferie-3.jpg", "Pierogi i Krakow", "Pierogi in Krakow")
+    ]
+  },
+  katowice: {
+    ...destinationMedia.katowice,
+    weekend: [
+      flyferiePhoto("/destinations/katowice/flyferie-1.jpg", "Vinterdag ved en kirke i Katowice", "A winter day by a church in Katowice"),
+      flyferiePhoto("/destinations/katowice/flyferie-2.jpg", "Julestemning i Katowice", "Christmas atmosphere in Katowice"),
+      flyferiePhoto("/destinations/katowice/flyferie-3.jpg", "Utsikt over Katowice", "View across Katowice")
+    ]
+  },
+  amsterdam: {
+    hero: flyferiePhoto("/destinations/amsterdam/flyferie-hero.jpg", "Kanal og kanalhus i Amsterdam", "Canal and canal houses in Amsterdam"),
+    weekend: [destinationMedia.amsterdam.weekend[0], destinationMedia.amsterdam.weekend[1], flyferiePhoto("/destinations/amsterdam/flyferie-3.jpg", "Amsterdam i julelys", "Amsterdam in Christmas lights")]
+  },
+  nice: {
+    hero: flyferiePhoto("/destinations/nice/flyferie-hero.jpg", "Havnen og åsene i Nice", "Nice harbour and hills"),
+    weekend: [
+      flyferiePhoto("/destinations/nice/flyferie-1.jpg", "Gamlebyen i Nice", "Nice Old Town"),
+      flyferiePhoto("/destinations/nice/flyferie-2.jpg", "Palmer ved Promenade des Anglais", "Palm trees by the Promenade des Anglais"),
+      destinationMedia.nice.weekend[1]
+    ]
+  },
+  milan: {
+    hero: flyferiePhoto("/destinations/milan/flyferie-hero.jpg", "Duomo i Milano om kvelden", "Milan Cathedral at night"),
+    weekend: [
+      flyferiePhoto("/destinations/milan/flyferie-1.jpg", "Galleria Vittorio Emanuele II", "Galleria Vittorio Emanuele II"),
+      flyferiePhoto("/destinations/milan/flyferie-2.jpg", "Sforza-slottet i Milano", "Sforza Castle in Milan"),
+      destinationMedia.milan.weekend[2]
+    ]
+  },
+  skopje: {
+    hero: flyferiePhoto("/destinations/skopje/flyferie-hero.jpg", "Makedonia-plassen i Skopje", "Macedonia Square in Skopje"),
+    weekend: [
+      flyferiePhoto("/destinations/skopje/flyferie-1.jpg", "Vardar-elven gjennom Skopje", "The Vardar River through Skopje"),
+      flyferiePhoto("/destinations/skopje/flyferie-2.jpg", "Opplyst bro i Skopje", "Illuminated bridge in Skopje"),
+      destinationMedia.skopje.weekend[2]
+    ]
+  },
+  "palma-de-mallorca": {
+    hero: flyferiePhoto("/destinations/palma-de-mallorca/flyferie-hero.jpg", "La Seu-katedralen i Palma om kvelden", "La Seu Cathedral in Palma at night"),
+    weekend: destinationMedia["palma-de-mallorca"].weekend
+  },
+  oslo: {
+    hero: flyferiePhoto("/destinations/oslo/hero.jpg", "Operahuset i Oslo om kvelden", "Oslo Opera House at night"),
+    weekend: [
+      flyferiePhoto("/destinations/oslo/hero.jpg", "Operahuset og Bjørvika", "The Opera House and Bjørvika"),
+      flyferiePhoto("/destinations/oslo/hero.jpg", "Oslo ved fjorden", "Oslo by the fjord"),
+      flyferiePhoto("/destinations/oslo/hero.jpg", "Kveld ved Operahuset", "Evening by the Opera House")
+    ]
+  },
+  monaco: {
+    hero: flyferiePhoto("/destinations/monaco/hero.jpg", "Havnen i Monaco ved solnedgang", "Monaco harbour at sunset"),
+    weekend: [
+      flyferiePhoto("/destinations/monaco/weekend-1.jpg", "Casino de Monte-Carlo", "Casino de Monte-Carlo"),
+      flyferiePhoto("/destinations/monaco/weekend-2.jpg", "Havnepromenaden i Monaco", "Monaco harbour promenade"),
+      flyferiePhoto("/destinations/monaco/weekend-3.jpg", "Hageanlegg i Monaco", "Gardens in Monaco")
+    ]
+  },
+  cannes: {
+    hero: flyferiePhoto("/destinations/cannes/hero.jpg", "Havnepromenaden i Cannes", "Cannes harbour promenade"),
+    weekend: [
+      flyferiePhoto("/destinations/cannes/weekend-1.jpg", "Byliv og uteserveringer i Cannes", "Street life and cafés in Cannes"),
+      flyferiePhoto("/destinations/cannes/weekend-2.jpg", "Palmer ved strandpromenaden", "Palm trees by the seafront"),
+      flyferiePhoto("/destinations/cannes/weekend-3.jpg", "Båttur utenfor Cannes", "Boat trip off Cannes")
+    ]
+  },
+  barcelona: {
+    hero: flyferiePhoto("/destinations/barcelona/hero.jpg", "Sagrada Familia i Barcelona", "Sagrada Família in Barcelona"),
+    weekend: [
+      flyferiePhoto("/destinations/barcelona/weekend-1.jpg", "Utsikt over Barcelona fra Montjuïc", "Barcelona from Montjuïc"),
+      flyferiePhoto("/destinations/barcelona/weekend-2.jpg", "Camp Nou i Barcelona", "Camp Nou in Barcelona"),
+      flyferiePhoto("/destinations/barcelona/weekend-3.jpg", "Detaljer på Sagrada Familia", "Sagrada Família details")
+    ]
+  },
+  rome: {
+    hero: flyferiePhoto("/destinations/rome/hero.jpg", "Trevifontenen i Roma", "Trevi Fountain in Rome"),
+    weekend: [
+      flyferiePhoto("/destinations/rome/weekend-1.jpg", "Colosseum i Roma", "The Colosseum in Rome"),
+      flyferiePhoto("/destinations/rome/weekend-2.jpg", "Pantheon i Roma", "The Pantheon in Rome"),
+      flyferiePhoto("/destinations/rome/weekend-3.jpg", "Peterskirken i Vatikanstaten", "St Peter's Basilica in Vatican City")
+    ]
+  },
+  "gran-canaria": {
+    hero: flyferiePhoto("/destinations/gran-canaria/hero.jpg", "Kysten på Gran Canaria i kveldslys", "Gran Canaria coast in evening light"),
+    weekend: [
+      flyferiePhoto("/destinations/gran-canaria/weekend-1.jpg", "Turkis bukt på Gran Canaria", "Turquoise bay in Gran Canaria"),
+      flyferiePhoto("/destinations/gran-canaria/weekend-2.jpg", "Basseng med utsikt mot Atlanterhavet", "Pool overlooking the Atlantic"),
+      flyferiePhoto("/destinations/gran-canaria/weekend-3.jpg", "Solnedgang over havet", "Sunset over the ocean")
+    ]
+  },
+  gdansk: {
+    hero: flyferiePhoto("/destinations/gdansk/hero.jpg", "Gamlebyen og rådhustårnet i Gdansk", "Gdansk Old Town and Town Hall tower"),
+    weekend: [
+      flyferiePhoto("/destinations/gdansk/weekend-1.jpg", "Motława-elven og museumsskipet", "Motława River and museum ship"),
+      flyferiePhoto("/destinations/gdansk/weekend-2.jpg", "Neptunfontenen i Gdansk", "Neptune Fountain in Gdansk"),
+      flyferiePhoto("/destinations/gdansk/weekend-3.jpg", "Havnepromenaden i Gdansk", "Gdansk waterfront")
+    ]
+  },
+  frankfurt: {
+    hero: flyferiePhoto("/destinations/frankfurt/hero.jpg", "Skyskraperne i Frankfurt", "Frankfurt skyline"),
+    weekend: [
+      flyferiePhoto("/destinations/frankfurt/weekend-1.jpg", "Historisk arkitektur i Frankfurt", "Historic architecture in Frankfurt"),
+      flyferiePhoto("/destinations/frankfurt/weekend-2.jpg", "Bindingsverk i gamlebyen", "Half-timbered architecture in the Old Town"),
+      flyferiePhoto("/destinations/frankfurt/weekend-3.jpg", "Julemarked i Frankfurt", "Frankfurt Christmas market")
+    ]
+  },
+  hamburg: {
+    hero: flyferiePhoto("/destinations/hamburg/hero.jpg", "Julemarked i Hamburg", "Hamburg Christmas market"),
+    weekend: [
+      flyferiePhoto("/destinations/hamburg/weekend-1.jpg", "Fotballkamp i Hamburg", "Football match in Hamburg"),
+      flyferiePhoto("/destinations/hamburg/weekend-2.jpg", "Tysk mat og øl i Hamburg", "German food and beer in Hamburg"),
+      flyferiePhoto("/destinations/hamburg/weekend-3.jpg", "Vinterkveld i Hamburg", "Winter evening in Hamburg")
+    ]
+  },
+  bangkok: {
+    hero: flyferiePhoto("/destinations/bangkok/hero.jpg", "Rama VIII-broen i Bangkok om kvelden", "Rama VIII Bridge in Bangkok at night"),
+    weekend: [
+      flyferiePhoto("/destinations/bangkok/weekend-1.jpg", "ICONSIAM ved Chao Phraya-elven", "ICONSIAM by the Chao Phraya River"),
+      flyferiePhoto("/destinations/bangkok/weekend-2.jpg", "Middag med utsikt over Bangkok", "Dinner with a view over Bangkok"),
+      flyferiePhoto("/destinations/bangkok/weekend-3.jpg", "Thailandske vårruller", "Thai spring rolls")
+    ]
+  },
+  "ao-nang": {
+    hero: flyferiePhoto("/destinations/ao-nang/hero.jpg", "Strandutsikt i Ao Nang", "Beach view in Ao Nang"),
+    weekend: [
+      flyferiePhoto("/destinations/ao-nang/weekend-1.jpg", "Strand og kalksteinsklipper i Krabi", "Beach and limestone cliffs in Krabi"),
+      flyferiePhoto("/destinations/ao-nang/weekend-2.jpg", "ATV-tur gjennom naturen", "ATV ride through the countryside"),
+      flyferiePhoto("/destinations/ao-nang/weekend-3.jpg", "Thailandsk mat i Ao Nang", "Thai food in Ao Nang")
+    ]
+  }
+} satisfies Record<string, DestinationMedia>);

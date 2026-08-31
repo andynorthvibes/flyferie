@@ -1,4 +1,5 @@
 import { destinationGuides as existingGuides, type DestinationGuide } from "@/lib/content";
+import { newDestinationGuides } from "@/lib/new-destination-guides";
 
 type Pair = [no: string, en: string];
 type Weekend = [timeNo: string, timeEn: string, titleNo: string, titleEn: string, textNo: string, textEn: string];
@@ -194,4 +195,4 @@ const guides: Record<string, CompleteDestinationGuide> = {
   })
 };
 
-export const allDestinationGuides = guides;
+export const allDestinationGuides = { ...guides, ...newDestinationGuides };

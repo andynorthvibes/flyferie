@@ -8,3 +8,7 @@ body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(
 .hero-glow { position: absolute; inset: 0; background: radial-gradient(circle at 76% 42%, rgba(244,184,96,.22), transparent 29%); pointer-events: none; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .rise { animation: rise .55s ease-out both; }
+.destination-strip { scrollbar-width: thin; scrollbar-color: #d79b62 transparent; }
+.destination-strip::-webkit-scrollbar { height: 7px; }
+.destination-strip::-webkit-scrollbar-track { background: transparent; }
+.destination-strip::-webkit-scrollbar-thumb { background: #d79b62; border-radius: 999px; }

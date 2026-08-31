@@ -166,14 +166,14 @@ export function SiteHome({ lang }: { lang: Lang }) {
             </div>
           </Link>
           <InspirationCard lang={lang} slug="skopje" label={lang === "no" ? "Overrask gjengen" : "Surprise the group"} title={t.blue} text={t.blueText} />
-          <Link href={`/${lang}/destinations/krakow`} className="group relative min-h-[270px] overflow-hidden rounded-[30px]">
+          <Link href={`/${lang}/guides/christmas-markets`} className="group relative min-h-[270px] overflow-hidden rounded-[30px]">
             <Image src="/destinations/krakow/christmas-market.jpg" alt={lang === "no" ? "Julemarkedet på markedsplassen i Krakow" : "Christmas market on Krakow Main Square"} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#102f2b]/95 via-[#102f2b]/65 to-transparent" />
             <div className="absolute inset-0 flex max-w-md flex-col justify-end p-6 sm:p-8">
               <p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Sesongguide" : "Seasonal guide"}</p>
               <h2 className="display mt-3 text-3xl font-bold">{t.christmas}</h2>
               <p className="mt-3 text-white/80">{t.christmasText}</p>
-              <p className="mt-5 font-bold">Krakow · {t.read} →</p>
+              <p className="mt-5 font-bold">{lang === "no" ? "Sammenlign julemarkedene" : "Compare the Christmas markets"} →</p>
             </div>
           </Link>
         </div>

@@ -630,11 +630,11 @@ Object.assign(destinationMedia, {
     weekend: destinationMedia["palma-de-mallorca"].weekend
   },
   oslo: {
-    hero: flyferiePhoto("/destinations/oslo/hero.jpg", "Operahuset i Oslo om kvelden", "Oslo Opera House at night"),
+    hero: flyferiePhoto("/destinations/oslo/flyferie-hero.jpg", "Slottet i Oslo", "The Royal Palace in Oslo"),
     weekend: [
-      flyferiePhoto("/destinations/oslo/hero.jpg", "Operahuset og Bjørvika", "The Opera House and Bjørvika"),
-      flyferiePhoto("/destinations/oslo/hero.jpg", "Oslo ved fjorden", "Oslo by the fjord"),
-      flyferiePhoto("/destinations/oslo/hero.jpg", "Kveld ved Operahuset", "Evening by the Opera House")
+      flyferiePhoto("/destinations/oslo/flyferie-1.jpg", "MUNCH og Bjørvika", "MUNCH and Bjørvika"),
+      flyferiePhoto("/destinations/oslo/flyferie-2.jpg", "Astrup Fearnley Museet og Tjuvholmen", "The Astrup Fearnley Museum and Tjuvholmen"),
+      flyferiePhoto("/destinations/oslo/flyferie-3.jpg", "Vigelandsparken om vinteren", "Vigeland Park in winter")
     ]
   },
   monaco: {

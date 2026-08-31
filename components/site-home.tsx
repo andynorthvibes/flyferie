@@ -18,7 +18,6 @@ export function SiteHome({ lang }: { lang: Lang }) {
   const cityName = (slug: string, fallback: string) => lang === "en" ? fallback : ({ milan: "Milano", copenhagen: "København", gothenburg: "Gøteborg", rome: "Roma" } as Record<string, string>)[slug] ?? fallback;
   const hero = (slug: string) => {
     if (slug === "manchester") return destinationMedia.manchester.weekend[1];
-    if (slug === "malaga") return destinationMedia.malaga.weekend[2];
     return destinationMedia[slug].hero;
   };
   const nav = [

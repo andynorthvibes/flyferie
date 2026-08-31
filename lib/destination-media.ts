@@ -537,6 +537,26 @@ const flyferiePhoto = (src: string, altNo: string, altEn: string): DestinationPh
 });
 
 Object.assign(destinationMedia, {
+  gothenburg: {
+    ...destinationMedia.gothenburg,
+    hero: destinationMedia.gothenburg.weekend[0]
+  },
+  madrid: {
+    ...destinationMedia.madrid,
+    hero: destinationMedia.madrid.weekend[0]
+  },
+  malaga: {
+    ...destinationMedia.malaga,
+    hero: destinationMedia.malaga.weekend[0]
+  },
+  helsinki: {
+    ...destinationMedia.helsinki,
+    hero: destinationMedia.helsinki.weekend[2]
+  },
+  copenhagen: {
+    ...destinationMedia.copenhagen,
+    hero: destinationMedia.copenhagen.weekend[2]
+  },
   manchester: {
     ...destinationMedia.manchester,
     weekend: [

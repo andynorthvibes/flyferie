@@ -24,6 +24,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
     [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
     [lang === "no" ? "Inspirasjon" : "Inspiration", `/${lang}/guides/hidden-gems`],
+    [lang === "no" ? "Julemarkeder" : "Christmas Markets", `/${lang}/guides/christmas-markets`],
     ["Thailand", `/${lang}/guides/thailand`]
   ];
 

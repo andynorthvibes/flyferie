@@ -21,7 +21,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
     return destinationMedia[slug].hero;
   };
   const nav = [
-    [lang === "no" ? "Reisemål" : "Destinations", "#alle-byer"],
+    [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
     [lang === "no" ? "Inspirasjon" : "Inspiration", "#inspiration"],
     ["Thailand", "#thailand"]
@@ -35,7 +35,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[230px] sm:w-[270px]" />
           </Link>
           <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex">
-            {nav.map(([label, href]) => <a key={label} href={href} className="transition hover:text-[#f4c16d]">{label}</a>)}
+            {nav.map(([label, href]) => <Link key={label} href={href} className="transition hover:text-[#f4c16d]">{label}</Link>)}
           </nav>
           <Link href={`/${other}`} className="rounded-full border border-white/50 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm">{other === "en" ? "EN" : "NO"}</Link>
         </div>

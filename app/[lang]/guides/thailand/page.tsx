@@ -43,6 +43,81 @@ const stayAreas = [
   { place: "Ao Nang", area: "Nopparat Thara", no: "Roligere omgivelser, mer plass og fortsatt kort vei til Ao Nang sentrum.", en: "Quieter surroundings, more space and still close to central Ao Nang." }
 ];
 
+const thailandMoments = [
+  {
+    src: "/guides/thailand/bangkok-wat-arun.webp",
+    place: "Bangkok",
+    altNo: "Wat Arun opplyst ved Chao Phraya-elven i Bangkok",
+    altEn: "Wat Arun illuminated beside the Chao Phraya River in Bangkok",
+    captionNo: "Wat Arun fra elven etter solnedgang",
+    captionEn: "Wat Arun from the river after sunset"
+  },
+  {
+    src: "/guides/thailand/bangkok-river.webp",
+    place: "Bangkok",
+    altNo: "Elvebåt og Bangkoks skyline langs Chao Phraya",
+    altEn: "River boat and Bangkok skyline along the Chao Phraya",
+    captionNo: "Chao Phraya binder byen sammen",
+    captionEn: "The Chao Phraya connects the city"
+  },
+  {
+    src: "/guides/thailand/ao-nang-beach.webp",
+    place: "Ao Nang",
+    altNo: "Ao Nang Beach med longtailbåter og kalksteinsklipper",
+    altEn: "Ao Nang Beach with long-tail boats and limestone cliffs",
+    captionNo: "Kveld ved Ao Nang Beach",
+    captionEn: "Evening at Ao Nang Beach"
+  },
+  {
+    src: "/guides/thailand/koh-lao-lading.webp",
+    place: "Koh Lao Lading",
+    altNo: "Kokosnøtt på stranden ved Koh Lao Lading i Krabi",
+    altEn: "Coconut on the beach at Koh Lao Lading in Krabi",
+    captionNo: "Et strandstopp på øyturen",
+    captionEn: "A beach stop while island hopping"
+  },
+  {
+    src: "/guides/thailand/hong-lagoon.webp",
+    place: "Koh Hong",
+    altNo: "Innseilingen til Hong Lagoon på Koh Hong i Krabi",
+    altEn: "Entrance to Hong Lagoon on Koh Hong in Krabi",
+    captionNo: "Innseilingen til Hong Lagoon",
+    captionEn: "Entering Hong Lagoon"
+  },
+  {
+    src: "/guides/thailand/railay-cliffs.webp",
+    place: "Railay Beach",
+    altNo: "Dramatiske kalksteinsklipper ved Railay Beach i Krabi",
+    altEn: "Dramatic limestone cliffs at Railay Beach in Krabi",
+    captionNo: "Railays klipper sett fra vannet",
+    captionEn: "Railay's cliffs seen from the water"
+  },
+  {
+    src: "/guides/thailand/khaothong-hill.webp",
+    place: "Krabi",
+    altNo: "Utsikt over kalksteinsfjellene fra Khaothong Hill i Krabi",
+    altEn: "View across the limestone mountains from Khaothong Hill in Krabi",
+    captionNo: "Utsikten fra Khaothong Hill",
+    captionEn: "The view from Khaothong Hill"
+  },
+  {
+    src: "/guides/thailand/emerald-pool.webp",
+    place: "Krabi",
+    altNo: "Det turkise naturbassenget Emerald Pool i Krabi",
+    altEn: "The turquoise Emerald Pool natural pool in Krabi",
+    captionNo: "En dagstur til Emerald Pool",
+    captionEn: "A day trip to Emerald Pool"
+  },
+  {
+    src: "/guides/thailand/phi-phi-beach.webp",
+    place: "Phi Phi",
+    altNo: "Strand og longtailbåter ved Phi Phi-øyene",
+    altEn: "Beach and long-tail boats at the Phi Phi Islands",
+    captionNo: "Phi Phi for en lengre øyreise",
+    captionEn: "Phi Phi for a longer island journey"
+  }
+];
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   const norwegian = lang === "no";
@@ -166,6 +241,43 @@ export default async function ThailandPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="bg-[#173f39] px-5 py-12 text-white sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-[#ffd078] sm:text-sm">{norwegian ? "Flyferies egne øyeblikk" : "Flyferie's own moments"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Fra Bangkok til øyene" : "From Bangkok to the islands"}</h2>
+            <p className="mt-4 text-lg leading-8 text-white/72">{norwegian ? "Alle bildene er tatt av Flyferie på reisene våre i Thailand. Her er stedene vi selv ville bygget turen rundt." : "Every photo was taken by Flyferie during our own journeys in Thailand. These are the places we would build the trip around."}</p>
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {thailandMoments.map((moment, index) => (
+              <figure
+                key={moment.src}
+                className={`group relative overflow-hidden rounded-[22px] border border-white/10 bg-[#102f2b] ${index === 0 || index === 5 ? "col-span-2 min-h-[360px] sm:min-h-[460px] lg:col-span-2" : "min-h-[260px] sm:min-h-[340px]"}`}
+              >
+                <Image
+                  src={moment.src}
+                  alt={norwegian ? moment.altNo : moment.altEn}
+                  fill
+                  sizes={index === 0 || index === 5 ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
+                  className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/95 via-transparent to-black/5" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[.16em] text-[#ffd078] sm:text-xs">{moment.place}</p>
+                  <p className="mt-1 text-sm font-bold leading-5 sm:text-lg">{norwegian ? moment.captionNo : moment.captionEn}</p>
+                  <p className="mt-1 text-[10px] text-white/60 sm:text-xs">{norwegian ? "Foto: Flyferie" : "Photo: Flyferie"}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <p className="mt-6 max-w-3xl text-sm leading-6 text-white/60">
+            {norwegian ? "Railay, Koh Hong og Koh Lao Lading nås enkelt på båtturer fra Ao Nang. Phi Phi passer både som dagstur og som et eget stopp på en lengre reise." : "Railay, Koh Hong and Koh Lao Lading are easily reached on boat trips from Ao Nang. Phi Phi works both as a day trip and as a separate stop on a longer journey."}
+          </p>
+        </div>
+      </section>
+
       <section className="px-5 py-12 sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
           <div>
@@ -221,7 +333,7 @@ export default async function ThailandPage({ params }: PageProps) {
       <section className="border-t border-[#17332f]/10 px-5 py-8 text-xs leading-6 text-[#48645f] lg:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="font-bold text-[#17332f]">{norwegian ? "Bildekreditering" : "Photo credits"}</p>
-          <p className="mt-2">Flyferie · {norwegian ? "Foto: Bangkok og Ao Nang" : "Photo: Bangkok and Ao Nang"}</p>
+          <p className="mt-2">Flyferie · {norwegian ? "Foto: Bangkok, Ao Nang, Krabi, Railay, Koh Hong, Koh Lao Lading og Phi Phi" : "Photo: Bangkok, Ao Nang, Krabi, Railay, Koh Hong, Koh Lao Lading and Phi Phi"}</p>
         </div>
       </section>
 

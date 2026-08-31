@@ -4,6 +4,7 @@ import { copy, destinations, type Lang } from "@/lib/content";
 import { destinationMedia } from "@/lib/destination-media";
 
 const featuredSlugs = ["berlin", "krakow", "rome", "barcelona", "gdansk", "nice"];
+const moreEuropeSlugs = ["amsterdam", "manchester", "milan", "madrid", "malaga", "copenhagen", "helsinki", "gothenburg"];
 const thailandSlugs = ["bangkok", "ao-nang"];
 
 export function SiteHome({ lang }: { lang: Lang }) {
@@ -11,10 +12,15 @@ export function SiteHome({ lang }: { lang: Lang }) {
   const other = lang === "no" ? "en" : "no";
   const bySlug = Object.fromEntries(destinations.map((place) => [place.slug, place]));
   const featured = featuredSlugs.map((slug) => bySlug[slug]);
+  const moreEurope = moreEuropeSlugs.map((slug) => bySlug[slug]);
   const europe = destinations.filter((place) => !thailandSlugs.includes(place.slug));
   const thailand = thailandSlugs.map((slug) => bySlug[slug]);
   const cityName = (slug: string, fallback: string) => lang === "en" ? fallback : ({ milan: "Milano", copenhagen: "København", gothenburg: "Gøteborg", rome: "Roma" } as Record<string, string>)[slug] ?? fallback;
-  const hero = (slug: string) => destinationMedia[slug].hero;
+  const hero = (slug: string) => {
+    if (slug === "manchester") return destinationMedia.manchester.weekend[1];
+    if (slug === "malaga") return destinationMedia.malaga.weekend[2];
+    return destinationMedia[slug].hero;
+  };
   const nav = [
     [lang === "no" ? "Reisemål" : "Destinations", "#alle-byer"],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
@@ -65,7 +71,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="alle-byer" className="border-b border-[#17332f]/10 bg-[#fffaf1] py-16 lg:py-20">
+      <section id="alle-byer" className="border-b border-[#17332f]/10 bg-[#fffaf1] py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex items-end justify-between gap-5">
             <div>
@@ -92,7 +98,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="utforsk" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <section id="utforsk" className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">Flyferie-favoritter</p>
@@ -119,9 +125,33 @@ export function SiteHome({ lang }: { lang: Lang }) {
             );
           })}
         </div>
+        <div className="mt-12 border-t border-[#17332f]/10 pt-10 lg:mt-14 lg:pt-12">
+          <div className="flex items-end justify-between gap-5">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">{lang === "no" ? "Mer å oppleve" : "More to discover"}</p>
+              <h2 className="display mt-3 text-4xl font-bold sm:text-5xl">{lang === "no" ? "Flere byer å utforske" : "More cities to explore"}</h2>
+            </div>
+            <p className="hidden max-w-sm text-right text-sm leading-6 text-[#48645f] sm:block">{lang === "no" ? "Åtte nye ideer til neste tur med gjengen." : "Eight more ideas for your next trip with friends."}</p>
+          </div>
+          <div className="destination-strip mt-8 flex snap-x gap-4 overflow-x-auto pb-4">
+            {moreEurope.map((place) => {
+              const photo = hero(place.slug);
+              return (
+                <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative aspect-[4/5] w-[158px] shrink-0 snap-start overflow-hidden rounded-2xl bg-[#17332f] text-white shadow-sm sm:w-[176px]">
+                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="176px" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/95 via-transparent to-black/5" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-[11px] text-white/70">{lang === "no" ? place.countryNo : place.countryEn}</p>
+                    <h3 className="mt-1 text-base font-bold leading-tight">{cityName(place.slug, place.name)} <span className="inline-block transition group-hover:translate-x-1">→</span></h3>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
-      <section id="inspiration" className="bg-[#173f39] px-5 py-20 text-white lg:px-8 lg:py-24">
+      <section id="inspiration" className="bg-[#173f39] px-5 py-14 text-white lg:px-8 lg:py-18">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
           <Link href={`/${lang}/destinations/tbilisi`} className="group relative min-h-[460px] overflow-hidden rounded-[30px] lg:row-span-2">
             <Image src={hero("tbilisi").src} alt={lang === "no" ? hero("tbilisi").altNo : hero("tbilisi").altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
@@ -147,7 +177,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section id="thailand" className="relative overflow-hidden bg-[#f4d7a1] px-5 py-20 text-[#17332f] lg:px-8 lg:py-28">
+      <section id="thailand" className="relative overflow-hidden bg-[#f4d7a1] px-5 py-14 text-[#17332f] lg:px-8 lg:py-20">
         <div className="absolute -right-28 -top-28 h-80 w-80 rounded-full bg-[#ef855f]/25 blur-3xl" />
         <div className="absolute -bottom-36 -left-28 h-96 w-96 rounded-full bg-[#2d9587]/25 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">

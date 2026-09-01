@@ -23,7 +23,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
   const nav = [
     [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
-    [lang === "no" ? "Inspirasjon" : "Inspiration", `/${lang}/guides/hidden-gems`],
+    [lang === "no" ? "Guider" : "Guides", `/${lang}/guides`],
     [lang === "no" ? "Reiseutstyr" : "Travel gear", `/${lang}/guides/travel-gear`],
     [lang === "no" ? "Julemarkeder" : "Christmas Markets", `/${lang}/guides/christmas-markets`],
     ["Thailand", `/${lang}/guides/thailand`]

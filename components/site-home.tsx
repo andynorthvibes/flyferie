@@ -209,6 +209,37 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      <section className="bg-[#edf4ef] px-5 py-10 text-[#17332f] lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 rounded-[28px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#1e776e]">
+              {lang === "no" ? "Partneranbefaling · leiebil" : "Partner recommendation · car rental"}
+            </p>
+            <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">
+              {lang === "no" ? "Trenger du leiebil på reisen?" : "Need a rental car for your trip?"}
+            </h2>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-[#48645f]">
+              {lang === "no"
+                ? "Sammenlign leiebiler fra flere leverandører før avreise, og kontroller alltid pris, forsikring, depositum og drivstoffvilkår før du bestiller."
+                : "Compare rental cars from multiple providers before departure, and always check the price, insurance, deposit and fuel policy before booking."}
+            </p>
+            <p className="mt-3 text-xs leading-5 text-[#6b817d]">
+              {lang === "no"
+                ? "Annonselenke: Flyferie kan motta provisjon dersom du bestiller, uten at det øker prisen din."
+                : "Affiliate link: Flyferie may receive a commission if you book, at no additional cost to you."}
+            </p>
+          </div>
+          <a
+            href="https://www.discovercars.com/?a_aid=flyferie"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            className="inline-flex w-fit rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] transition hover:bg-[#ffd08b]"
+          >
+            {lang === "no" ? "Sammenlign leiebiler" : "Compare rental cars"} →
+          </a>
+        </div>
+      </section>
+
       <section id="thailand" className="relative overflow-hidden bg-[#f4d7a1] px-5 py-12 text-[#17332f] lg:px-8 lg:py-14">
         <div className="absolute -right-28 -top-28 h-80 w-80 rounded-full bg-[#ef855f]/25 blur-3xl" />
         <div className="absolute -bottom-36 -left-28 h-96 w-96 rounded-full bg-[#2d9587]/25 blur-3xl" />

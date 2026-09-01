@@ -24,6 +24,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
     [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
     [lang === "no" ? "Inspirasjon" : "Inspiration", `/${lang}/guides/hidden-gems`],
+    [lang === "no" ? "Reiseutstyr" : "Travel gear", `/${lang}/guides/travel-gear`],
     [lang === "no" ? "Julemarkeder" : "Christmas Markets", `/${lang}/guides/christmas-markets`],
     ["Thailand", `/${lang}/guides/thailand`]
   ];
@@ -177,6 +178,34 @@ export function SiteHome({ lang }: { lang: Lang }) {
               <p className="mt-5 font-bold">{lang === "no" ? "Sammenlign julemarkedene" : "Compare the Christmas markets"} →</p>
             </div>
           </Link>
+        </div>
+      </section>
+
+      <section className="overflow-hidden bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:p-12">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#e16f59] sm:text-sm">{lang === "no" ? "Pakk smartere" : "Pack smarter"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Reiseutstyr og nyttige tjenester" : "Travel gear and useful services"}</h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[#48645f] sm:text-lg sm:leading-8">
+              {lang === "no" ? "En praktisk guide til bagasje, eSIM, sko, kamera, digitale tjenester og transportvalg som faktisk gjør reisen enklere." : "A practical guide to luggage, eSIMs, footwear, cameras, digital services and transport choices that genuinely make travel easier."}
+            </p>
+            <Link href={`/${lang}/guides/travel-gear`} className="mt-6 inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">
+              {lang === "no" ? "Se Flyferies utstyrsguide" : "Explore Flyferie's gear guide"} →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2">
+            {[
+              [lang === "no" ? "Bagasje" : "Luggage", "01"],
+              ["eSIM", "02"],
+              [lang === "no" ? "På reisen" : "On the road", "03"],
+              [lang === "no" ? "Transport" : "Transport", "04"],
+            ].map(([label, number]) => (
+              <div key={label} className="rounded-[20px] bg-[#f4d7a1]/55 p-4 sm:p-5">
+                <p className="text-xs font-bold text-[#b94f3d]">{number}</p>
+                <p className="mt-3 font-bold">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

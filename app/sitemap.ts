@@ -26,6 +26,7 @@ function entry(path: string, priority: number, changeFrequency: MetadataRoute.Si
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
+    { path: "/about", priority: 0.6, changeFrequency: "yearly" as const },
     { path: "/destinations", priority: 0.9, changeFrequency: "weekly" as const },
     ...destinations.map(({ slug }) => ({
       path: `/destinations/${slug}`,

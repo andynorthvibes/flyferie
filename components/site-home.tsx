@@ -275,7 +275,12 @@ export function SiteHome({ lang }: { lang: Lang }) {
       <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+          <div className="flex flex-col gap-2 text-sm sm:items-end">
+            <Link href={`/${lang}/about`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">
+              {lang === "no" ? "Om Flyferie og annonselenker" : "About Flyferie and affiliate links"}
+            </Link>
+            <p>© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+          </div>
         </div>
       </footer>
     </main>

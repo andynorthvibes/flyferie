@@ -205,6 +205,11 @@ export default async function TravelGearPage({ params }: PageProps) {
                       {norwegian ? "Åpne Flyferies pakkeliste" : "Open Flyferie's packing list"} →
                     </Link>
                   )}
+                  {section.number === "04" && (
+                    <Link href={`/${lang}/guides/travel-insurance`} className="mt-4 inline-flex text-sm font-bold text-[#1e776e] underline decoration-[#1e776e]/35 underline-offset-4">
+                      {norwegian ? "Les guiden til reiseforsikring" : "Read the travel insurance guide"} →
+                    </Link>
+                  )}
                 </div>
               </article>
             );

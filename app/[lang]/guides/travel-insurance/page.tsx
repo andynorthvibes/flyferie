@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+type PageProps = { params: Promise<{ lang: string }> };
+
+const checks = [
+  { n: "01", no: "Hvem er dekket?", en: "Who is covered?", noText: "Kontroller om forsikringen gjelder bare deg, hele husstanden eller bestemte familiemedlemmer – og om alle må bo på samme adresse.", enText: "Check whether the policy covers only you, the household or specific family members—and whether everyone must share the same address." },
+  { n: "02", no: "Hvor gjelder den?", en: "Where does it apply?", noText: "Les hvilke land, reiselengder og typer reiser som omfattes. Arbeidsreiser, lengre opphold og enkelte områder kan ha egne regler.", enText: "Read which countries, trip lengths and types of travel are included. Business trips, extended stays and certain regions may have separate conditions." },
+  { n: "03", no: "Sykdom og behandling", en: "Illness and treatment", noText: "Se på dekning for akutt sykdom, medisinsk behandling, hjemtransport og egenandeler. Opplysninger om eksisterende sykdom kan være viktige.", enText: "Review cover for sudden illness, medical treatment, repatriation and excesses. Information about pre-existing conditions may be important." },
+  { n: "04", no: "Avbestilling", en: "Cancellation", noText: "Undersøk hvilke dokumenterte hendelser som kan gi erstatning, hvor stor sum som dekkes og når forsikringen må være gyldig.", enText: "Check which documented events may qualify, the maximum amount covered and when the policy must be active." },
+  { n: "05", no: "Bagasje og forsinkelse", en: "Luggage and delays", noText: "Kontroller beløpsgrenser for bagasje, verdisaker og nødvendige innkjøp ved forsinkelse. Ta vare på kvitteringer og rapporter tap med én gang.", enText: "Check limits for baggage, valuables and essential purchases after a delay. Keep receipts and report losses promptly." },
+  { n: "06", no: "Aktiviteter og leiebil", en: "Activities and rental cars", noText: "Ski, dykking, motorsport og andre aktiviteter kan ha begrensninger. Reiseforsikring erstatter heller ikke automatisk nødvendig leiebilforsikring.", enText: "Skiing, diving, motorsport and other activities may be restricted. Travel insurance also does not automatically replace necessary rental car cover." },
+];
+
+const faq = [
+  { qNo: "Har jeg allerede reiseforsikring gjennom betalingskortet?", qEn: "Do I already have travel insurance through my payment card?", aNo: "Kanskje, men vilkårene varierer. Ofte må en bestemt del av reisen være betalt med kortet. Kontroller dekning, beløpsgrenser og hvem som omfattes.", aEn: "Possibly, but conditions vary. A specified portion of the trip may need to be paid with the card. Check the cover, limits and eligible travellers." },
+  { qNo: "Er Europeisk helsetrygdkort nok i Europa?", qEn: "Is the European Health Insurance Card enough in Europe?", aNo: "Kortet kan gi tilgang til nødvendig offentlig helsehjelp på lokale vilkår i land der ordningen gjelder, men dekker ikke alt en reiseforsikring kan dekke, som hjemtransport og avbestilling.", aEn: "The card can provide access to necessary state healthcare on local terms in participating countries, but it does not cover everything travel insurance may cover, such as repatriation and cancellation." },
+  { qNo: "Når bør jeg kontakte forsikringsselskapet?", qEn: "When should I contact the insurer?", aNo: "Ved alvorlig sykdom, større kostnader, tyveri eller behov for hjemtransport bør du kontakte alarmsentralen så tidlig som mulig og følge instruksjonene i vilkårene.", aEn: "For serious illness, major expenses, theft or repatriation, contact the emergency assistance service as early as possible and follow the policy instructions." },
+];
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { lang } = await params;
+  const no = lang === "no";
+  return {
+    title: no ? "Reiseforsikring – dette bør du kontrollere | Flyferie.no" : "Travel insurance – what to check before travelling | Flyferie.no",
+    description: no ? "En praktisk sjekkliste for reiseforsikring: sykdom, avbestilling, bagasje, forsinkelser, aktiviteter og betalingskort." : "A practical travel insurance checklist covering illness, cancellation, baggage, delays, activities and payment cards.",
+    alternates: { canonical: `/${lang}/guides/travel-insurance`, languages: { "nb-NO": "/no/guides/travel-insurance", en: "/en/guides/travel-insurance", "x-default": "/no/guides/travel-insurance" } },
+  };
+}
+
+export default async function TravelInsurancePage({ params }: PageProps) {
+  const { lang } = await params;
+  if (lang !== "no" && lang !== "en") notFound();
+  const no = lang === "no";
+  const other = no ? "en" : "no";
+  const jsonLd = { "@context": "https://schema.org", "@graph": [
+    { "@type": "Article", headline: no ? "Reiseforsikring – dette bør du kontrollere" : "Travel insurance – what to check", inLanguage: no ? "nb-NO" : "en", publisher: { "@type": "Organization", name: "Flyferie.no" } },
+    { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item.qNo : item.qEn, acceptedAnswer: { "@type": "Answer", text: no ? item.aNo : item.aEn } })) },
+  ] };
+
+  return <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+    <header className="border-b border-white/10 bg-[#102f2b] text-white"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8"><Link href={`/${lang}`} aria-label="Flyferie.no"><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[185px] sm:w-[225px]" /></Link><div className="flex items-center gap-4"><Link href={`/${lang}/guides/travel-gear`} className="text-sm font-bold">{no ? "Reiseutstyr" : "Travel gear"}</Link><Link href={`/${other}/guides/travel-insurance`} className="rounded-full border border-white/40 px-4 py-2 text-sm font-bold">{no ? "EN" : "NO"}</Link></div></div></header>
+
+    <section className="relative overflow-hidden bg-[#173f39] px-5 py-16 text-white sm:py-24 lg:px-8 lg:py-28"><div className="absolute -right-24 -top-28 h-80 w-80 rounded-full bg-[#f4b860]/25 blur-3xl" /><div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end"><div><Link href={`/${lang}`} className="text-sm font-bold text-[#ffd078]">← {no ? "Tilbake til forsiden" : "Back to the home page"}</Link><p className="mt-9 text-xs font-bold uppercase tracking-[.22em] text-[#ffd078]">{no ? "Tryggere før avreise" : "Better prepared before departure"}</p><h1 className="display mt-3 max-w-4xl text-[48px] font-bold leading-[.98] sm:text-7xl lg:text-[82px]">{no ? "Reiseforsikring – dette bør du kontrollere" : "Travel insurance – what to check"}</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-white/80 sm:text-xl">{no ? "Det viktigste står i vilkårene. Bruk denne sjekklisten til å forstå hva du har – og hvilke spørsmål du bør stille før avreise." : "The important details are in the policy terms. Use this checklist to understand what you have and which questions to ask before travelling."}</p></div><div className="rounded-[26px] border border-white/15 bg-white/[.08] p-6 sm:p-8"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#ffd078]">{no ? "Første kontroll" : "First check"}</p><p className="display mt-3 text-3xl font-bold">{no ? "Har du allerede dekning?" : "Are you already covered?"}</p><p className="mt-4 leading-7 text-white/75">{no ? "Undersøk helårs-, arbeids-, organisasjons- og kortforsikringer før du kjøper noe nytt." : "Review annual, workplace, membership and card-based cover before buying anything new."}</p></div></div></section>
+
+    <section className="px-5 py-12 sm:py-16 lg:px-8"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#e16f59]">{no ? "Les vilkårene" : "Read the terms"}</p><h2 className="display mt-3 max-w-3xl text-[38px] font-bold leading-tight sm:text-5xl">{no ? "Seks ting det er lurt å kontrollere" : "Six things worth checking"}</h2><div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{checks.map((item) => <article key={item.n} className="rounded-[26px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-7"><span className="inline-flex rounded-full bg-[#f4d7a1] px-3 py-1.5 text-xs font-bold text-[#b94f3d]">{item.n}</span><h3 className="display mt-4 text-3xl font-bold">{no ? item.no : item.en}</h3><p className="mt-4 leading-7 text-[#48645f]">{no ? item.noText : item.enText}</p></article>)}</div></div></section>
+
+    <section className="bg-[#edf4ef] px-5 py-12 lg:px-8 lg:py-16"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#1e776e]">{no ? "Hvis noe skjer" : "If something happens"}</p><h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{no ? "Dokumentasjon gjør saken enklere" : "Documentation makes a claim easier"}</h2></div><ul className="grid gap-3 sm:grid-cols-2">{(no ? ["Kontakt alarmsentralen ved alvorlige hendelser", "Be om skriftlig rapport ved tyveri eller tap", "Ta vare på kvitteringer og bekreftelser", "Dokumenter forsinkelser hos transportselskapet", "Følg frister og fremgangsmåte i vilkårene", "Ikke lov kostnader du ikke har fått godkjent"] : ["Contact emergency assistance for serious incidents", "Request a written report for theft or loss", "Keep receipts and confirmations", "Document delays with the transport provider", "Follow policy deadlines and procedures", "Do not commit to unapproved major expenses"]).map((item) => <li key={item} className="flex gap-3 rounded-[18px] bg-white p-4 text-sm font-bold leading-6 shadow-sm"><span className="text-[#e16f59]">✓</span><span>{item}</span></li>)}</ul></div></section>
+
+    <section className="px-5 py-12 sm:py-16 lg:px-8"><div className="mx-auto max-w-4xl"><div className="rounded-[22px] border border-[#b94f3d]/20 bg-[#f4d7a1]/55 p-5 text-sm leading-6 text-[#365b55]"><strong>{no ? "Merk:" : "Note:"}</strong> {no ? "Dette er generell informasjon og ikke et personlig forsikringsråd. Vilkårene i din egen avtale og informasjon fra forsikringsselskapet gjelder." : "This is general information, not personal insurance advice. Your own policy terms and information from your insurer apply."}</div><p className="mt-12 text-xs font-bold uppercase tracking-[.2em] text-[#e16f59]">{no ? "Vanlige spørsmål" : "Frequently asked questions"}</p><h2 className="display mt-3 text-[38px] font-bold sm:text-5xl">{no ? "Kort forklart" : "In brief"}</h2><div className="mt-8 space-y-4">{faq.map((item) => <article key={item.qEn} className="rounded-[22px] border border-[#17332f]/10 bg-white p-6 shadow-sm"><h3 className="text-lg font-bold">{no ? item.qNo : item.qEn}</h3><p className="mt-3 leading-7 text-[#48645f]">{no ? item.aNo : item.aEn}</p></article>)}</div></div></section>
+
+    <footer className="bg-[#102f2b] px-5 py-10 text-white/65"><div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px]" /><p className="text-sm">© 2026 Flyferie.no · {no ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p></div></footer>
+  </main>;
+}

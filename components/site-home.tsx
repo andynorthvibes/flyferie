@@ -181,6 +181,21 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      <section className="bg-[#f4d7a1] px-5 py-12 text-[#17332f] lg:px-8 lg:py-14">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d] sm:text-sm">{lang === "no" ? "Planlegg smartere" : "Plan smarter"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Slik finner du gode flypriser" : "How to find better flight prices"}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#365b55] sm:text-lg sm:leading-8">
+              {lang === "no" ? "Fleksible datoer hjelper, men totalpris, bagasje, flyplass og reisetid avgjør om billetten faktisk er et godt kjøp." : "Flexible dates help, but the total price, baggage, airport and journey time determine whether a ticket is genuinely good value."}
+            </p>
+          </div>
+          <Link href={`/${lang}/guides/cheap-flights`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">
+            {lang === "no" ? "Les flyprisguiden" : "Read the flight price guide"} →
+          </Link>
+        </div>
+      </section>
+
       <section className="overflow-hidden bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:p-12">
           <div>

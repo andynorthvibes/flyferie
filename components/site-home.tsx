@@ -196,6 +196,17 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      <section className="bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#e16f59] sm:text-sm">{lang === "no" ? "Fra idé til avreise" : "From idea to departure"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Planlegg en bedre weekendtur" : "Plan a better weekend trip"}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#48645f] sm:text-lg sm:leading-8">{lang === "no" ? "Velg reisemål, finn riktige flytider, bestem budsjett og samle det viktigste i én enkel plan." : "Choose the destination, find suitable flight times, set the budget and bring the essentials together in one simple plan."}</p>
+          </div>
+          <Link href={`/${lang}/guides/plan-weekend-trip`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{lang === "no" ? "Åpne planleggingsguiden" : "Open the planning guide"} →</Link>
+        </div>
+      </section>
+
       <section className="overflow-hidden bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:p-12">
           <div>

@@ -213,7 +213,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         <div className="mx-auto grid max-w-7xl gap-6 rounded-[28px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.22em] text-[#1e776e]">
-              {lang === "no" ? "Partneranbefaling · leiebil" : "Partner recommendation · car rental"}
+              {lang === "no" ? "Annonse · leiebil" : "Advertisement · car rental"}
             </p>
             <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">
               {lang === "no" ? "Trenger du leiebil på reisen?" : "Need a rental car for your trip?"}
@@ -222,11 +222,6 @@ export function SiteHome({ lang }: { lang: Lang }) {
               {lang === "no"
                 ? "Sammenlign leiebiler fra flere leverandører før avreise, og kontroller alltid pris, forsikring, depositum og drivstoffvilkår før du bestiller."
                 : "Compare rental cars from multiple providers before departure, and always check the price, insurance, deposit and fuel policy before booking."}
-            </p>
-            <p className="mt-3 text-xs leading-5 text-[#6b817d]">
-              {lang === "no"
-                ? "Annonselenke: Flyferie kan motta provisjon dersom du bestiller, uten at det øker prisen din."
-                : "Affiliate link: Flyferie may receive a commission if you book, at no additional cost to you."}
             </p>
           </div>
           <a

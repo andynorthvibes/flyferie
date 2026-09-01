@@ -223,6 +223,12 @@ export function SiteHome({ lang }: { lang: Lang }) {
                 ? "Sammenlign leiebiler fra flere leverandører før avreise, og kontroller alltid pris, forsikring, depositum og drivstoffvilkår før du bestiller."
                 : "Compare rental cars from multiple providers before departure, and always check the price, insurance, deposit and fuel policy before booking."}
             </p>
+            <Link
+              href={`/${lang}/guides/car-rental`}
+              className="mt-4 inline-flex text-sm font-bold text-[#1e776e] underline decoration-[#1e776e]/35 underline-offset-4 transition hover:text-[#17332f]"
+            >
+              {lang === "no" ? "Les Flyferies leiebilguide" : "Read Flyferie's car rental guide"} →
+            </Link>
           </div>
           <a
             href="https://www.discovercars.com/?a_aid=flyferie"

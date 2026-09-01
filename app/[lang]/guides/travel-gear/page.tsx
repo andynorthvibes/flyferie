@@ -200,6 +200,11 @@ export default async function TravelGearPage({ params }: PageProps) {
                       {norwegian ? "Les Flyferies eSIM-guide" : "Read Flyferie's eSIM guide"} →
                     </Link>
                   )}
+                  {section.number === "01" && (
+                    <Link href={`/${lang}/guides/weekend-packing-list`} className="mt-4 inline-flex text-sm font-bold text-[#1e776e] underline decoration-[#1e776e]/35 underline-offset-4">
+                      {norwegian ? "Åpne Flyferies pakkeliste" : "Open Flyferie's packing list"} →
+                    </Link>
+                  )}
                 </div>
               </article>
             );

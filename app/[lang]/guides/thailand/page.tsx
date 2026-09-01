@@ -128,7 +128,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Combine Bangkok and Ao Nang. Compare trip lengths, places to stay and experiences around Krabi.",
     alternates: {
       canonical: `/${lang}/guides/thailand`,
-      languages: { nb: "/no/guides/thailand", en: "/en/guides/thailand" }
+      languages: { "nb-NO": "/no/guides/thailand", en: "/en/guides/thailand", "x-default": "/no/guides/thailand" }
     }
   };
 }

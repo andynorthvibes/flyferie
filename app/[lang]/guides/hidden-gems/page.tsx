@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Discover eight underrated European destinations for a different kind of weekend break.",
     alternates: {
       canonical: `/${lang}/guides/hidden-gems`,
-      languages: { nb: "/no/guides/hidden-gems", en: "/en/guides/hidden-gems" }
+      languages: { "nb-NO": "/no/guides/hidden-gems", en: "/en/guides/hidden-gems", "x-default": "/no/guides/hidden-gems" }
     }
   };
 }

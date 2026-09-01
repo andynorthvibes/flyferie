@@ -15,6 +15,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://flyferie.no"),
   title: "Flyferie.no – Finn din neste reise",
   description: "Oppdag weekendturer, skjulte perler, blåturer og inspirerende reisemål i Europa.",
   icons: {

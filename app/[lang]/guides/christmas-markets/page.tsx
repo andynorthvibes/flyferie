@@ -159,8 +159,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/${lang}/guides/christmas-markets`,
       languages: {
-        nb: "/no/guides/christmas-markets",
-        en: "/en/guides/christmas-markets"
+        "nb-NO": "/no/guides/christmas-markets",
+        en: "/en/guides/christmas-markets",
+        "x-default": "/no/guides/christmas-markets"
       }
     }
   };

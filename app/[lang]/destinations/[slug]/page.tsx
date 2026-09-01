@@ -25,7 +25,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ? lang === "no"
         ? guide.introNo
         : guide.introEn
-      : undefined
+      : undefined,
+    alternates: {
+      canonical: `/${lang}/destinations/${slug}`,
+      languages: {
+        "nb-NO": `/no/destinations/${slug}`,
+        en: `/en/destinations/${slug}`,
+        "x-default": `/no/destinations/${slug}`,
+      },
+    },
   };
 }
 

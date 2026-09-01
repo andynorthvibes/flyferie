@@ -25,7 +25,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: norwegian ? "Alle reisemål | Flyferie.no" : "All destinations | Flyferie.no",
     description: norwegian
       ? "Finn alle reisemålene på Flyferie samlet i en alfabetisk oversikt."
-      : "Browse every Flyferie destination in one alphabetical overview."
+      : "Browse every Flyferie destination in one alphabetical overview.",
+    alternates: {
+      canonical: `/${lang}/destinations`,
+      languages: {
+        "nb-NO": "/no/destinations",
+        en: "/en/destinations",
+        "x-default": "/no/destinations",
+      },
+    },
   };
 }
 

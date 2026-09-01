@@ -19,6 +19,7 @@ const guides = [
   { slug: "airport-transfer", no: "Planlegg transporten", en: "Plan the airport transfer", noText: "Sammenlign tog, buss, taxi og leiebil.", enText: "Compare trains, buses, taxis and rental cars." },
   { slug: "weekend-packing-list", no: "Bruk pakkelisten", en: "Use the packing list", noText: "Ta med det nødvendige uten å overpakke.", enText: "Bring the essentials without overpacking." },
   { slug: "travel-insurance", no: "Kontroller forsikringen", en: "Check your insurance", noText: "Forstå dekningen før avreise.", enText: "Understand the cover before departure." },
+  { slug: "surprise-trip", no: "Arranger en blåtur", en: "Plan a surprise trip", noText: "Hold reisemålet hemmelig uten å miste kontrollen.", enText: "Keep the destination secret without losing control." },
 ];
 
 const faq = [

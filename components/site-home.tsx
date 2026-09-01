@@ -224,6 +224,21 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      <section className="bg-[#173f39] px-5 py-12 text-white lg:px-8 lg:py-14">
+        <div className="mx-auto grid max-w-7xl gap-7 rounded-[30px] border border-white/15 bg-white/[.07] p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#ffd078] sm:text-sm">{lang === "no" ? "Fra flyplassen til reisemålet" : "From the airport to your destination"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Slik velger du riktig flyplasstransport" : "How to choose the right airport transfer"}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+              {lang === "no" ? "Sammenlign tog, buss, taxi, privat transport og leiebil ut fra pris, ankomsttid, bagasje og hvor mange dere reiser sammen." : "Compare trains, buses, taxis, private transfers and rental cars by price, arrival time, luggage and group size."}
+            </p>
+          </div>
+          <Link href={`/${lang}/guides/airport-transfer`} className="inline-flex w-fit rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] transition hover:bg-[#ffd08b]">
+            {lang === "no" ? "Les transportguiden" : "Read the transfer guide"} →
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-[#edf4ef] px-5 py-10 text-[#17332f] lg:px-8 lg:py-12">
         <div className="mx-auto grid max-w-7xl gap-6 rounded-[28px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
           <div>

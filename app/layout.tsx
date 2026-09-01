@@ -32,6 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="no">
+      <head>
+        <meta
+          name="impact-site-verification"
+          {...{ value: "3cef219b-36a2-4d44-9166-a84f9fb1b413" }}
+        />
+      </head>
       <body className={`${dmSans.variable} ${fraunces.variable} antialiased`}>
         {children}
         <Analytics />

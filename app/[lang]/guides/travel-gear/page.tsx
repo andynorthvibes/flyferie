@@ -195,6 +195,11 @@ export default async function TravelGearPage({ params }: PageProps) {
                     <p className="text-[11px] font-bold uppercase tracking-[.16em] text-[#1e776e]">{norwegian ? "Utvalgte anbefalinger kommer" : "Selected recommendations coming soon"}</p>
                     <p className="mt-2 text-sm font-bold">{norwegian ? section.partnerNo : section.partnerEn}</p>
                   </div>
+                  {section.number === "03" && (
+                    <Link href={`/${lang}/guides/esim`} className="mt-4 inline-flex text-sm font-bold text-[#1e776e] underline decoration-[#1e776e]/35 underline-offset-4">
+                      {norwegian ? "Les Flyferies eSIM-guide" : "Read Flyferie's eSIM guide"} →
+                    </Link>
+                  )}
                 </div>
               </article>
             );

@@ -716,5 +716,41 @@ Object.assign(destinationMedia, {
       flyferiePhoto("/destinations/ao-nang/weekend-2.jpg", "ATV-tur gjennom naturen", "ATV ride through the countryside"),
       flyferiePhoto("/destinations/ao-nang/weekend-3.jpg", "Thailandsk mat i Ao Nang", "Thai food in Ao Nang")
     ]
+  },
+  phuket: {
+    hero: {
+      src: "/destinations/phuket/hero.jpg",
+      altNo: "Banana Beach på Phuket",
+      altEn: "Banana Beach in Phuket",
+      photographer: "Anton Zelenov",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Banana_beach_Phuket_2017_-_01.jpg"
+    },
+    weekend: [
+      {
+        src: "/destinations/phuket/weekend-1.jpg",
+        altNo: "Fargerike bygninger i Phuket Old Town",
+        altEn: "Colourful buildings in Phuket Old Town",
+        photographer: "Mussi Katz",
+        license: "CC0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Phuket_old_town_(52549766215).jpg"
+      },
+      {
+        src: "/destinations/phuket/weekend-2.jpg",
+        altNo: "Promthep Cape på Phuket",
+        altEn: "Promthep Cape in Phuket",
+        photographer: "edwin.11",
+        license: "CC BY 2.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Laem_Phromthep_in_Phuket_(5733622568).jpg"
+      },
+      {
+        src: "/destinations/phuket/weekend-3.jpg",
+        altNo: "Kata Beach på Phuket",
+        altEn: "Kata Beach in Phuket",
+        photographer: "ADwarf",
+        license: "Public domain",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Phuket_-_Kata_Beach_001.jpg"
+      }
+    ]
   }
 } satisfies Record<string, DestinationMedia>);

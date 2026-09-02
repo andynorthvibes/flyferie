@@ -189,5 +189,28 @@ export const newDestinationGuides: Record<string, Guide> = {
     districts: [["Ao Nang Beach", ["Mest praktisk for båter, restauranter og første besøk.", "Most practical for boats, restaurants and a first visit."]], ["Nopparat Thara", ["Roligere strand og litt mer plass.", "A quieter beach with more space."]], ["Railay", ["Dramatiske strender og klatring, kun tilgjengelig med båt.", "Dramatic beaches and climbing, accessible only by boat."]], ["Krabi Town", ["Marked, lokal stemning og lavere tempo enn strandbyen.", "Markets, local atmosphere and a slower pace than the resort area."]]],
     tips: [[["Sjekk sjø og vær", "Check sea and weather"], ["Båtturer kan endres når vind og bølger gjør forholdene usikre.", "Boat trips can change when wind and waves make conditions unsafe."]], [["Avtal siste båt", "Confirm the last boat"], ["Returtidene fra Railay kan variere med sesong og forhold.", "Return times from Railay can vary by season and conditions."]], [["Beskytt deg mot solen", "Protect yourself from the sun"], ["Sol, saltvann og båtvind gjør det lett å undervurdere eksponeringen.", "Sun, salt water and boat wind make it easy to underestimate exposure."]]],
     transportUrl: "https://www.tourismthailand.org/Destinations/Provinces/Krabi/347", transportName: "Tourism Authority of Thailand"
+  }),
+  phuket: guide({
+    seo: ["Phuket-guide: strender, gamleby og øyhopping", "Phuket guide: beaches, Old Town and island hopping"],
+    intro: ["Phuket er Thailands største øy og gir dere langt mer enn én type strandferie. Velg base etter ønsket tempo, sett av tid til Phuket Old Town og bruk øya som utgangspunkt for utsiktspunkter, båtturer og rolige dager ved Andamanhavet.", "Phuket is Thailand's largest island and offers far more than one kind of beach holiday. Choose your base according to the pace you want, make time for Phuket Old Town and use the island as a starting point for viewpoints, boat trips and relaxed days by the Andaman Sea."],
+    bestFor: [["Strandferie", "Beach holidays"], ["Øyhopping", "Island hopping"], ["Mat og gamleby", "Food and Old Town"], ["Venner og familie", "Friends and family"]],
+    stay: ["5–7 netter", "5–7 nights"], areas: ["Kata, Karon, Kamala og Phuket Old Town", "Kata, Karon, Kamala and Phuket Old Town"], transport: ["Taxi, lokalbuss, båt og leiebil", "Taxi, local bus, boat and rental car"], airport: ["Phuket internasjonale lufthavn", "Phuket International Airport"],
+    weekend: [
+      [["Første dag", "First day"], ["Strand og en rolig start", "Beach and an easy start"], ["Finn dere til rette ved stranden nærmest hotellet. Bruk den første dagen til å forstå avstandene, spise lokalt og se solnedgangen uten å fylle programmet.", "Settle in at the beach closest to your hotel. Use the first day to understand the distances, eat locally and watch the sunset without overfilling the schedule."]],
+      [["Andre dag", "Second day"], ["Phuket Old Town", "Phuket Old Town"], ["Se de fargerike sino-portugisiske husene, kaféene og markedene i gamlebyen. Kombiner besøket med et tempel eller et utsiktspunkt på vei tilbake.", "Explore the colourful Sino-Portuguese buildings, cafés and markets in the Old Town. Combine the visit with a temple or viewpoint on the way back."]],
+      [["Tredje dag", "Third day"], ["Utsikt eller øyhopping", "Viewpoints or island hopping"], ["Velg en båttur når vær- og sjøforholdene er gode, eller bruk dagen langs sørkysten med Nai Harn og Promthep Cape. Ikke prøv å rekke begge deler samme dag.", "Choose a boat trip when sea and weather conditions are good, or spend the day along the south coast at Nai Harn and Promthep Cape. Do not try to squeeze both into one day."]]
+    ],
+    districts: [["Kata", ["En allsidig base med strand, restauranter og et roligere tempo enn Patong.", "A versatile base with a beach, restaurants and a calmer pace than Patong."]], ["Karon", ["Lang strand, god plass og et praktisk valg mellom Kata og Patong.", "A long beach, more space and a practical choice between Kata and Patong."]], ["Kamala", ["Roligere ferieområde som passer godt for par og familier.", "A calmer resort area that works well for couples and families."]], ["Phuket Old Town", ["Best for arkitektur, lokal mat og byliv, men ikke for en klassisk strandbase.", "Best for architecture, local food and town life, but not for a classic beach base."]]],
+    tips: [[
+      ["Velg område før hotell", "Choose the area before the hotel"],
+      ["Phuket er stor, og trafikken kan gjøre korte avstander langsomme. Bestem hvilken strand og stemning dere ønsker før dere bestiller.", "Phuket is large and traffic can make short distances slow. Decide which beach and atmosphere you want before booking."]
+    ], [
+      ["Sjekk vær og sjø", "Check weather and sea conditions"],
+      ["Båtturer og badeforhold varierer med sesong, vind og bølger. Følg lokale sikkerhetsvarsler og flagg på stranden.", "Boat trips and swimming conditions vary with the season, wind and waves. Follow local safety advice and beach flags."]
+    ], [
+      ["Planlegg flyplasstransporten", "Plan the airport transfer"],
+      ["Reisetiden mellom flyplassen og strandområdene varierer mye. Legg inn ekstra tid ved avreise, særlig når trafikken er tett.", "Travel time between the airport and beach areas varies considerably. Allow extra time before departure, especially in heavy traffic."]
+    ]],
+    transportUrl: "https://www.tourismthailand.org/Destinations/Provinces/Phuket/350", transportName: "Tourism Authority of Thailand"
   })
 };

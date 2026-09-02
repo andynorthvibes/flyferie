@@ -9,7 +9,7 @@ type PageProps = {
   params: Promise<{ lang: string }>;
 };
 
-const thailandSlugs = new Set(["bangkok", "ao-nang"]);
+const thailandSlugs = new Set(["bangkok", "ao-nang", "phuket"]);
 const norwegianNames: Record<string, string> = {
   milan: "Milano",
   copenhagen: "København",

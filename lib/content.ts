@@ -27,6 +27,7 @@ export const destinations = [
   { slug: "hamburg", name: "Hamburg", countryNo: "Tyskland", countryEn: "Germany", tagNo: "Havn, fotball og uteliv", tagEn: "Harbour, football and nightlife", color: "#3f6f7a" },
   { slug: "bangkok", name: "Bangkok", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Storbyenergi og street food", tagEn: "Big-city energy and street food", color: "#9d584b" },
   { slug: "ao-nang", name: "Ao Nang", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strender og øyhopping", tagEn: "Beaches and island hopping", color: "#2f8a7c" },
+  { slug: "phuket", name: "Phuket", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strand, byliv og utflukter", tagEn: "Beaches, town life and excursions", color: "#287f79" },
 ];
 
 export const copy = {

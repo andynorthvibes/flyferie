@@ -23,6 +23,7 @@ const guides = [
   { slug: "weekend-trip-budget", no: "Lag et reisebudsjett", en: "Build a trip budget", noText: "Samle alle kostnadene før dere bestemmer dere.", enText: "Bring every cost together before deciding." },
   { slug: "group-trip", no: "Planlegg med gjengen", en: "Plan with friends", noText: "Fordel ansvar og bli enige før noen bestiller.", enText: "Share responsibility and agree before anyone books." },
   { slug: "romantic-weekend", no: "Planlegg en tur for to", en: "Plan a trip for two", noText: "Velg rammer som gir god tid sammen.", enText: "Choose a framework that leaves quality time together." },
+  { slug: "solo-weekend-trip", no: "Dra på weekendtur alene", en: "Take a solo weekend trip", noText: "Velg tempo, område og opplevelser selv.", enText: "Choose your own pace, area and experiences." },
 ];
 
 const faq = [

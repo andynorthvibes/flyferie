@@ -3,7 +3,7 @@ import { destinations } from "@/lib/content";
 
 const siteUrl = "https://flyferie.no";
 const languages = ["no", "en"] as const;
-const guides = ["christmas-markets", "hidden-gems", "thailand", "travel-gear", "car-rental", "esim", "cheap-flights", "when-to-book-flights", "choose-hotel-area", "compare-hotel-prices", "when-to-book-hotels", "airport-transfer", "weekend-packing-list", "cabin-bag-weekend", "travel-insurance", "plan-weekend-trip", "surprise-trip", "weekend-trip-budget", "hidden-travel-costs", "group-trip", "romantic-weekend"] as const;
+const guides = ["christmas-markets", "hidden-gems", "thailand", "travel-gear", "car-rental", "esim", "cheap-flights", "when-to-book-flights", "choose-hotel-area", "compare-hotel-prices", "when-to-book-hotels", "airport-transfer", "weekend-packing-list", "cabin-bag-weekend", "travel-insurance", "plan-weekend-trip", "surprise-trip", "weekend-trip-budget", "hidden-travel-costs", "group-trip", "romantic-weekend", "solo-weekend-trip"] as const;
 
 function entry(path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]): MetadataRoute.Sitemap[number] {
   const norwegianPath = `/no${path}`;

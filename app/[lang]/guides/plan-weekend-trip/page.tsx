@@ -21,6 +21,7 @@ const guides = [
   { slug: "travel-insurance", no: "Kontroller forsikringen", en: "Check your insurance", noText: "Forstå dekningen før avreise.", enText: "Understand the cover before departure." },
   { slug: "surprise-trip", no: "Arranger en blåtur", en: "Plan a surprise trip", noText: "Hold reisemålet hemmelig uten å miste kontrollen.", enText: "Keep the destination secret without losing control." },
   { slug: "weekend-trip-budget", no: "Lag et reisebudsjett", en: "Build a trip budget", noText: "Samle alle kostnadene før dere bestemmer dere.", enText: "Bring every cost together before deciding." },
+  { slug: "group-trip", no: "Planlegg med gjengen", en: "Plan with friends", noText: "Fordel ansvar og bli enige før noen bestiller.", enText: "Share responsibility and agree before anyone books." },
 ];
 
 const faq = [

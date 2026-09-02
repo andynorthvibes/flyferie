@@ -122,10 +122,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
   const norwegian = lang === "no";
   return {
-    title: norwegian ? "Opplev Thailand – Bangkok og Ao Nang | Flyferie.no" : "Discover Thailand – Bangkok and Ao Nang | Flyferie.no",
+    title: norwegian ? "Opplev Thailand – våre reisemål | Flyferie.no" : "Discover Thailand – our destinations | Flyferie.no",
     description: norwegian
-      ? "Kombiner Bangkok og Ao Nang. Se forslag til reiselengde, områder å bo i og opplevelser i Krabi."
-      : "Combine Bangkok and Ao Nang. Compare trip lengths, places to stay and experiences around Krabi.",
+      ? "Utforsk Bangkok, Ao Nang, Phuket, Hua Hin, Koh Samui og Phi Phi med Flyferies guider til områder, opplevelser og reiseplanlegging."
+      : "Explore Bangkok, Ao Nang, Phuket, Hua Hin, Koh Samui and Phi Phi with Flyferie's guides to areas, experiences and trip planning.",
     alternates: {
       canonical: `/${lang}/guides/thailand`,
       languages: { "nb-NO": "/no/guides/thailand", en: "/en/guides/thailand", "x-default": "/no/guides/thailand" }
@@ -140,11 +140,19 @@ export default async function ThailandPage({ params }: PageProps) {
   const otherLanguage = norwegian ? "en" : "no";
   const bangkok = destinationMedia.bangkok;
   const aoNang = destinationMedia["ao-nang"];
+  const thailandDestinations = [
+    { slug: "bangkok", name: "Bangkok", photo: bangkok.hero, no: "Templer, street food, elveliv og storbyenergi.", en: "Temples, street food, river life and big-city energy." },
+    { slug: "ao-nang", name: "Ao Nang", photo: aoNang.hero, no: "En praktisk base for Krabis strender og øyhopping.", en: "A practical base for Krabi's beaches and island hopping." },
+    { slug: "phuket", name: "Phuket", photo: destinationMedia.phuket.hero, no: "Strender, gamleby, utsikt og et stort utvalg av utflukter.", en: "Beaches, Old Town, viewpoints and a wide choice of excursions." },
+    { slug: "hua-hin", name: "Hua Hin", photo: destinationMedia["hua-hin"].hero, no: "Strandby, markeder og et roligere tempo sør for Bangkok.", en: "A beach town, markets and a gentler pace south of Bangkok." },
+    { slug: "koh-samui", name: "Koh Samui", photo: destinationMedia["koh-samui"].hero, no: "Palmestrender, templer og øyliv i Thailandbukta.", en: "Palm-fringed beaches, temples and island life in the Gulf of Thailand." },
+    { slug: "phi-phi", name: "Phi Phi", photo: destinationMedia["phi-phi"].hero, no: "Turkise bukter, kalksteinsklipper og bilfritt øyliv.", en: "Turquoise bays, limestone cliffs and car-free island life." }
+  ];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: norwegian ? "Opplev Thailand: Bangkok og Ao Nang" : "Discover Thailand: Bangkok and Ao Nang",
-    description: norwegian ? "En kombinasjonsguide til Bangkok, Ao Nang og Krabi." : "A combined guide to Bangkok, Ao Nang and Krabi.",
+    headline: norwegian ? "Opplev Thailand: våre reisemål" : "Discover Thailand: our destinations",
+    description: norwegian ? "Guider til Flyferies reisemål i Thailand." : "Guides to Flyferie's destinations in Thailand.",
     inLanguage: norwegian ? "nb-NO" : "en",
     image: bangkok.hero.src,
     publisher: { "@type": "Organization", name: "Flyferie.no" }
@@ -184,6 +192,32 @@ export default async function ThailandPage({ params }: PageProps) {
                 : "Begin among Bangkok's temples, markets and city lights. Continue to Ao Nang for beaches, limestone cliffs and the islands off Krabi."}
             </p>
             <a href="#kombinasjonen" className="mt-7 inline-flex rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] sm:mt-9">{norwegian ? "Planlegg kombinasjonsreisen" : "Plan the combined trip"} →</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e16f59] sm:text-sm">{norwegian ? "Velg reisemål" : "Choose your destination"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Seks steder. Seks ulike Thailand-reiser." : "Six places. Six different Thailand journeys."}</h2>
+            <p className="mt-4 text-lg leading-8 text-[#48645f]">{norwegian ? "Sammenlign storby, strandbyer og øyer – og åpne den komplette guiden til stedet som passer reisen deres." : "Compare the city, beach towns and islands, then open the complete guide to the place that suits your journey."}</p>
+          </div>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {thailandDestinations.map((place) => (
+              <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group overflow-hidden rounded-[28px] bg-white shadow-sm ring-1 ring-[#17332f]/10 transition hover:-translate-y-1 hover:shadow-lg">
+                <figure className="relative h-64 overflow-hidden">
+                  <Image src={place.photo.src} alt={norwegian ? place.photo.altNo : place.photo.altEn} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/85 via-transparent to-transparent" />
+                  <h3 className="display absolute bottom-5 left-6 text-4xl font-bold text-white">{place.name}</h3>
+                </figure>
+                <div className="p-6">
+                  <p className="leading-7 text-[#48645f]">{norwegian ? place.no : place.en}</p>
+                  <p className="mt-4 font-bold text-[#1e776e]">{norwegian ? `Les ${place.name}-guiden` : `Read the ${place.name} guide`} →</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

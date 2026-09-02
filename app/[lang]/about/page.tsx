@@ -81,6 +81,9 @@ export default async function AboutPage({ params }: PageProps) {
               </article>
             ))}
           </div>
+          <Link href={`/${lang}/editorial-policy`} className="mt-8 inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">
+            {norwegian ? "Les Flyferies redaksjonelle retningslinjer" : "Read Flyferie's editorial policy"} →
+          </Link>
         </div>
       </section>
 

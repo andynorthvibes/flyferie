@@ -209,10 +209,10 @@ export default async function CheapFlightsGuidePage({ params }: PageProps) {
       <section className="bg-[#f4d7a1] px-5 py-12 lg:px-8 lg:py-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[28px] bg-white/70 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[.2em] text-[#b94f3d]">{norwegian ? "Neste spørsmål" : "The next question"}</p>
-            <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">{norwegian ? "Når bør du faktisk bestille?" : "When should you actually book?"}</h2>
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-[#b94f3d]">{norwegian ? "Fortsett sammenligningen" : "Continue comparing"}</p>
+            <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">{norwegian ? "Vurder både tidspunkt og pris" : "Consider both timing and price"}</h2>
           </div>
-          <Link href={`/${lang}/guides/when-to-book-flights`} className="inline-flex w-fit shrink-0 rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Les bestillingsguiden" : "Read the booking guide"} →</Link>
+          <div className="flex shrink-0 flex-wrap gap-3"><Link href={`/${lang}/guides/when-to-book-flights`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Når bør du bestille?" : "When should you book?"} →</Link><Link href={`/${lang}/guides/choose-flight-times`} className="inline-flex w-fit rounded-full border border-[#17332f]/25 bg-white px-6 py-3.5 font-bold">{norwegian ? "Velg gode flytider" : "Choose good flight times"} →</Link></div>
         </div>
       </section>
 

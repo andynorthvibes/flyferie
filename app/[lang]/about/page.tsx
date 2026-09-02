@@ -81,9 +81,14 @@ export default async function AboutPage({ params }: PageProps) {
               </article>
             ))}
           </div>
-          <Link href={`/${lang}/editorial-policy`} className="mt-8 inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">
-            {norwegian ? "Les Flyferies redaksjonelle retningslinjer" : "Read Flyferie's editorial policy"} →
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href={`/${lang}/editorial-policy`} className="inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">
+              {norwegian ? "Les Flyferies redaksjonelle retningslinjer" : "Read Flyferie's editorial policy"} →
+            </Link>
+            <Link href={`/${lang}/contact`} className="inline-flex rounded-full border border-[#17332f]/25 bg-white px-6 py-3.5 font-bold text-[#17332f] transition hover:border-[#17332f]/50">
+              {norwegian ? "Kontakt oss" : "Contact us"} →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -106,7 +111,10 @@ export default async function AboutPage({ params }: PageProps) {
       <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+          <div className="flex flex-col gap-2 text-sm sm:items-end">
+            <Link href={`/${lang}/contact`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">{norwegian ? "Kontakt oss" : "Contact us"}</Link>
+            <p>© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+          </div>
         </div>
       </footer>
     </main>

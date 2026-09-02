@@ -319,7 +319,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
           <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
           <div className="flex flex-col gap-2 text-sm sm:items-end">
             <Link href={`/${lang}/about`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">
-              {lang === "no" ? "Om Flyferie og annonselenker" : "About Flyferie and affiliate links"}
+              {lang === "no" ? "Om Flyferie" : "About Flyferie"}
             </Link>
             <p>© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
           </div>

@@ -752,5 +752,41 @@ Object.assign(destinationMedia, {
         sourceUrl: "https://commons.wikimedia.org/wiki/File:Phuket_-_Kata_Beach_001.jpg"
       }
     ]
+  },
+  "hua-hin": {
+    hero: {
+      src: "/destinations/hua-hin/hero.jpg",
+      altNo: "Utsikt over Hua Hin-bukta",
+      altEn: "View across Hua Hin Bay",
+      photographer: "All Fronts Quiet",
+      license: "CC BY-SA 3.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hua_Hin_bay_-_panoramio.jpg"
+    },
+    weekend: [
+      {
+        src: "/destinations/hua-hin/weekend-1.jpg",
+        altNo: "Buddhistmunker ved Hua Hin jernbanestasjon",
+        altEn: "Buddhist monks at Hua Hin railway station",
+        photographer: "Ian Gratton",
+        license: "CC BY 2.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Buddist_monks,_Hua_Hin_rly_stn._(8289441264).jpg"
+      },
+      {
+        src: "/destinations/hua-hin/weekend-2.jpg",
+        altNo: "Cicada Night Market i Hua Hin",
+        altEn: "Cicada Night Market in Hua Hin",
+        photographer: "Wutthichai Charoenburi",
+        license: "CC BY 2.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Cicada_Hua_Hin_Night_Market.jpg"
+      },
+      {
+        src: "/destinations/hua-hin/weekend-3.jpg",
+        altNo: "Kystlandskap sør for Hua Hin",
+        altEn: "Coastal landscape south of Hua Hin",
+        photographer: "Clay Gilliland",
+        license: "CC BY-SA 2.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Monkey_Island_(12250088293).jpg"
+      }
+    ]
   }
 } satisfies Record<string, DestinationMedia>);

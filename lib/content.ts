@@ -28,6 +28,7 @@ export const destinations = [
   { slug: "bangkok", name: "Bangkok", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Storbyenergi og street food", tagEn: "Big-city energy and street food", color: "#9d584b" },
   { slug: "ao-nang", name: "Ao Nang", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strender og øyhopping", tagEn: "Beaches and island hopping", color: "#2f8a7c" },
   { slug: "phuket", name: "Phuket", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strand, byliv og utflukter", tagEn: "Beaches, town life and excursions", color: "#287f79" },
+  { slug: "hua-hin", name: "Hua Hin", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strandby, markeder og roligere tempo", tagEn: "Beach town, markets and a gentler pace", color: "#b86b4e" },
 ];
 
 export const copy = {

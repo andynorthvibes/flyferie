@@ -5,7 +5,8 @@ import { destinationMedia } from "@/lib/destination-media";
 
 const featuredSlugs = ["berlin", "krakow", "rome", "barcelona", "gdansk", "nice"];
 const moreEuropeSlugs = ["amsterdam", "manchester", "milan", "madrid", "malaga", "copenhagen", "helsinki", "gothenburg"];
-const thailandSlugs = ["bangkok", "ao-nang", "phuket"];
+const thailandSlugs = ["bangkok", "ao-nang", "phuket", "hua-hin"];
+const thailandDestinationGuideSlugs = new Set(["phuket", "hua-hin"]);
 
 export function SiteHome({ lang }: { lang: Lang }) {
   const t = copy[lang];
@@ -64,7 +65,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             {[
               [lang === "no" ? "Weekend med gjengen" : "Weekend with friends", "Berlin · Krakow · Gdansk", "#utforsk"],
               [lang === "no" ? "Skjulte perler" : "Hidden gems", "Tbilisi · Skopje · Katowice", `/${lang}/guides/hidden-gems`],
-              [lang === "no" ? "Opplev Thailand" : "Discover Thailand", "Bangkok · Ao Nang · Phuket", `/${lang}/guides/thailand`]
+              [lang === "no" ? "Opplev Thailand" : "Discover Thailand", "Bangkok · Ao Nang · Phuket · Hua Hin", `/${lang}/guides/thailand`]
             ].map(([title, sub, href]) => (
               <Link key={title} href={href} className="group bg-[#123b36]/90 px-5 py-4 backdrop-blur-md transition hover:bg-[#1e6258] sm:px-6 sm:py-5 lg:px-8">
                 <p className="text-sm font-bold text-[#ffd28a]">{title} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
@@ -289,7 +290,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[.24em] text-[#b94f3d]">{lang === "no" ? "En helt egen reise" : "A journey of its own"}</p>
             <h2 className="display mt-3 text-[42px] font-bold leading-none sm:mt-4 sm:text-6xl">{lang === "no" ? "Opplev Thailand" : "Discover Thailand"}</h2>
-            <p className="mt-4 text-base leading-7 text-[#365b55] sm:mt-5 sm:text-lg sm:leading-8">{lang === "no" ? "Thailand står for seg selv på Flyferie: storbyenergi i Bangkok, Krabis dramatiske natur og flere typer strandferie i Ao Nang og Phuket." : "Thailand has its own place on Flyferie: Bangkok's big-city energy, Krabi's dramatic nature and different kinds of beach holidays in Ao Nang and Phuket."}</p>
+            <p className="mt-4 text-base leading-7 text-[#365b55] sm:mt-5 sm:text-lg sm:leading-8">{lang === "no" ? "Thailand står for seg selv på Flyferie: storbyenergi i Bangkok, Krabis dramatiske natur og ulike strandferier i Ao Nang, Phuket og Hua Hin." : "Thailand has its own place on Flyferie: Bangkok's big-city energy, Krabi's dramatic nature and different beach holidays in Ao Nang, Phuket and Hua Hin."}</p>
             <Link href={`/${lang}/guides/thailand`} className="mt-6 inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white">
               {lang === "no" ? "Planlegg Thailand-reisen" : "Plan your Thailand journey"} →
             </Link>
@@ -298,14 +299,14 @@ export function SiteHome({ lang }: { lang: Lang }) {
             {thailand.map((place) => {
               const photo = hero(place.slug);
               return (
-                <Link key={place.slug} href={place.slug === "phuket" ? `/${lang}/destinations/phuket` : `/${lang}/guides/thailand`} className="group relative min-h-[380px] overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-xl sm:min-h-[430px] sm:rounded-[34px]">
+                <Link key={place.slug} href={thailandDestinationGuideSlugs.has(place.slug) ? `/${lang}/destinations/${place.slug}` : `/${lang}/guides/thailand`} className="group relative min-h-[380px] overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-xl sm:min-h-[430px] sm:rounded-[34px]">
                   <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/25 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <p className="text-sm font-bold uppercase tracking-[.18em] text-[#ffd28a]">Thailand</p>
                     <h3 className="display mt-2 text-4xl font-bold sm:text-5xl">{place.name}</h3>
                     <p className="mt-3 max-w-lg text-white/80">{lang === "no" ? place.tagNo : place.tagEn}</p>
-                    <p className="mt-5 font-bold">{place.slug === "phuket" ? (lang === "no" ? "Les Phuket-guiden" : "Read the Phuket guide") : (lang === "no" ? "Utforsk Thailand-guiden" : "Explore the Thailand guide")} →</p>
+                    <p className="mt-5 font-bold">{thailandDestinationGuideSlugs.has(place.slug) ? (lang === "no" ? `Les ${place.name}-guiden` : `Read the ${place.name} guide`) : (lang === "no" ? "Utforsk Thailand-guiden" : "Explore the Thailand guide")} →</p>
                   </div>
                 </Link>
               );

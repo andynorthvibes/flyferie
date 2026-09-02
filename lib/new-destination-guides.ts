@@ -212,5 +212,22 @@ export const newDestinationGuides: Record<string, Guide> = {
       ["Reisetiden mellom flyplassen og strandområdene varierer mye. Legg inn ekstra tid ved avreise, særlig når trafikken er tett.", "Travel time between the airport and beach areas varies considerably. Allow extra time before departure, especially in heavy traffic."]
     ]],
     transportUrl: "https://www.tourismthailand.org/Destinations/Provinces/Phuket/350", transportName: "Tourism Authority of Thailand"
+  }),
+  "hua-hin": guide({
+    seo: ["Hua Hin-guide: strand, markeder og utflukter", "Hua Hin guide: beach, markets and excursions"],
+    intro: ["Hua Hin kombinerer en lang sandstrand med markeder, sjømat og et roligere tempo enn mange av Thailands største feriebyer. Beliggenheten sør for Bangkok gjør byen til en enkel base for stranddager, golf og naturutflukter langs Thailandbukta.", "Hua Hin combines a long sandy beach with markets, seafood and a gentler pace than many of Thailand's larger resorts. Its location south of Bangkok makes it an easy base for beach days, golf and nature excursions along the Gulf of Thailand."],
+    bestFor: [["Rolig strandferie", "Relaxed beach holidays"], ["Par og voksne", "Couples and adults"], ["Markeder og sjømat", "Markets and seafood"], ["Golf og utflukter", "Golf and excursions"]],
+    stay: ["4–7 netter", "4–7 nights"],
+    areas: ["Sentrum, Khao Takiab og Nong Kae", "Central Hua Hin, Khao Takiab and Nong Kae"],
+    transport: ["Songthaew, taxi, tog og leiebil", "Songthaew, taxi, train and rental car"],
+    airport: ["Bangkok Suvarnabhumi eller Don Mueang", "Bangkok Suvarnabhumi or Don Mueang"],
+    weekend: [
+      [["Første dag", "First day"], ["Stranden og den historiske stasjonen", "The beach and historic station"], ["Start rolig på Hua Hin Beach, se den særpregede jernbanestasjonen og avslutt med sjømat eller kveldsliv i sentrum.", "Begin gently on Hua Hin Beach, see the distinctive railway station and finish with seafood or an evening in the centre."]],
+      [["Andre dag", "Second day"], ["Khao Takiab og Cicada Market", "Khao Takiab and Cicada Market"], ["Dra sørover til Khao Takiab for strand og utsikt. I helgen passer Cicada Market godt for lokal mat, kunst og en rolig kveld.", "Head south to Khao Takiab for beach and views. At weekends, Cicada Market is ideal for local food, art and a relaxed evening."]],
+      [["Tredje dag", "Third day"], ["Naturutflukt langs kysten", "A coastal nature excursion"], ["Sett av dagen til Sam Roi Yot-området, en roligere strand eller en kjøretur mellom utsiktspunktene sør for Hua Hin.", "Set aside the day for the Sam Roi Yot area, a quieter beach or a drive between viewpoints south of Hua Hin."]]
+    ],
+    districts: [["Central Hua Hin", ["Kort vei til stranden, nattmarkedet, restauranter og jernbanestasjonen.", "Close to the beach, night market, restaurants and railway station."]], ["Khao Takiab", ["Roligere strandbase sør for sentrum med utsikt og lokale spisesteder.", "A quieter beach base south of the centre with views and local places to eat."]], ["Nong Kae", ["Praktisk for Cicada Market, strandhoteller og familieaktiviteter.", "Convenient for Cicada Market, beach resorts and family activities."]], ["Cha-am", ["Et enda roligere alternativ nord for Hua Hin med lang strand.", "An even quieter alternative north of Hua Hin with a long beach."]]],
+    tips: [[ ["Planlegg transporten fra Bangkok", "Plan transport from Bangkok"], ["Reisen tar flere timer, og kjøretiden varierer med trafikken. Sammenlign tog, buss og privat transport før avreise.", "The journey takes several hours and travel time varies with traffic. Compare train, bus and private transport before departure."]], [["Sjekk markedsdagene", "Check market days"], ["Cicada og Tamarind er først og fremst helgemarkeder, mens nattmarkedet i sentrum vanligvis er et alternativ flere kvelder.", "Cicada and Tamarind are primarily weekend markets, while the central night market is usually an option on more evenings."]], [["Velg base etter tempo", "Choose your base by pace"], ["Sentrum er mest praktisk, mens Khao Takiab og områdene sørover passer bedre for roligere stranddager.", "The centre is most convenient, while Khao Takiab and areas farther south are better for quieter beach days."]]],
+    transportUrl: "https://www.tourismthailand.org/Destinations/Provinces/Prachuap-Khiri-Khan/231", transportName: "Tourism Authority of Thailand"
   })
 };

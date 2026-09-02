@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DiscoverCarsCta } from "@/components/discovercars-cta";
 
 type PageProps = { params: Promise<{ lang: string }> };
 
@@ -61,6 +62,7 @@ export default async function AirportTransferPage({ params }: PageProps) {
       <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{options.map((item) => <article key={item.icon} className="rounded-[26px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-7">
         <span className="inline-flex rounded-full bg-[#f4d7a1] px-3 py-1.5 text-xs font-bold text-[#b94f3d]">{item.icon}</span><h3 className="display mt-4 text-3xl font-bold">{no ? item.no : item.en}</h3><p className="mt-4 leading-7 text-[#48645f]">{no ? item.noText : item.enText}</p>
       </article>)}</div>
+      <div className="mt-8 lg:mt-10"><DiscoverCarsCta lang={lang} variant="compact" showGuideLink /></div>
     </div></section>
 
     <section className="bg-[#edf4ef] px-5 py-12 lg:px-8 lg:py-16"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[.85fr_1.15fr]">

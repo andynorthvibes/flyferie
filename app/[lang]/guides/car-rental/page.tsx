@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DiscoverCarsCta } from "@/components/discovercars-cta";
 
 type PageProps = { params: Promise<{ lang: string }> };
 
@@ -167,6 +168,9 @@ export default async function CarRentalGuidePage({ params }: PageProps) {
               </article>
             ))}
           </div>
+          <div className="mt-8 lg:mt-10">
+            <DiscoverCarsCta lang={lang} variant="compact" />
+          </div>
         </div>
       </section>
 
@@ -188,18 +192,7 @@ export default async function CarRentalGuidePage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="px-5 py-12 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[30px] bg-[#f4d7a1] p-6 sm:p-10 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10 lg:p-12">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d]">{norwegian ? "Annonse · leiebil" : "Advertisement · car rental"}</p>
-            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Sammenlign før du bestemmer deg" : "Compare before you decide"}</h2>
-            <p className="mt-4 max-w-3xl leading-7 text-[#365b55]">{norwegian ? "DiscoverCars samler tilbud fra flere utleieselskaper. Kontroller alltid leverandør, totalpris og vilkår i det konkrete tilbudet før bestilling." : "DiscoverCars compares offers from multiple rental companies. Always check the supplier, total price and terms of the specific offer before booking."}</p>
-          </div>
-          <a href="https://www.discovercars.com/?a_aid=flyferie" target="_blank" rel="sponsored noopener noreferrer" className="mt-6 inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258] lg:mt-0">
-            {norwegian ? "Sammenlign leiebiler" : "Compare rental cars"} →
-          </a>
-        </div>
-      </section>
+      <DiscoverCarsCta lang={lang} />
 
       <section className="border-t border-[#17332f]/10 px-5 py-12 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-4xl">

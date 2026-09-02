@@ -29,6 +29,7 @@ export const destinations = [
   { slug: "ao-nang", name: "Ao Nang", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strender og øyhopping", tagEn: "Beaches and island hopping", color: "#2f8a7c" },
   { slug: "phuket", name: "Phuket", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strand, byliv og utflukter", tagEn: "Beaches, town life and excursions", color: "#287f79" },
   { slug: "hua-hin", name: "Hua Hin", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strandby, markeder og roligere tempo", tagEn: "Beach town, markets and a gentler pace", color: "#b86b4e" },
+  { slug: "koh-samui", name: "Koh Samui", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Øyliv, strender og templer", tagEn: "Island life, beaches and temples", color: "#3b8d83" },
 ];
 
 export const copy = {

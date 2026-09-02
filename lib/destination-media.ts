@@ -788,5 +788,41 @@ Object.assign(destinationMedia, {
         sourceUrl: "https://commons.wikimedia.org/wiki/File:Monkey_Island_(12250088293).jpg"
       }
     ]
+  },
+  "koh-samui": {
+    hero: {
+      src: "/destinations/koh-samui/hero.jpg",
+      altNo: "Palmestrand på Koh Samui",
+      altEn: "Palm-fringed beach in Koh Samui",
+      photographer: "Yoori Koo",
+      license: "CC0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Ko_Samui,_Thailand_(Unsplash).jpg"
+    },
+    weekend: [
+      {
+        src: "/destinations/koh-samui/weekend-1.jpg",
+        altNo: "Wat Phra Yai på Koh Samui",
+        altEn: "Wat Phra Yai in Koh Samui",
+        photographer: "Maksim Sundukov",
+        license: "CC BY-SA 3.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Big_Buddha_Temple_(Wat_Phra_Yai).jpg"
+      },
+      {
+        src: "/destinations/koh-samui/weekend-2.jpg",
+        altNo: "Na Mueang-fossen på Koh Samui",
+        altEn: "Na Mueang Waterfall in Koh Samui",
+        photographer: "yeowatzup",
+        license: "CC BY 2.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Nam_Tok_Na_Muang,_Ko_Samui,_Thailand_(4570914278).jpg"
+      },
+      {
+        src: "/destinations/koh-samui/weekend-3.jpg",
+        altNo: "Kveldsliv på Koh Samui",
+        altEn: "Evening street life in Koh Samui",
+        photographer: "Goh Rhy Yan",
+        license: "CC0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Ko_Samui,_Thailand_(Unsplash_4sXlVouuQ-0).jpg"
+      }
+    ]
   }
 } satisfies Record<string, DestinationMedia>);

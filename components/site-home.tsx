@@ -5,8 +5,8 @@ import { destinationMedia } from "@/lib/destination-media";
 
 const featuredSlugs = ["berlin", "krakow", "rome", "barcelona", "gdansk", "nice"];
 const moreEuropeSlugs = ["amsterdam", "manchester", "milan", "madrid", "malaga", "copenhagen", "helsinki", "gothenburg"];
-const thailandSlugs = ["bangkok", "ao-nang", "phuket", "hua-hin"];
-const thailandDestinationGuideSlugs = new Set(["phuket", "hua-hin"]);
+const thailandSlugs = ["bangkok", "ao-nang", "phuket", "hua-hin", "koh-samui"];
+const thailandDestinationGuideSlugs = new Set(["phuket", "hua-hin", "koh-samui"]);
 
 export function SiteHome({ lang }: { lang: Lang }) {
   const t = copy[lang];
@@ -65,7 +65,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             {[
               [lang === "no" ? "Weekend med gjengen" : "Weekend with friends", "Berlin · Krakow · Gdansk", "#utforsk"],
               [lang === "no" ? "Skjulte perler" : "Hidden gems", "Tbilisi · Skopje · Katowice", `/${lang}/guides/hidden-gems`],
-              [lang === "no" ? "Opplev Thailand" : "Discover Thailand", "Bangkok · Ao Nang · Phuket · Hua Hin", `/${lang}/guides/thailand`]
+              [lang === "no" ? "Opplev Thailand" : "Discover Thailand", "Bangkok · Ao Nang · Phuket · Hua Hin · Koh Samui", `/${lang}/guides/thailand`]
             ].map(([title, sub, href]) => (
               <Link key={title} href={href} className="group bg-[#123b36]/90 px-5 py-4 backdrop-blur-md transition hover:bg-[#1e6258] sm:px-6 sm:py-5 lg:px-8">
                 <p className="text-sm font-bold text-[#ffd28a]">{title} <span className="inline-block transition group-hover:translate-x-1">→</span></p>
@@ -290,7 +290,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[.24em] text-[#b94f3d]">{lang === "no" ? "En helt egen reise" : "A journey of its own"}</p>
             <h2 className="display mt-3 text-[42px] font-bold leading-none sm:mt-4 sm:text-6xl">{lang === "no" ? "Opplev Thailand" : "Discover Thailand"}</h2>
-            <p className="mt-4 text-base leading-7 text-[#365b55] sm:mt-5 sm:text-lg sm:leading-8">{lang === "no" ? "Thailand står for seg selv på Flyferie: storbyenergi i Bangkok, Krabis dramatiske natur og ulike strandferier i Ao Nang, Phuket og Hua Hin." : "Thailand has its own place on Flyferie: Bangkok's big-city energy, Krabi's dramatic nature and different beach holidays in Ao Nang, Phuket and Hua Hin."}</p>
+            <p className="mt-4 text-base leading-7 text-[#365b55] sm:mt-5 sm:text-lg sm:leading-8">{lang === "no" ? "Thailand står for seg selv på Flyferie: storbyenergi i Bangkok, Krabis dramatiske natur og ulike strandferier i Ao Nang, Phuket, Hua Hin og Koh Samui." : "Thailand has its own place on Flyferie: Bangkok's big-city energy, Krabi's dramatic nature and different beach holidays in Ao Nang, Phuket, Hua Hin and Koh Samui."}</p>
             <Link href={`/${lang}/guides/thailand`} className="mt-6 inline-flex rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white">
               {lang === "no" ? "Planlegg Thailand-reisen" : "Plan your Thailand journey"} →
             </Link>

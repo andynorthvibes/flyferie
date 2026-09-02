@@ -30,6 +30,7 @@ export const destinations = [
   { slug: "phuket", name: "Phuket", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strand, byliv og utflukter", tagEn: "Beaches, town life and excursions", color: "#287f79" },
   { slug: "hua-hin", name: "Hua Hin", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Strandby, markeder og roligere tempo", tagEn: "Beach town, markets and a gentler pace", color: "#b86b4e" },
   { slug: "koh-samui", name: "Koh Samui", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Øyliv, strender og templer", tagEn: "Island life, beaches and temples", color: "#3b8d83" },
+  { slug: "phi-phi", name: "Phi Phi", countryNo: "Thailand", countryEn: "Thailand", tagNo: "Kalksteinsklipper og øyhopping", tagEn: "Limestone cliffs and island hopping", color: "#278b86" },
 ];
 
 export const copy = {

@@ -824,5 +824,41 @@ Object.assign(destinationMedia, {
         sourceUrl: "https://commons.wikimedia.org/wiki/File:Ko_Samui,_Thailand_(Unsplash_4sXlVouuQ-0).jpg"
       }
     ]
+  },
+  "phi-phi": {
+    hero: {
+      src: "/destinations/phi-phi/hero.jpg",
+      altNo: "Longtailbåter ved Phi Phi Don i solnedgang",
+      altEn: "Long-tail boats at Phi Phi Don at sunset",
+      photographer: "Jonny Clow",
+      license: "CC0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Ko_Phi_Phi_Don,_Thailand_(Unsplash).jpg"
+    },
+    weekend: [
+      {
+        src: "/destinations/phi-phi/weekend-1.jpg",
+        altNo: "Longtailbåter i det turkise vannet ved Phi Phi Don",
+        altEn: "Long-tail boats in turquoise water at Phi Phi Don",
+        photographer: "Brandon Minieri",
+        license: "CC BY-SA 4.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Longtails_of_Krabi.jpg"
+      },
+      {
+        src: "/destinations/phi-phi/weekend-2.jpg",
+        altNo: "Kalksteinsklipper ved Maya Bay på Phi Phi Leh",
+        altEn: "Limestone cliffs at Maya Bay on Phi Phi Leh",
+        photographer: "Brandon Minieri",
+        license: "CC BY-SA 4.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Maya_Beach_looking_empty.jpg"
+      },
+      {
+        src: "/destinations/phi-phi/weekend-3.jpg",
+        altNo: "Båter foran kalksteinsklippene på Phi Phi Don",
+        altEn: "Boats beneath the limestone cliffs of Phi Phi Don",
+        photographer: "Alexey Komarov",
+        license: "CC BY 3.0",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Phi_Phi_Don_Island_-_panoramio.jpg"
+      }
+    ]
   }
 } satisfies Record<string, DestinationMedia>);

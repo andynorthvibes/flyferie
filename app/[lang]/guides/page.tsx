@@ -7,6 +7,7 @@ type PageProps = { params: Promise<{ lang: string }> };
 
 const guides = [
   { slug: "plan-weekend-trip", category: "plan", no: "Slik planlegger du en weekendtur", en: "How to plan a weekend trip", noText: "Fra valg av by og budsjett til fly, aktiviteter og avreise.", enText: "From choosing a city and budget to flights, activities and departure.", featured: true },
+  { slug: "choose-weekend-destination", category: "plan", no: "Slik velger du reisemål for weekendturen", en: "How to choose a weekend destination", noText: "Sammenlign reisetid, budsjett, sesong og hva dere vil oppleve.", enText: "Compare travel time, budget, season and what you want to experience." },
   { slug: "surprise-trip", category: "plan", no: "Slik arrangerer du blåtur", en: "How to plan a surprise trip", noText: "Hold reisemålet hemmelig og de praktiske rammene tydelige.", enText: "Keep the destination secret and the practical boundaries clear.", featured: true },
   { slug: "weekend-trip-budget", category: "plan", no: "Lag budsjett for weekendturen", en: "Build a weekend trip budget", noText: "Få oversikt over fly, overnatting, transport, mat og aktiviteter.", enText: "Estimate flights, accommodation, transfers, food and activities." },
   { slug: "hidden-travel-costs", category: "plan", no: "Unngå skjulte kostnader på turen", en: "Avoid hidden travel costs", noText: "Oppdag tilleggene som kan gjøre en billig weekendtur dyrere enn planlagt.", enText: "Spot the extras that can make a cheap weekend trip cost more than planned." },

@@ -136,7 +136,7 @@ export default async function AllDestinationsPage({ params }: PageProps) {
             <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">{norwegian ? "Finn praktiske råd i guidebiblioteket" : "Find practical advice in the guide library"}</h2>
             <p className="mt-3 max-w-2xl leading-7 text-[#48645f]">{norwegian ? "Guider om flypriser, budsjett, transport, pakkelister og andre valg før avreise." : "Guides covering flight prices, budgets, transfers, packing lists and other choices before departure."}</p>
           </div>
-          <Link href={`/${lang}/guides`} className="inline-flex w-fit shrink-0 rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Se alle guider" : "Explore all guides"} →</Link>
+          <div className="flex shrink-0 flex-wrap gap-3"><Link href={`/${lang}/guides/choose-weekend-destination`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Få hjelp til å velge" : "Get help choosing"} →</Link><Link href={`/${lang}/guides`} className="inline-flex w-fit rounded-full border border-[#17332f]/25 bg-white px-6 py-3.5 font-bold">{norwegian ? "Se alle guider" : "Explore all guides"} →</Link></div>
         </div>
       </section>
 

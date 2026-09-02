@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { destinationMedia } from "@/lib/destination-media";
+import { christmasMarketHero, destinationMedia } from "@/lib/destination-media";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
@@ -173,11 +173,14 @@ export default async function ChristmasMarketsPage({ params }: PageProps) {
 
   const norwegian = lang === "no";
   const otherLanguage = norwegian ? "en" : "no";
-  const hero = destinationMedia.hamburg.hero;
-  const credits = Array.from(new Map(markets.map((market) => {
-    const photo = destinationMedia[market.slug].hero;
-    return [photo.sourceUrl || photo.photographer, photo] as const;
-  })).values());
+  const hero = christmasMarketHero;
+  const credits = Array.from(new Map([
+    [hero.sourceUrl || hero.photographer, hero] as const,
+    ...markets.map((market) => {
+      const photo = destinationMedia[market.slug].hero;
+      return [photo.sourceUrl || photo.photographer, photo] as const;
+    })
+  ]).values());
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",

@@ -12,9 +12,18 @@ export type DestinationMedia = {
   weekend: [DestinationPhoto, DestinationPhoto, DestinationPhoto];
 };
 
+export const christmasMarketHero: DestinationPhoto = {
+  src: "/guides/christmas-markets/vienna-rathaus-v2.jpg",
+  altNo: "Julemarkedet foran rådhuset i Wien i skumringen",
+  altEn: "Christmas market in front of Vienna City Hall at dusk",
+  photographer: "Marco Aldeia",
+  license: "CC BY-SA 4.0",
+  sourceUrl: "https://commons.wikimedia.org/wiki/File:Rathaus_Christmas_Market.jpg"
+};
+
 export const destinationMedia: Record<string, DestinationMedia> = {
   berlin: {
-    hero: { src: "/berlin/brandenburg-gate.jpg", altNo: "Brandenburger Tor ved solnedgang", altEn: "Brandenburg Gate at sunset", photographer: "Morn the Gorn", license: "CC BY-SA 3.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Brandenburg_Gate_at_Sunset.jpg" },
+    hero: { src: "/berlin/brandenburg-gate-v2.jpg", altNo: "Brandenburger Tor ved solnedgang", altEn: "Brandenburg Gate at sunset", photographer: "Morn the Gorn", license: "CC BY-SA 3.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Brandenburg_Gate_at_Sunset.jpg" },
     weekend: [
       { src: "/berlin/kreuzberg.jpg", altNo: "Oranienstraße i Kreuzberg", altEn: "Oranienstraße in Kreuzberg", photographer: "Georg Slickers", license: "CC BY-SA 2.5", sourceUrl: "https://commons.wikimedia.org/wiki/File:Berlin-kreuzberg_oranienstrasse_20051019_316.jpg" },
       { src: "/berlin/east-side-gallery.jpg", altNo: "East Side Gallery i Berlin", altEn: "East Side Gallery in Berlin", photographer: "Jens Cederskjold", license: "CC BY 3.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:East_Side_Gallery,_M%C3%BChlenstra%C3%9Fe,_Berlin_-_panoramio_(1).jpg" },
@@ -547,7 +556,14 @@ Object.assign(destinationMedia, {
   },
   malaga: {
     ...destinationMedia.malaga,
-    hero: destinationMedia.malaga.weekend[0]
+    hero: {
+      src: "/destinations/malaga/malaga-port-panorama-v2.jpg",
+      altNo: "Panorama over Málaga sentrum, havnen og Middelhavet",
+      altEn: "Panorama of Málaga city centre, the port and the Mediterranean",
+      photographer: "Dilankf",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Panoramica_malaga.jpg"
+    }
   },
   helsinki: {
     ...destinationMedia.helsinki,
@@ -559,6 +575,14 @@ Object.assign(destinationMedia, {
   },
   manchester: {
     ...destinationMedia.manchester,
+    hero: {
+      src: "/destinations/manchester/deansgate-square-v2.jpg",
+      altNo: "Deansgate Square og Elizabeth Tower i Manchester ved solnedgang",
+      altEn: "Deansgate Square and Elizabeth Tower in Manchester at sunset",
+      photographer: "ChrisClarke88",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Deansgate_Square_%26_Elizabeth_Tower_Manchester_Winter_2020.jpg"
+    },
     weekend: [
       flyferiePhoto("/destinations/manchester/flyferie-1.jpg", "United Trinity-statuen ved Old Trafford", "The United Trinity statue at Old Trafford"),
       flyferiePhoto("/destinations/manchester/flyferie-2.jpg", "Old Trafford fra tribunen", "Old Trafford from the stands"),
@@ -574,7 +598,14 @@ Object.assign(destinationMedia, {
     ]
   },
   tbilisi: {
-    hero: flyferiePhoto("/destinations/tbilisi/flyferie-hero.jpg", "Gamle Tbilisi i kveldsregn", "Old Tbilisi on a rainy evening"),
+    hero: {
+      src: "/destinations/tbilisi/tbilisi-panorama-v2.jpg",
+      altNo: "Panorama over Tbilisi med Kura-elven og Fredsbroen",
+      altEn: "Panorama of Tbilisi with the Kura River and Bridge of Peace",
+      photographer: "Diego Delso",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Vista_de_Tiflis,_Georgia,_2016-09-29,_DD_52-55_PAN.jpg"
+    },
     weekend: [
       destinationMedia.tbilisi.weekend[0],
       flyferiePhoto("/destinations/tbilisi/flyferie-2.jpg", "Utsikt over Tbilisi", "View across Tbilisi"),
@@ -598,7 +629,7 @@ Object.assign(destinationMedia, {
     ]
   },
   amsterdam: {
-    hero: flyferiePhoto("/destinations/amsterdam/flyferie-hero.jpg", "Kanal og kanalhus i Amsterdam", "Canal and canal houses in Amsterdam"),
+    hero: flyferiePhoto("/destinations/amsterdam/flyferie-hero-v2.jpg", "Kanal og kanalhus i Amsterdam", "Canal and canal houses in Amsterdam"),
     weekend: [destinationMedia.amsterdam.weekend[0], destinationMedia.amsterdam.weekend[1], flyferiePhoto("/destinations/amsterdam/flyferie-3.jpg", "Amsterdam i julelys", "Amsterdam in Christmas lights")]
   },
   nice: {
@@ -618,7 +649,7 @@ Object.assign(destinationMedia, {
     ]
   },
   skopje: {
-    hero: flyferiePhoto("/destinations/skopje/flyferie-hero.jpg", "Makedonia-plassen i Skopje", "Macedonia Square in Skopje"),
+    hero: flyferiePhoto("/destinations/skopje/flyferie-hero-v2.jpg", "Makedonia-plassen i Skopje", "Macedonia Square in Skopje"),
     weekend: [
       flyferiePhoto("/destinations/skopje/flyferie-1.jpg", "Vardar-elven gjennom Skopje", "The Vardar River through Skopje"),
       flyferiePhoto("/destinations/skopje/flyferie-2.jpg", "Opplyst bro i Skopje", "Illuminated bridge in Skopje"),

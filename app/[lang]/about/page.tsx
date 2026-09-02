@@ -9,10 +9,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
   const norwegian = lang === "no";
   return {
-    title: norwegian ? "Om Flyferie og annonselenker | Flyferie.no" : "About Flyferie and affiliate links | Flyferie.no",
+    title: norwegian ? "Om Flyferie og våre anbefalinger | Flyferie.no" : "About Flyferie and our recommendations | Flyferie.no",
     description: norwegian
-      ? "Les om Flyferies redaksjonelle prinsipper, anbefalinger og bruk av annonselenker."
-      : "Read about Flyferie's editorial principles, recommendations and use of affiliate links.",
+      ? "Les om Flyferies håndplukkede reisemål, anbefalinger og kommersielle samarbeid."
+      : "Read about Flyferie's handpicked destinations, recommendations and commercial partnerships.",
     alternates: {
       canonical: `/${lang}/about`,
       languages: { "nb-NO": "/no/about", en: "/en/about", "x-default": "/no/about" },
@@ -28,16 +28,16 @@ export default async function AboutPage({ params }: PageProps) {
 
   const principles = norwegian
     ? [
-        ["Nyttig først", "Innholdet skal hjelpe deg å velge reisemål, planlegge turen og forstå alternativene før du bestiller."],
-        ["Tydelig merking", "Betalte lenker og partneranbefalinger merkes tydelig, slik at du alltid vet når Flyferie kan motta provisjon."],
-        ["Uavhengige valg", "En kommersiell avtale skal ikke avgjøre hvilke reisemål, råd eller løsninger som omtales som relevante."],
-        ["Kontroller før kjøp", "Priser og vilkår kan endres. Kontroller alltid totalpris, avbestilling, bagasje, forsikring og andre betingelser hos leverandøren."],
+        ["Håndplukket utvalg", "Flyferie samler reisemål, guider og tjenester vi mener kan være nyttige eller inspirerende for ulike typer reiser."],
+        ["Praktiske råd", "Innholdet skal gjøre det enklere å planlegge turen og forstå viktige valg før du bestiller."],
+        ["Merkede samarbeid", "Noen anbefalinger og lenker er kommersielle samarbeid der Flyferie kan motta provisjon."],
+        ["Kontroller før kjøp", "Utvalget er ikke en fullstendig oversikt over markedet. Kontroller alltid pris, vilkår og egnethet hos leverandøren."],
       ]
     : [
-        ["Useful first", "Our content should help you choose a destination, plan the journey and understand your options before booking."],
-        ["Clear labelling", "Paid links and partner recommendations are clearly labelled so you know when Flyferie may receive a commission."],
-        ["Independent choices", "A commercial agreement does not decide which destinations, advice or services we consider relevant."],
-        ["Check before booking", "Prices and terms may change. Always confirm the total price, cancellation rules, baggage, insurance and other conditions with the provider."],
+        ["Handpicked selection", "Flyferie brings together destinations, guides and services we believe may be useful or inspiring for different kinds of travel."],
+        ["Practical guidance", "Our content aims to make planning easier and highlight important choices before booking."],
+        ["Labelled partnerships", "Some recommendations and links are commercial partnerships through which Flyferie may receive commission."],
+        ["Check before booking", "Our selection is not a complete overview of the market. Always confirm prices, terms and suitability with the provider."],
       ];
 
   return (
@@ -62,8 +62,8 @@ export default async function AboutPage({ params }: PageProps) {
           <h1 className="display mt-3 max-w-4xl text-[48px] font-bold leading-[.98] sm:text-7xl lg:text-[82px]">{norwegian ? "Om Flyferie" : "About Flyferie"}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/80 sm:text-xl sm:leading-9">
             {norwegian
-              ? "Flyferie.no er en uavhengig reiseinspirasjonsside på norsk og engelsk. Vi samler reisemål, guider og praktiske råd som skal gjøre det enklere å finne og planlegge den neste turen."
-              : "Flyferie.no is an independent travel inspiration website in Norwegian and English. We publish destinations, guides and practical advice designed to make choosing and planning your next trip easier."}
+              ? "Flyferie.no er en reiseinspirasjonsside på norsk og engelsk. Vi håndplukker reisemål, guider og anbefalinger som kan gjøre det enklere å finne og planlegge den neste turen."
+              : "Flyferie.no is a Norwegian and English travel inspiration website. We handpick destinations, guides and recommendations that can make choosing and planning your next trip easier."}
           </p>
         </div>
       </section>
@@ -91,13 +91,13 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.2em] text-[#b94f3d] sm:text-sm">{norwegian ? "Annonselenker" : "Affiliate links"}</p>
-            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Provisjon uten høyere pris" : "Commission without a higher price"}</h2>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Utvalgte anbefalinger og samarbeid" : "Selected recommendations and partnerships"}</h2>
           </div>
           <div className="rounded-[24px] bg-white/70 p-6 sm:p-8">
             <p className="leading-7 text-[#365b55]">
               {norwegian
-                ? "Flyferie kan motta provisjon dersom du bestiller gjennom enkelte merkede lenker. Det øker ikke prisen din. Vi bruker inntektene til å utvikle og drifte nettstedet, men partneravtaler skal ikke overstyre redaksjonelle vurderinger. Selve avtalen inngås alltid mellom deg og leverandøren."
-                : "Flyferie may receive a commission when you book through selected, clearly labelled links. This does not increase your price. The revenue supports the development and operation of the website, but partnerships do not override editorial judgement. Any booking agreement is always between you and the provider."}
+                ? "Flyferie viser et håndplukket utvalg og dekker ikke nødvendigvis alle tilgjengelige leverandører. Noen tjenester løftes frem som del av kommersielle samarbeid, og Flyferie kan motta provisjon dersom du bestiller gjennom enkelte merkede lenker. Selve avtalen inngås alltid mellom deg og leverandøren."
+                : "Flyferie presents a handpicked selection and does not necessarily cover every available provider. Some services are featured through commercial partnerships, and Flyferie may receive commission when you book through selected, labelled links. Any booking agreement is always between you and the provider."}
             </p>
           </div>
         </div>

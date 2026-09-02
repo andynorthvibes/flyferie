@@ -17,15 +17,13 @@ export function SiteHome({ lang }: { lang: Lang }) {
   const thailand = thailandSlugs.map((slug) => bySlug[slug]);
   const cityName = (slug: string, fallback: string) => lang === "en" ? fallback : ({ milan: "Milano", copenhagen: "København", gothenburg: "Gøteborg", rome: "Roma" } as Record<string, string>)[slug] ?? fallback;
   const hero = (slug: string) => {
-    const source = slug === "manchester"
-      ? destinationMedia.manchester.weekend[1]
-      : destinationMedia[slug].hero;
-    return { ...source, src: `/homepage-ai/${slug}.webp` };
+    if (slug === "manchester") return destinationMedia.manchester.weekend[1];
+    return destinationMedia[slug].hero;
   };
   const nav = [
     [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
-    [lang === "no" ? "Inspirasjon" : "Inspiration", `/${lang}/guides/hidden-gems`],
+    [lang === "no" ? "Guider" : "Guides", `/${lang}/guides`],
     [lang === "no" ? "Reiseutstyr" : "Travel gear", `/${lang}/guides/travel-gear`],
     [lang === "no" ? "Julemarkeder" : "Christmas Markets", `/${lang}/guides/christmas-markets`],
     ["Thailand", `/${lang}/guides/thailand`]
@@ -171,7 +169,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
           </Link>
           <InspirationCard lang={lang} slug="skopje" label={lang === "no" ? "Overrask gjengen" : "Surprise the group"} title={t.blue} text={t.blueText} />
           <Link href={`/${lang}/guides/christmas-markets`} className="group relative min-h-[270px] overflow-hidden rounded-[30px]">
-            <Image src="/homepage-ai/christmas-market.webp" alt={lang === "no" ? "Julemarkedet på markedsplassen i Krakow" : "Christmas market on Krakow Main Square"} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+            <Image src="/destinations/krakow/christmas-market.jpg" alt={lang === "no" ? "Julemarkedet på markedsplassen i Krakow" : "Christmas market on Krakow Main Square"} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#102f2b]/95 via-[#102f2b]/65 to-transparent" />
             <div className="absolute inset-0 flex max-w-md flex-col justify-end p-6 sm:p-8">
               <p className="text-sm font-bold uppercase tracking-[.18em] text-[#f4c16d]">{lang === "no" ? "Sesongguide" : "Seasonal guide"}</p>
@@ -180,6 +178,32 @@ export function SiteHome({ lang }: { lang: Lang }) {
               <p className="mt-5 font-bold">{lang === "no" ? "Sammenlign julemarkedene" : "Compare the Christmas markets"} →</p>
             </div>
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-[#f4d7a1] px-5 py-12 text-[#17332f] lg:px-8 lg:py-14">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d] sm:text-sm">{lang === "no" ? "Planlegg smartere" : "Plan smarter"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Slik finner du gode flypriser" : "How to find better flight prices"}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#365b55] sm:text-lg sm:leading-8">
+              {lang === "no" ? "Fleksible datoer hjelper, men totalpris, bagasje, flyplass og reisetid avgjør om billetten faktisk er et godt kjøp." : "Flexible dates help, but the total price, baggage, airport and journey time determine whether a ticket is genuinely good value."}
+            </p>
+          </div>
+          <Link href={`/${lang}/guides/cheap-flights`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">
+            {lang === "no" ? "Les flyprisguiden" : "Read the flight price guide"} →
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#e16f59] sm:text-sm">{lang === "no" ? "Fra idé til avreise" : "From idea to departure"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Planlegg en bedre weekendtur" : "Plan a better weekend trip"}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#48645f] sm:text-lg sm:leading-8">{lang === "no" ? "Velg reisemål, finn riktige flytider, bestem budsjett og samle det viktigste i én enkel plan." : "Choose the destination, find suitable flight times, set the budget and bring the essentials together in one simple plan."}</p>
+          </div>
+          <Link href={`/${lang}/guides/plan-weekend-trip`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{lang === "no" ? "Åpne planleggingsguiden" : "Open the planning guide"} →</Link>
         </div>
       </section>
 
@@ -208,6 +232,53 @@ export function SiteHome({ lang }: { lang: Lang }) {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#173f39] px-5 py-12 text-white lg:px-8 lg:py-14">
+        <div className="mx-auto grid max-w-7xl gap-7 rounded-[30px] border border-white/15 bg-white/[.07] p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#ffd078] sm:text-sm">{lang === "no" ? "Fra flyplassen til reisemålet" : "From the airport to your destination"}</p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{lang === "no" ? "Slik velger du riktig flyplasstransport" : "How to choose the right airport transfer"}</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+              {lang === "no" ? "Sammenlign tog, buss, taxi, privat transport og leiebil ut fra pris, ankomsttid, bagasje og hvor mange dere reiser sammen." : "Compare trains, buses, taxis, private transfers and rental cars by price, arrival time, luggage and group size."}
+            </p>
+          </div>
+          <Link href={`/${lang}/guides/airport-transfer`} className="inline-flex w-fit rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] transition hover:bg-[#ffd08b]">
+            {lang === "no" ? "Les transportguiden" : "Read the transfer guide"} →
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-[#edf4ef] px-5 py-10 text-[#17332f] lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 rounded-[28px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#1e776e]">
+              {lang === "no" ? "Annonse · leiebil" : "Advertisement · car rental"}
+            </p>
+            <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">
+              {lang === "no" ? "Trenger du leiebil på reisen?" : "Need a rental car for your trip?"}
+            </h2>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-[#48645f]">
+              {lang === "no"
+                ? "Sammenlign leiebiler fra flere leverandører før avreise, og kontroller alltid pris, forsikring, depositum og drivstoffvilkår før du bestiller."
+                : "Compare rental cars from multiple providers before departure, and always check the price, insurance, deposit and fuel policy before booking."}
+            </p>
+            <Link
+              href={`/${lang}/guides/car-rental`}
+              className="mt-4 inline-flex text-sm font-bold text-[#1e776e] underline decoration-[#1e776e]/35 underline-offset-4 transition hover:text-[#17332f]"
+            >
+              {lang === "no" ? "Les Flyferies leiebilguide" : "Read Flyferie's car rental guide"} →
+            </Link>
+          </div>
+          <a
+            href="https://www.discovercars.com/?a_aid=flyferie"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            className="inline-flex w-fit rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] transition hover:bg-[#ffd08b]"
+          >
+            {lang === "no" ? "Sammenlign leiebiler" : "Compare rental cars"} →
+          </a>
         </div>
       </section>
 
@@ -246,7 +317,17 @@ export function SiteHome({ lang }: { lang: Lang }) {
       <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+          <div className="flex flex-col gap-2 text-sm sm:items-end">
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              <Link href={`/${lang}/about`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">
+                {lang === "no" ? "Om Flyferie" : "About Flyferie"}
+              </Link>
+              <Link href={`/${lang}/privacy`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">
+                {lang === "no" ? "Personvern" : "Privacy"}
+              </Link>
+            </div>
+            <p>© 2026 Flyferie.no · {lang === "no" ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
+          </div>
         </div>
       </footer>
     </main>

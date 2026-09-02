@@ -50,9 +50,47 @@ export default async function AllDestinationsPage({ params }: PageProps) {
   );
   const europe = alphabetical(destinations.filter((place) => !thailandSlugs.has(place.slug)));
   const thailand = alphabetical(destinations.filter((place) => thailandSlugs.has(place.slug)));
+  const pageUrl = `https://flyferie.no/${lang}/destinations`;
+  const orderedDestinations = [...europe, ...thailand];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#collection`,
+        url: pageUrl,
+        name: norwegian ? "Alle reisemål på Flyferie" : "All Flyferie destinations",
+        description: norwegian
+          ? "Flyferies håndplukkede reisemål i Europa og Thailand."
+          : "Flyferie's handpicked destinations across Europe and Thailand.",
+        inLanguage: norwegian ? "nb-NO" : "en",
+        mainEntity: { "@id": `${pageUrl}#destinations` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#destinations`,
+        name: norwegian ? "Reisemål fra Flyferie" : "Destinations from Flyferie",
+        numberOfItems: orderedDestinations.length,
+        itemListElement: orderedDestinations.map((place, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: displayName(place.slug, place.name),
+          url: `https://flyferie.no/${lang}/destinations/${place.slug}`,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: norwegian ? "Forside" : "Home", item: `https://flyferie.no/${lang}` },
+          { "@type": "ListItem", position: 2, name: norwegian ? "Reisemål" : "Destinations", item: pageUrl },
+        ],
+      },
+    ],
+  };
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <header className="bg-[#102f2b] text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-5 sm:py-5 lg:px-8">
           <Link href={`/${lang}`} aria-label="Flyferie.no – forsiden">
@@ -88,6 +126,17 @@ export default async function AllDestinationsPage({ params }: PageProps) {
           <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-9 sm:gap-5 lg:max-w-[820px]">
             {thailand.map((place) => <DestinationCard key={place.slug} lang={lang} place={place} name={displayName(place.slug, place.name)} />)}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#edf4ef] px-5 py-12 lg:px-8 lg:py-16">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[28px] border border-[#17332f]/10 bg-white p-7 shadow-sm sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-[#1e776e]">{norwegian ? "Planlegg reisen" : "Plan your trip"}</p>
+            <h2 className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">{norwegian ? "Finn praktiske råd i guidebiblioteket" : "Find practical advice in the guide library"}</h2>
+            <p className="mt-3 max-w-2xl leading-7 text-[#48645f]">{norwegian ? "Guider om flypriser, budsjett, transport, pakkelister og andre valg før avreise." : "Guides covering flight prices, budgets, transfers, packing lists and other choices before departure."}</p>
+          </div>
+          <Link href={`/${lang}/guides`} className="inline-flex w-fit shrink-0 rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Se alle guider" : "Explore all guides"} →</Link>
         </div>
       </section>
 

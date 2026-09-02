@@ -24,6 +24,7 @@ const guides = [
   { slug: "group-trip", no: "Planlegg med gjengen", en: "Plan with friends", noText: "Fordel ansvar og bli enige før noen bestiller.", enText: "Share responsibility and agree before anyone books." },
   { slug: "romantic-weekend", no: "Planlegg en tur for to", en: "Plan a trip for two", noText: "Velg rammer som gir god tid sammen.", enText: "Choose a framework that leaves quality time together." },
   { slug: "solo-weekend-trip", no: "Dra på weekendtur alene", en: "Take a solo weekend trip", noText: "Velg tempo, område og opplevelser selv.", enText: "Choose your own pace, area and experiences." },
+  { slug: "weekend-trip-with-children", no: "Planlegg weekendtur med barn", en: "Plan a weekend trip with children", noText: "Gjør reisen enkel og legg inn gode pauser.", enText: "Keep the journey simple and include proper breaks." },
 ];
 
 const faq = [

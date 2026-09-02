@@ -260,6 +260,9 @@ export default async function DestinationPage({ params }: PageProps) {
                     </article>
                   ))}
                 </div>
+                <Link href={`/${lang}/guides/choose-hotel-area`} className="mt-6 inline-flex font-bold text-[#1e776e]">
+                  {norwegian ? "Slik velger du riktig hotell og område" : "How to choose the right hotel and area"} →
+                </Link>
               </div>
 
               <div>

@@ -60,10 +60,52 @@ export default async function DestinationPage({ params }: PageProps) {
   const imageCredits = media
     ? Array.from(new Map([media.hero, ...media.weekend].map((photo) => [photo.sourceUrl || photo.photographer, photo])).values())
     : [];
+  const pageUrl = `https://flyferie.no/${lang}/destinations/${slug}`;
+  const description = guide
+    ? norwegian ? guide.introNo : guide.introEn
+    : norwegian ? `${place.tagNo}. En komplett Flyferie-guide er på vei.` : `${place.tagEn}. A complete Flyferie guide is coming soon.`;
+  const absoluteImage = media
+    ? new URL(media.hero.src, "https://flyferie.no").toString()
+    : undefined;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TouristDestination",
+        "@id": `${pageUrl}#destination`,
+        name: displayName,
+        description,
+        url: pageUrl,
+        ...(absoluteImage ? { image: absoluteImage } : {}),
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: norwegian ? place.countryNo : place.countryEn,
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: guide ? (norwegian ? guide.seoNo : guide.seoEn) : displayName,
+        description,
+        inLanguage: norwegian ? "nb-NO" : "en",
+        about: { "@id": `${pageUrl}#destination` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: norwegian ? "Forside" : "Home", item: `https://flyferie.no/${lang}` },
+          { "@type": "ListItem", position: 2, name: norwegian ? "Reisemål" : "Destinations", item: `https://flyferie.no/${lang}/destinations` },
+          { "@type": "ListItem", position: 3, name: displayName, item: pageUrl },
+        ],
+      },
+    ],
+  };
 
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <header className="border-b border-white/10 bg-[#102f2b]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-5 sm:py-5">
           <Link href={"/" + lang} aria-label="Flyferie.no – forsiden">
@@ -284,9 +326,14 @@ export default async function DestinationPage({ params }: PageProps) {
                   {norwegian ? "Finn neste reisemål" : "Find your next destination"}
                 </h2>
               </div>
-              <Link href={"/" + lang} className="rounded-full bg-[#17332f] px-6 py-4 font-bold text-white">
-                {norwegian ? "Utforsk Flyferie →" : "Explore Flyferie →"}
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href={`/${lang}/destinations`} className="rounded-full bg-[#17332f] px-6 py-4 font-bold text-white">
+                  {norwegian ? "Se alle reisemål →" : "See all destinations →"}
+                </Link>
+                <Link href={`/${lang}/guides`} className="rounded-full border border-[#17332f]/30 bg-white/55 px-6 py-4 font-bold text-[#17332f] transition hover:bg-white/80">
+                  {norwegian ? "Åpne guidebiblioteket" : "Open the guide library"} →
+                </Link>
+              </div>
             </div>
           </section>
         </>

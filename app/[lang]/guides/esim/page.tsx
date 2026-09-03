@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 
 type PageProps = { params: Promise<{ lang: string }> };
 
+const amigoEsimUrl = "https://amigoesim.pxf.io/c/7715332/2900873/34019?irck=xyz12";
+
 const steps = [
   {
     number: "01",
@@ -170,10 +172,28 @@ export default async function EsimGuidePage({ params }: PageProps) {
       </section>
 
       <section className="px-5 py-12 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[30px] bg-[#f4d7a1] p-6 sm:p-10 lg:p-12">
-          <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d]">{norwegian ? "Sammenligning kommer" : "Comparison coming soon"}</p>
-          <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Vi venter på riktig samarbeid" : "We are waiting for the right partner"}</h2>
-          <p className="mt-4 max-w-3xl leading-7 text-[#365b55]">{norwegian ? "Flyferie har søkt et eSIM-program. Når det er godkjent, legger vi inn en tydelig merket sammenligningslenke her. Guiden kan brukes uavhengig av hvilken leverandør du velger." : "Flyferie has applied to an eSIM programme. Once approved, a clearly labelled comparison link will be added here. This guide remains useful regardless of provider."}</p>
+        <div className="mx-auto max-w-7xl rounded-[30px] bg-[#f4d7a1] p-6 sm:p-10 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10 lg:p-12">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d]">
+              {norwegian ? "Annonselenke · Flyferie kan motta provisjon" : "Affiliate link · Flyferie may earn a commission"}
+            </p>
+            <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">
+              {norwegian ? "Finn en eSIM-pakke til reisen" : "Find an eSIM plan for your trip"}
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#365b55]">
+              {norwegian
+                ? "Hos Amigo eSIM kan du se datapakker for ulike land og regioner. Kontroller dekning, datamengde, varighet, pris og aktiveringsregler før du bestiller."
+                : "Amigo eSIM offers data plans for different countries and regions. Check coverage, data allowance, validity, price and activation rules before ordering."}
+            </p>
+          </div>
+          <a
+            href={amigoEsimUrl}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            className="mt-6 inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258] lg:mt-0"
+          >
+            {norwegian ? "Se eSIM-pakker hos Amigo" : "View eSIM plans at Amigo"} →
+          </a>
         </div>
       </section>
 

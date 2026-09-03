@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { destinations } from "@/lib/content";
 import { allDestinationGuides as destinationGuides } from "@/lib/all-destination-guides";
 import { destinationMedia } from "@/lib/destination-media";
+import { localRecommendations } from "@/lib/local-recommendations";
 
 type PageProps = {
   params: Promise<{ lang: string; slug: string }>;
@@ -57,6 +58,7 @@ export default async function DestinationPage({ params }: PageProps) {
   const displayName = norwegian ? (norwegianNames[slug] ?? place.name) : place.name;
 
   const media = destinationMedia[slug];
+  const recommendations = localRecommendations[slug] ?? [];
   const imageCredits = media
     ? Array.from(new Map([media.hero, ...media.weekend].map((photo) => [photo.sourceUrl || photo.photographer, photo])).values())
     : [];
@@ -240,6 +242,64 @@ export default async function DestinationPage({ params }: PageProps) {
               </div>
             </div>
           </section>
+
+          {recommendations.length > 0 && (
+            <section className="bg-[#f5e8d3]">
+              <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
+                <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
+                  {norwegian ? "Personlige anbefalinger" : "Personal recommendations"}
+                </p>
+                <h2 className="display mt-2 text-[38px] font-bold leading-tight sm:mt-3 sm:text-5xl">
+                  {norwegian ? "Flyferie har vært her" : "Places Flyferie has visited"}
+                </h2>
+                <p className="mt-4 max-w-3xl text-lg leading-8 text-[#48645f]">
+                  {norwegian
+                    ? "Steder vi selv har besøkt i Krakow og gjerne anbefaler videre."
+                    : "Places we have personally visited in Krakow and are happy to recommend."}
+                </p>
+
+                <div className="mt-8 grid gap-6 sm:mt-10 lg:grid-cols-2">
+                  {recommendations.map((recommendation) => (
+                    <article
+                      key={recommendation.name}
+                      className="overflow-hidden rounded-[28px] border border-[#17332f]/10 bg-white shadow-sm"
+                    >
+                      <figure className="relative h-64 sm:h-72">
+                        <Image
+                          src={recommendation.image}
+                          alt={norwegian ? recommendation.imageAltNo : recommendation.imageAltEn}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/55 via-transparent to-transparent" />
+                        <figcaption className="absolute bottom-4 left-5 text-xs font-medium text-white/90">
+                          {norwegian ? "Foto" : "Photo"}: Flyferie
+                        </figcaption>
+                      </figure>
+                      <div className="p-6 sm:p-7">
+                        <p className="text-xs font-bold uppercase tracking-[.18em] text-[#e16f59]">
+                          {norwegian ? recommendation.categoryNo : recommendation.categoryEn}
+                        </p>
+                        <h3 className="mt-2 text-2xl font-bold">{recommendation.name}</h3>
+                        <p className="mt-3 leading-7 text-[#48645f]">
+                          {norwegian ? recommendation.descriptionNo : recommendation.descriptionEn}
+                        </p>
+                        <a
+                          href={recommendation.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-5 inline-flex rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#24544d]"
+                        >
+                          {norwegian ? "Besøk nettstedet" : "Visit website"} →
+                        </a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           <section className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
             <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">

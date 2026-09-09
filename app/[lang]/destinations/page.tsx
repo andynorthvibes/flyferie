@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/${lang}/destinations`,
       languages: {
         "nb-NO": "/no/destinations",
-        en: "/en/destinations",
+        "en-GB": "/en/destinations",
         "x-default": "/no/destinations",
       },
     },
@@ -63,7 +63,7 @@ export default async function AllDestinationsPage({ params }: PageProps) {
         description: norwegian
           ? "Flyferies håndplukkede reisemål i Europa og Thailand."
           : "Flyferie's handpicked destinations across Europe and Thailand.",
-        inLanguage: norwegian ? "nb-NO" : "en",
+        inLanguage: norwegian ? "nb-NO" : "en-GB",
         mainEntity: { "@id": `${pageUrl}#destinations` },
       },
       {

@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -128,7 +129,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Explore Bangkok, Ao Nang, Phuket, Hua Hin, Koh Samui and Phi Phi with Flyferie's guides to areas, experiences and trip planning.",
     alternates: {
       canonical: `/${lang}/guides/thailand`,
-      languages: { "nb-NO": "/no/guides/thailand", en: "/en/guides/thailand", "x-default": "/no/guides/thailand" }
+      languages: { "nb-NO": "/no/guides/thailand", "en-GB": "/en/guides/thailand", "x-default": "/no/guides/thailand" }
     }
   };
 }
@@ -153,13 +154,14 @@ export default async function ThailandPage({ params }: PageProps) {
     "@type": "Article",
     headline: norwegian ? "Opplev Thailand: våre reisemål" : "Discover Thailand: our destinations",
     description: norwegian ? "Guider til Flyferies reisemål i Thailand." : "Guides to Flyferie's destinations in Thailand.",
-    inLanguage: norwegian ? "nb-NO" : "en",
+    inLanguage: norwegian ? "nb-NO" : "en-GB",
     image: bangkok.hero.src,
     publisher: { "@type": "Organization", name: "Flyferie.no" }
   };
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="thailand" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

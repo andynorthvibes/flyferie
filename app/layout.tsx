@@ -85,7 +85,7 @@ export default function RootLayout({
         name: "Flyferie.no",
         url: "https://flyferie.no",
         publisher: { "@id": "https://flyferie.no/#organization" },
-        inLanguage: ["nb-NO", "en"],
+        inLanguage: ["nb-NO", "en-GB"],
       },
     ],
   };

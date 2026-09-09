@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Reiseforsikring – dette bør du kontrollere | Flyferie.no" : "Travel insurance – what to check before travelling | Flyferie.no",
     description: no ? "En praktisk sjekkliste for reiseforsikring: sykdom, avbestilling, bagasje, forsinkelser, aktiviteter og betalingskort." : "A practical travel insurance checklist covering illness, cancellation, baggage, delays, activities and payment cards.",
-    alternates: { canonical: `/${lang}/guides/travel-insurance`, languages: { "nb-NO": "/no/guides/travel-insurance", en: "/en/guides/travel-insurance", "x-default": "/no/guides/travel-insurance" } },
+    alternates: { canonical: `/${lang}/guides/travel-insurance`, languages: { "nb-NO": "/no/guides/travel-insurance", "en-GB": "/en/guides/travel-insurance", "x-default": "/no/guides/travel-insurance" } },
   };
 }
 
@@ -36,11 +37,12 @@ export default async function TravelInsurancePage({ params }: PageProps) {
   const no = lang === "no";
   const other = no ? "en" : "no";
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Reiseforsikring – dette bør du kontrollere" : "Travel insurance – what to check", inLanguage: no ? "nb-NO" : "en", publisher: { "@type": "Organization", name: "Flyferie.no" } },
+    { "@type": "Article", headline: no ? "Reiseforsikring – dette bør du kontrollere" : "Travel insurance – what to check", inLanguage: no ? "nb-NO" : "en-GB", publisher: { "@type": "Organization", name: "Flyferie.no" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item.qNo : item.qEn, acceptedAnswer: { "@type": "Answer", text: no ? item.aNo : item.aEn } })) },
   ] };
 
   return <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="travel-insurance" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     <header className="border-b border-white/10 bg-[#102f2b] text-white"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8"><Link href={`/${lang}`} aria-label="Flyferie.no"><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[185px] sm:w-[225px]" /></Link><div className="flex items-center gap-4"><Link href={`/${lang}/guides/travel-gear`} className="text-sm font-bold">{no ? "Reiseutstyr" : "Travel gear"}</Link><Link href={`/${other}/guides/travel-insurance`} className="rounded-full border border-white/40 px-4 py-2 text-sm font-bold">{no ? "EN" : "NO"}</Link></div></div></header>
 

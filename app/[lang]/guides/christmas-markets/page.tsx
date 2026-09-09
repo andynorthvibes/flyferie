@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -160,7 +161,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/${lang}/guides/christmas-markets`,
       languages: {
         "nb-NO": "/no/guides/christmas-markets",
-        en: "/en/guides/christmas-markets",
+        "en-GB": "/en/guides/christmas-markets",
         "x-default": "/no/guides/christmas-markets"
       }
     }
@@ -188,13 +189,14 @@ export default async function ChristmasMarketsPage({ params }: PageProps) {
     description: norwegian
       ? "Åtte julemarkeder sammenlignet av Flyferie."
       : "Eight Christmas markets compared by Flyferie.",
-    inLanguage: norwegian ? "nb-NO" : "en",
+    inLanguage: norwegian ? "nb-NO" : "en-GB",
     image: hero.src,
     publisher: { "@type": "Organization", name: "Flyferie.no" }
   };
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="christmas-markets" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Når bør du bestille hotell? Praktisk guide | Flyferie.no" : "When should you book a hotel? Practical guide | Flyferie.no",
     description: no ? "Se når det kan lønne seg å bestille hotell, og hvordan pris, tilgjengelighet, datoer og avbestillingsvilkår påvirker valget." : "Learn when to book a hotel and how price, availability, dates and cancellation conditions affect the decision.",
-    alternates: { canonical: `/${lang}/guides/when-to-book-hotels`, languages: { "nb-NO": "/no/guides/when-to-book-hotels", en: "/en/guides/when-to-book-hotels", "x-default": "/no/guides/when-to-book-hotels" } },
+    alternates: { canonical: `/${lang}/guides/when-to-book-hotels`, languages: { "nb-NO": "/no/guides/when-to-book-hotels", "en-GB": "/en/guides/when-to-book-hotels", "x-default": "/no/guides/when-to-book-hotels" } },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function WhenToBookHotelsPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/when-to-book-hotels`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Når bør du bestille hotell?" : "When should you book a hotel?", description: no ? "En praktisk guide til tidspunkt, pris og tilgjengelighet ved hotellbestilling." : "A practical guide to timing, price and availability when booking a hotel.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Når bør du bestille hotell?" : "When should you book a hotel?", description: no ? "En praktisk guide til tidspunkt, pris og tilgjengelighet ved hotellbestilling." : "A practical guide to timing, price and availability when booking a hotel.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Når bestille hotell" : "When to book a hotel", item: pageUrl }] },
   ] };

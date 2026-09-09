@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Romantisk weekendtur – slik planlegger dere en tur for to | Flyferie.no" : "Romantic weekend trip – how to plan a trip for two | Flyferie.no",
     description: no ? "Planlegg en romantisk weekendtur med riktig reisemål, hotell, budsjett og opplevelser – uten å fylle hvert minutt." : "Plan a romantic weekend trip with the right destination, hotel, budget and experiences without filling every minute.",
-    alternates: { canonical: `/${lang}/guides/romantic-weekend`, languages: { "nb-NO": "/no/guides/romantic-weekend", en: "/en/guides/romantic-weekend", "x-default": "/no/guides/romantic-weekend" } },
+    alternates: { canonical: `/${lang}/guides/romantic-weekend`, languages: { "nb-NO": "/no/guides/romantic-weekend", "en-GB": "/en/guides/romantic-weekend", "x-default": "/no/guides/romantic-weekend" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function RomanticWeekendPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/romantic-weekend`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Slik planlegger dere en romantisk weekendtur" : "How to plan a romantic weekend trip", description: no ? "En praktisk guide til en vellykket tur for to." : "A practical guide to a successful trip for two.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Slik planlegger dere en romantisk weekendtur" : "How to plan a romantic weekend trip", description: no ? "En praktisk guide til en vellykket tur for to." : "A practical guide to a successful trip for two.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Romantisk weekendtur" : "Romantic weekend trip", item: pageUrl }] },
   ] };

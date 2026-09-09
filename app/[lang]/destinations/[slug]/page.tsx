@@ -6,6 +6,7 @@ import { destinations } from "@/lib/content";
 import { allDestinationGuides as destinationGuides } from "@/lib/all-destination-guides";
 import { destinationMedia } from "@/lib/destination-media";
 import { localRecommendations } from "@/lib/local-recommendations";
+import { DestinationTravelTools } from "@/components/destination-travel-tools";
 
 type PageProps = {
   params: Promise<{ lang: string; slug: string }>;
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang, slug } = await params;
   const place = destinations.find((item) => item.slug === slug);
   const guide = destinationGuides[slug];
+  const media = destinationMedia[slug];
 
   if (!place) return {};
 
@@ -31,9 +33,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/${lang}/destinations/${slug}`,
       languages: {
         "nb-NO": `/no/destinations/${slug}`,
-        en: `/en/destinations/${slug}`,
+        "en-GB": `/en/destinations/${slug}`,
         "x-default": `/no/destinations/${slug}`,
       },
+    },
+    openGraph: {
+      type: "article",
+      url: `/${lang}/destinations/${slug}`,
+      title: guide ? (lang === "no" ? guide.seoNo : guide.seoEn) : place.name,
+      description: guide ? (lang === "no" ? guide.introNo : guide.introEn) : undefined,
+      locale: lang === "no" ? "nb_NO" : "en_GB",
+      alternateLocale: lang === "no" ? ["en_GB"] : ["nb_NO"],
+      ...(media ? { images: [{ url: media.hero.src, alt: lang === "no" ? media.hero.altNo : media.hero.altEn }] } : {}),
     },
   };
 }
@@ -90,8 +101,18 @@ export default async function DestinationPage({ params }: PageProps) {
         url: pageUrl,
         name: guide ? (norwegian ? guide.seoNo : guide.seoEn) : displayName,
         description,
-        inLanguage: norwegian ? "nb-NO" : "en",
+        inLanguage: norwegian ? "nb-NO" : "en-GB",
         about: { "@id": `${pageUrl}#destination` },
+      },
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#guide`,
+        headline: guide ? (norwegian ? guide.seoNo : guide.seoEn) : displayName,
+        description,
+        inLanguage: norwegian ? "nb-NO" : "en-GB",
+        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        publisher: { "@id": "https://flyferie.no/#organization" },
+        ...(absoluteImage ? { image: absoluteImage } : {}),
       },
       {
         "@type": "BreadcrumbList",
@@ -378,6 +399,8 @@ export default async function DestinationPage({ params }: PageProps) {
               </div>
             </section>
           )}
+
+          <DestinationTravelTools lang={norwegian ? "no" : "en"} destination={displayName} />
 
           <section className="bg-[#f6ba55]">
             <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-12 sm:flex-row sm:items-center sm:justify-between">

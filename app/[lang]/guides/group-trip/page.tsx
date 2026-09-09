@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Tur med gjengen – slik planlegger dere gruppereisen | Flyferie.no" : "Trip with friends – how to plan group travel | Flyferie.no",
     description: no ? "Planlegg weekendtur med gjengen: dato, budsjett, reisemål, romfordeling, betaling, ansvar og aktiviteter." : "Plan a weekend trip with friends: dates, budget, destination, room allocation, payments, responsibilities and activities.",
-    alternates: { canonical: `/${lang}/guides/group-trip`, languages: { "nb-NO": "/no/guides/group-trip", en: "/en/guides/group-trip", "x-default": "/no/guides/group-trip" } },
+    alternates: { canonical: `/${lang}/guides/group-trip`, languages: { "nb-NO": "/no/guides/group-trip", "en-GB": "/en/guides/group-trip", "x-default": "/no/guides/group-trip" } },
   };
 }
 
@@ -43,11 +44,12 @@ export default async function GroupTripPage({ params }: PageProps) {
   const no = lang === "no";
   const other = no ? "en" : "no";
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "HowTo", name: no ? "Slik planlegger dere tur med gjengen" : "How to plan a trip with friends", inLanguage: no ? "nb-NO" : "en", step: steps.map((item) => ({ "@type": "HowToStep", name: no ? item.no : item.en, text: no ? item.noText : item.enText })) },
+    { "@type": "HowTo", name: no ? "Slik planlegger dere tur med gjengen" : "How to plan a trip with friends", inLanguage: no ? "nb-NO" : "en-GB", step: steps.map((item) => ({ "@type": "HowToStep", name: no ? item.no : item.en, text: no ? item.noText : item.enText })) },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item.qNo : item.qEn, acceptedAnswer: { "@type": "Answer", text: no ? item.aNo : item.aEn } })) },
   ] };
 
   return <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="group-trip" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     <header className="border-b border-white/10 bg-[#102f2b] text-white"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8"><Link href={`/${lang}`}><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[185px] sm:w-[225px]" /></Link><div className="flex items-center gap-4"><Link href={`/${lang}/guides`} className="text-sm font-bold">{no ? "Guider" : "Guides"}</Link><Link href={`/${other}/guides/group-trip`} className="rounded-full border border-white/40 px-4 py-2 text-sm font-bold">{no ? "EN" : "NO"}</Link></div></div></header>
 

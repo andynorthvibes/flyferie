@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Read about Flyferie's handpicked destinations, recommendations and commercial partnerships.",
     alternates: {
       canonical: `/${lang}/about`,
-      languages: { "nb-NO": "/no/about", en: "/en/about", "x-default": "/no/about" },
+      languages: { "nb-NO": "/no/about", "en-GB": "/en/about", "x-default": "/no/about" },
     },
   };
 }

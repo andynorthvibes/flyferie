@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Weekendtur med barn – slik planlegger dere reisen | Flyferie.no" : "Weekend trip with children – how to plan the journey | Flyferie.no",
     description: no ? "Planlegg weekendtur med barn med enkle flytider, praktisk hotell, korte avstander, pauser og riktig håndbagasje." : "Plan a weekend trip with children using simple flights, practical accommodation, short distances, breaks and suitable cabin baggage.",
-    alternates: { canonical: `/${lang}/guides/weekend-trip-with-children`, languages: { "nb-NO": "/no/guides/weekend-trip-with-children", en: "/en/guides/weekend-trip-with-children", "x-default": "/no/guides/weekend-trip-with-children" } },
+    alternates: { canonical: `/${lang}/guides/weekend-trip-with-children`, languages: { "nb-NO": "/no/guides/weekend-trip-with-children", "en-GB": "/en/guides/weekend-trip-with-children", "x-default": "/no/guides/weekend-trip-with-children" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function WeekendTripWithChildrenPage({ params }: PageProps)
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/weekend-trip-with-children`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Weekendtur med barn" : "Weekend trip with children", description: no ? "En praktisk guide til en kort familietur." : "A practical guide to a short family trip.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Weekendtur med barn" : "Weekend trip with children", description: no ? "En praktisk guide til en kort familietur." : "A practical guide to a short family trip.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Weekendtur med barn" : "Weekend trip with children", item: pageUrl }] },
   ] };

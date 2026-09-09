@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Skjulte kostnader på weekendtur – dette bør du sjekke | Flyferie.no" : "Hidden weekend trip costs – what to check | Flyferie.no",
     description: no ? "Unngå budsjettsprekk ved å kontrollere bagasje, flyplasstransport, hotelltillegg, valuta, mobildata og leiebil." : "Avoid budget surprises by checking baggage, airport transfers, hotel extras, currency, mobile data and car rental costs.",
-    alternates: { canonical: `/${lang}/guides/hidden-travel-costs`, languages: { "nb-NO": "/no/guides/hidden-travel-costs", en: "/en/guides/hidden-travel-costs", "x-default": "/no/guides/hidden-travel-costs" } },
+    alternates: { canonical: `/${lang}/guides/hidden-travel-costs`, languages: { "nb-NO": "/no/guides/hidden-travel-costs", "en-GB": "/en/guides/hidden-travel-costs", "x-default": "/no/guides/hidden-travel-costs" } },
   };
 }
 
@@ -40,7 +40,7 @@ export default async function HiddenTravelCostsPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/hidden-travel-costs`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Skjulte kostnader på weekendtur" : "Hidden weekend trip costs", description: no ? "En praktisk oversikt over reisekostnadene som ofte glemmes." : "A practical overview of travel costs that are often overlooked.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Skjulte kostnader på weekendtur" : "Hidden weekend trip costs", description: no ? "En praktisk oversikt over reisekostnadene som ofte glemmes." : "A practical overview of travel costs that are often overlooked.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Skjulte reisekostnader" : "Hidden travel costs", item: pageUrl }] },
   ] };

@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -69,7 +70,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "How to choose, install and use a travel eSIM. Check coverage, data allowance, validity and activation before departure.",
     alternates: {
       canonical: `/${lang}/guides/esim`,
-      languages: { "nb-NO": "/no/guides/esim", en: "/en/guides/esim", "x-default": "/no/guides/esim" },
+      languages: { "nb-NO": "/no/guides/esim", "en-GB": "/en/guides/esim", "x-default": "/no/guides/esim" },
     },
   };
 }
@@ -86,7 +87,7 @@ export default async function EsimGuidePage({ params }: PageProps) {
         "@type": "Article",
         headline: norwegian ? "eSIM på ferie – slik får du mobildata på reisen" : "Travel eSIM guide – mobile data abroad",
         description: norwegian ? "Flyferies guide til valg, installasjon og bruk av eSIM på reise." : "Flyferie's guide to choosing, installing and using an eSIM while travelling.",
-        inLanguage: norwegian ? "nb-NO" : "en",
+        inLanguage: norwegian ? "nb-NO" : "en-GB",
         publisher: { "@type": "Organization", name: "Flyferie.no" },
       },
       {
@@ -102,6 +103,7 @@ export default async function EsimGuidePage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="esim" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

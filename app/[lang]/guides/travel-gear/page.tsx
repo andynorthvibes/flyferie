@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -106,7 +107,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Practical guidance on luggage, eSIMs, travel shoes, cameras, digital safety, trains and ferries.",
     alternates: {
       canonical: `/${lang}/guides/travel-gear`,
-      languages: { "nb-NO": "/no/guides/travel-gear", en: "/en/guides/travel-gear", "x-default": "/no/guides/travel-gear" },
+      languages: { "nb-NO": "/no/guides/travel-gear", "en-GB": "/en/guides/travel-gear", "x-default": "/no/guides/travel-gear" },
     },
   };
 }
@@ -121,12 +122,13 @@ export default async function TravelGearPage({ params }: PageProps) {
     "@type": "Article",
     headline: norwegian ? "Reiseutstyr og nyttige tjenester på tur" : "Travel gear and useful services",
     description: norwegian ? "Flyferies praktiske guide til smartere pakking og enklere reiser." : "Flyferie's practical guide to smarter packing and easier travel.",
-    inLanguage: norwegian ? "nb-NO" : "en",
+    inLanguage: norwegian ? "nb-NO" : "en-GB",
     publisher: { "@type": "Organization", name: "Flyferie.no" },
   };
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="travel-gear" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

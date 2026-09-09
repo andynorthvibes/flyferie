@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Reiseguider – planlegg neste flyferie | Flyferie.no" : "Travel guides – plan your next flight holiday | Flyferie.no",
     description: no ? "Alle Flyferies guider om weekendturer, flypriser, transport, pakkelister, reiseforsikring, eSIM og reisemål." : "All Flyferie guides covering weekend trips, flight prices, transfers, packing lists, travel insurance, eSIMs and destinations.",
-    alternates: { canonical: `/${lang}/guides`, languages: { "nb-NO": "/no/guides", en: "/en/guides", "x-default": "/no/guides" } },
+    alternates: { canonical: `/${lang}/guides`, languages: { "nb-NO": "/no/guides", "en-GB": "/en/guides", "x-default": "/no/guides" } },
   };
 }
 
@@ -70,7 +70,7 @@ export default async function GuidesPage({ params }: PageProps) {
         description: no
           ? "Praktiske reiseguider om planlegging, bestilling, forberedelser og reisemål."
           : "Practical travel guides covering planning, booking, preparation and destinations.",
-        inLanguage: no ? "nb-NO" : "en",
+        inLanguage: no ? "nb-NO" : "en-GB",
         mainEntity: { "@id": `${pageUrl}#guides` },
       },
       {
@@ -102,6 +102,13 @@ export default async function GuidesPage({ params }: PageProps) {
     <section className="relative overflow-hidden bg-[#173f39] px-5 py-16 text-white sm:py-24 lg:px-8 lg:py-28"><div className="absolute -right-24 -top-28 h-80 w-80 rounded-full bg-[#f4b860]/25 blur-3xl" /><div className="absolute -bottom-32 left-1/4 h-80 w-80 rounded-full bg-[#2d9587]/35 blur-3xl" /><div className="relative mx-auto max-w-7xl"><Link href={`/${lang}`} className="text-sm font-bold text-[#ffd078]">← {no ? "Tilbake til forsiden" : "Back to the home page"}</Link><p className="mt-9 text-xs font-bold uppercase tracking-[.22em] text-[#ffd078]">{no ? "Flyferies guidebibliotek" : "Flyferie's guide library"}</p><h1 className="display mt-3 max-w-5xl text-[48px] font-bold leading-[.98] sm:text-7xl lg:text-[82px]">{no ? "Fra første reiseidé til du er fremme" : "From the first travel idea to arrival"}</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-white/80 sm:text-xl">{no ? "Praktiske og ærlige guider som hjelper deg å velge, sammenligne, pakke og reise bedre." : "Practical, honest guides that help you choose, compare, pack and travel better."}</p></div></section>
 
     <section className="px-5 py-12 sm:py-16 lg:px-8"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#e16f59]">{no ? "Start her" : "Start here"}</p><h2 className="display mt-3 text-[38px] font-bold sm:text-5xl">{no ? "Utvalgte guider" : "Featured guides"}</h2><div className="mt-8 grid gap-5 lg:grid-cols-3">{guides.filter((guide) => guide.featured).map((guide, index) => <Link key={guide.slug} href={`/${lang}/guides/${guide.slug}`} className={`group rounded-[28px] p-7 text-white shadow-sm transition hover:-translate-y-1 sm:p-8 ${index === 1 ? "bg-[#b94f3d]" : "bg-[#173f39]"}`}><p className="text-xs font-bold uppercase tracking-[.18em] text-[#ffd078]">{String(index + 1).padStart(2, "0")}</p><h3 className="display mt-4 text-3xl font-bold leading-tight">{no ? guide.no : guide.en}</h3><p className="mt-4 leading-7 text-white/75">{no ? guide.noText : guide.enText}</p><p className="mt-6 font-bold">{no ? "Les guiden" : "Read the guide"} <span className="inline-block transition group-hover:translate-x-1">→</span></p></Link>)}</div></div></section>
+
+    <section className="border-y border-[#17332f]/10 bg-white px-5 py-12 lg:px-8"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#1e776e]">{no ? "Velg riktig startpunkt" : "Choose the right starting point"}</p><h2 className="display mt-3 text-[36px] font-bold sm:text-5xl">{no ? "Fire guider – fire forskjellige valg" : "Four guides—four different decisions"}</h2><div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{[
+      ["choose-weekend-destination", "Velg reisemål", "Choose a destination", "Sammenlign by, sesong og reisetid.", "Compare cities, seasons and travel time."],
+      ["plan-weekend-trip", "Planlegg hele turen", "Plan the full trip", "Gå fra idé til ferdig reiseplan.", "Go from an idea to a complete plan."],
+      ["group-trip", "Reis med gjengen", "Travel with friends", "Fordel ansvar, betaling og ønsker.", "Coordinate responsibilities, payments and preferences."],
+      ["surprise-trip", "Arranger blåtur", "Plan a surprise trip", "Hold reisemålet hemmelig uten å miste kontroll.", "Keep the destination secret without losing control."],
+    ].map((item) => <Link key={item[0]} href={`/${lang}/guides/${item[0]}`} className="rounded-[22px] bg-[#edf4ef] p-6 transition hover:-translate-y-1"><h3 className="text-xl font-bold">{no ? item[1] : item[2]} →</h3><p className="mt-3 text-sm leading-6 text-[#48645f]">{no ? item[3] : item[4]}</p></Link>)}</div></div></section>
 
     {categories.map((category, index) => { const items = guides.filter((guide) => guide.category === category.id); return <section key={category.id} className={`${index % 2 ? "bg-[#edf4ef]" : "bg-white"} px-5 py-12 lg:px-8 lg:py-16`}><div className="mx-auto max-w-7xl"><div className="grid gap-4 lg:grid-cols-[.75fr_1.25fr] lg:items-end"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#1e776e]">{String(index + 1).padStart(2, "0")}</p><h2 className="display mt-3 text-[38px] font-bold sm:text-5xl">{no ? category.no : category.en}</h2></div><p className="max-w-2xl leading-7 text-[#48645f] lg:justify-self-end">{no ? category.noText : category.enText}</p></div><div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{items.map((guide) => <Link key={guide.slug} href={`/${lang}/guides/${guide.slug}`} className="group rounded-[22px] border border-[#17332f]/10 bg-[#fffaf1] p-6 shadow-sm transition hover:-translate-y-1"><h3 className="text-xl font-bold">{no ? guide.no : guide.en} <span className="inline-block transition group-hover:translate-x-1">→</span></h3><p className="mt-3 text-sm leading-6 text-[#48645f]">{no ? guide.noText : guide.enText}</p></Link>)}</div></div></section>; })}
 

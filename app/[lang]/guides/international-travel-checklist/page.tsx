@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Sjekkliste før utenlandsreisen | Flyferie.no" : "Checklist before international travel | Flyferie.no",
     description: no ? "Praktisk sjekkliste før utenlandsreisen: pass, innreisekrav, helse, forsikring, betaling, mobil, transport og hjemmet." : "A practical pre-travel checklist covering passport, entry rules, health, insurance, payments, mobile access, transport and home.",
-    alternates: { canonical: `/${lang}/guides/international-travel-checklist`, languages: { "nb-NO": "/no/guides/international-travel-checklist", en: "/en/guides/international-travel-checklist", "x-default": "/no/guides/international-travel-checklist" } },
+    alternates: { canonical: `/${lang}/guides/international-travel-checklist`, languages: { "nb-NO": "/no/guides/international-travel-checklist", "en-GB": "/en/guides/international-travel-checklist", "x-default": "/no/guides/international-travel-checklist" } },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function InternationalTravelChecklistPage({ params }: PageP
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/international-travel-checklist`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Sjekkliste før utenlandsreisen" : "Checklist before international travel", description: no ? "En praktisk sjekkliste for de viktigste forberedelsene før en utenlandsreise." : "A practical checklist for key preparations before international travel.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Sjekkliste før utenlandsreisen" : "Checklist before international travel", description: no ? "En praktisk sjekkliste for de viktigste forberedelsene før en utenlandsreise." : "A practical checklist for key preparations before international travel.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Sjekkliste før utenlandsreisen" : "International travel checklist", item: pageUrl }] },
   ] };

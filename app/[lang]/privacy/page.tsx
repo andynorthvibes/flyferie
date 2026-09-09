@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Learn how Flyferie handles technical usage data, email and external links.",
     alternates: {
       canonical: `/${lang}/privacy`,
-      languages: { "nb-NO": "/no/privacy", en: "/en/privacy", "x-default": "/no/privacy" },
+      languages: { "nb-NO": "/no/privacy", "en-GB": "/en/privacy", "x-default": "/no/privacy" },
     },
   };
 }
@@ -32,6 +32,7 @@ export default async function PrivacyPage({ params }: PageProps) {
         ["Teknisk statistikk", "Flyferie bruker Vercel Analytics og Speed Insights for å forstå generell bruk av nettstedet og følge med på teknisk ytelse. I den forbindelse kan Vercel behandle tekniske bruksdata i tråd med sine egne vilkår."],
         ["E-post", "Når du kontakter Flyferie på e-post, brukes opplysningene du sender for å lese og besvare henvendelsen. Ikke send sensitive personopplysninger som ikke er nødvendige for saken."],
         ["Eksterne lenker", "Flyferie lenker til eksterne leverandører og enkelte merkede annonselenker. Når du går videre til en annen nettside, gjelder leverandørens egne vilkår og personvernregler."],
+        ["Annonser og samtykke", "Flyferie viser foreløpig ikke personaliserte annonser. Dersom vi senere tar i bruk annonseteknologi eller andre ikke-nødvendige informasjonskapsler, vil denne erklæringen oppdateres og du vil få et tydelig samtykkevalg før slik teknologi aktiveres."],
         ["Ingen brukerkonto", "Flyferie tilbyr ikke innlogging eller personlige brukerkontoer. Nettstedet har heller ikke et kontaktskjema som lagrer henvendelser i Flyferies egen database."],
         ["Endringer", "Denne siden kan oppdateres når nettstedet eller tjenestene vi bruker endres. Den nyeste versjonen vil alltid være tilgjengelig her."],
       ]
@@ -39,6 +40,7 @@ export default async function PrivacyPage({ params }: PageProps) {
         ["Technical analytics", "Flyferie uses Vercel Analytics and Speed Insights to understand general website use and monitor technical performance. Vercel may process technical usage data for these purposes under its own terms."],
         ["Email", "When you contact Flyferie by email, the information you provide is used to read and respond to your enquiry. Do not send sensitive personal information that is not necessary for the matter."],
         ["External links", "Flyferie links to external providers and uses selected, labelled advertising links. When you continue to another website, that provider's own terms and privacy rules apply."],
+        ["Advertising and consent", "Flyferie does not currently display personalised advertising. If advertising technology or other non-essential cookies are introduced later, this notice will be updated and you will be given a clear consent choice before that technology is activated."],
         ["No user account", "Flyferie does not offer sign-in or personal user accounts. The website also has no contact form that stores enquiries in Flyferie's own database."],
         ["Changes", "This page may be updated when the website or the services we use change. The latest version will always be available here."],
       ];

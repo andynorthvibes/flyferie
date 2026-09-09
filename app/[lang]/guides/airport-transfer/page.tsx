@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Flyplasstransport – tog, buss, taxi eller leiebil? | Flyferie.no" : "Airport transfers – train, bus, taxi or rental car? | Flyferie.no",
     description: no ? "Sammenlign tog, flybuss, taxi, privat transport og leiebil fra flyplassen til reisemålet." : "Compare trains, airport buses, taxis, private transfers and rental cars from the airport to your destination.",
-    alternates: { canonical: `/${lang}/guides/airport-transfer`, languages: { "nb-NO": "/no/guides/airport-transfer", en: "/en/guides/airport-transfer", "x-default": "/no/guides/airport-transfer" } },
+    alternates: { canonical: `/${lang}/guides/airport-transfer`, languages: { "nb-NO": "/no/guides/airport-transfer", "en-GB": "/en/guides/airport-transfer", "x-default": "/no/guides/airport-transfer" } },
   };
 }
 
@@ -36,11 +37,12 @@ export default async function AirportTransferPage({ params }: PageProps) {
   const no = lang === "no";
   const other = no ? "en" : "no";
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Slik velger du riktig flyplasstransport" : "How to choose the right airport transfer", inLanguage: no ? "nb-NO" : "en", publisher: { "@type": "Organization", name: "Flyferie.no" } },
+    { "@type": "Article", headline: no ? "Slik velger du riktig flyplasstransport" : "How to choose the right airport transfer", inLanguage: no ? "nb-NO" : "en-GB", publisher: { "@type": "Organization", name: "Flyferie.no" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item.qNo : item.qEn, acceptedAnswer: { "@type": "Answer", text: no ? item.aNo : item.aEn } })) },
   ] };
 
   return <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="airport-transfer" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     <header className="border-b border-white/10 bg-[#102f2b] text-white"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
       <Link href={`/${lang}`}><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[185px] sm:w-[225px]" /></Link>

@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Flyferies innhold og anbefalinger | Flyferie.no" : "Flyferie's content and recommendations | Flyferie.no",
     description: no ? "Slik arbeider Flyferie med håndplukkede reisemål, anbefalinger, oppdateringer og kommersielle samarbeid." : "How Flyferie approaches handpicked destinations, recommendations, updates and commercial partnerships.",
-    alternates: { canonical: `/${lang}/editorial-policy`, languages: { "nb-NO": "/no/editorial-policy", en: "/en/editorial-policy", "x-default": "/no/editorial-policy" } },
+    alternates: { canonical: `/${lang}/editorial-policy`, languages: { "nb-NO": "/no/editorial-policy", "en-GB": "/en/editorial-policy", "x-default": "/no/editorial-policy" } },
   };
 }
 

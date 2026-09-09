@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -91,7 +92,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Discover eight underrated European destinations for a different kind of weekend break.",
     alternates: {
       canonical: `/${lang}/guides/hidden-gems`,
-      languages: { "nb-NO": "/no/guides/hidden-gems", en: "/en/guides/hidden-gems", "x-default": "/no/guides/hidden-gems" }
+      languages: { "nb-NO": "/no/guides/hidden-gems", "en-GB": "/en/guides/hidden-gems", "x-default": "/no/guides/hidden-gems" }
     }
   };
 }
@@ -111,13 +112,14 @@ export default async function HiddenGemsPage({ params }: PageProps) {
     "@type": "Article",
     headline: norwegian ? "Europas skjulte perler" : "Europe's hidden gems",
     description: norwegian ? "Åtte undervurderte europeiske byer valgt av Flyferie." : "Eight underrated European cities selected by Flyferie.",
-    inLanguage: norwegian ? "nb-NO" : "en",
+    inLanguage: norwegian ? "nb-NO" : "en-GB",
     image: hero.src,
     publisher: { "@type": "Organization", name: "Flyferie.no" }
   };
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="hidden-gems" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

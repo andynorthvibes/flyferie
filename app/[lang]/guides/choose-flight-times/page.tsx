@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Gode flytider for weekendtur – slik velger du | Flyferie.no" : "Good flight times for a weekend trip – how to choose | Flyferie.no",
     description: no ? "Velg flytider ved å sammenligne dør-til-dør-tid, ankomst, flyplass, mellomlanding, retur og brukbare timer på reisemålet." : "Choose flight times by comparing door-to-door time, arrival, airports, connections, return and usable hours at the destination.",
-    alternates: { canonical: `/${lang}/guides/choose-flight-times`, languages: { "nb-NO": "/no/guides/choose-flight-times", en: "/en/guides/choose-flight-times", "x-default": "/no/guides/choose-flight-times" } },
+    alternates: { canonical: `/${lang}/guides/choose-flight-times`, languages: { "nb-NO": "/no/guides/choose-flight-times", "en-GB": "/en/guides/choose-flight-times", "x-default": "/no/guides/choose-flight-times" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function ChooseFlightTimesPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/choose-flight-times`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Slik velger du gode flytider for en weekendtur" : "How to choose good flight times for a weekend trip", description: no ? "En praktisk guide til å sammenligne flytider og faktisk tid på reisemålet." : "A practical guide to comparing flight times and actual time at the destination.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Slik velger du gode flytider for en weekendtur" : "How to choose good flight times for a weekend trip", description: no ? "En praktisk guide til å sammenligne flytider og faktisk tid på reisemålet." : "A practical guide to comparing flight times and actual time at the destination.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Velg flytider" : "Choose flight times", item: pageUrl }] },
   ] };

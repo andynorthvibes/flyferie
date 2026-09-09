@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Fleksibel hotellbestilling og avbestilling | Flyferie.no" : "Flexible hotel booking and cancellation | Flyferie.no",
     description: no ? "Lær å kontrollere hotellvilkår for refusjon, avbestillingsfrist, forskuddsbetaling og endringer før du bestiller." : "Learn how to check hotel terms for refunds, cancellation deadlines, prepayment and changes before booking.",
-    alternates: { canonical: `/${lang}/guides/flexible-hotel-booking`, languages: { "nb-NO": "/no/guides/flexible-hotel-booking", en: "/en/guides/flexible-hotel-booking", "x-default": "/no/guides/flexible-hotel-booking" } },
+    alternates: { canonical: `/${lang}/guides/flexible-hotel-booking`, languages: { "nb-NO": "/no/guides/flexible-hotel-booking", "en-GB": "/en/guides/flexible-hotel-booking", "x-default": "/no/guides/flexible-hotel-booking" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function FlexibleHotelBookingPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/flexible-hotel-booking`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Fleksibel hotellbestilling og avbestillingsvilkår" : "Flexible hotel booking and cancellation conditions", description: no ? "En praktisk guide til fleksible hotellpriser, refusjon og avbestillingsfrister." : "A practical guide to flexible hotel rates, refunds and cancellation deadlines.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Fleksibel hotellbestilling og avbestillingsvilkår" : "Flexible hotel booking and cancellation conditions", description: no ? "En praktisk guide til fleksible hotellpriser, refusjon og avbestillingsfrister." : "A practical guide to flexible hotel rates, refunds and cancellation deadlines.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Fleksibel hotellbestilling" : "Flexible hotel booking", item: pageUrl }] },
   ] };

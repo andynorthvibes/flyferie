@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,7 +82,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Compare flight prices using flexible dates, total journey time, baggage, airports and ticket conditions before booking.",
     alternates: {
       canonical: `/${lang}/guides/cheap-flights`,
-      languages: { "nb-NO": "/no/guides/cheap-flights", en: "/en/guides/cheap-flights", "x-default": "/no/guides/cheap-flights" },
+      languages: { "nb-NO": "/no/guides/cheap-flights", "en-GB": "/en/guides/cheap-flights", "x-default": "/no/guides/cheap-flights" },
     },
   };
 }
@@ -98,7 +99,7 @@ export default async function CheapFlightsGuidePage({ params }: PageProps) {
         "@type": "Article",
         headline: norwegian ? "Billige flybilletter – slik sammenligner du riktig" : "Cheap flights – how to compare fares properly",
         description: norwegian ? "Flyferies praktiske guide til bedre sammenligning av flybilletter." : "Flyferie's practical guide to comparing flight tickets.",
-        inLanguage: norwegian ? "nb-NO" : "en",
+        inLanguage: norwegian ? "nb-NO" : "en-GB",
         publisher: { "@type": "Organization", name: "Flyferie.no" },
       },
       {
@@ -114,6 +115,7 @@ export default async function CheapFlightsGuidePage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="cheap-flights" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

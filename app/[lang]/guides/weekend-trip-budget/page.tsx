@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Budsjett for weekendtur – få oversikt over kostnadene | Flyferie.no" : "Weekend trip budget – estimate the complete cost | Flyferie.no",
     description: no ? "Lag et realistisk budsjett for weekendturen med fly, overnatting, transport, mat, aktiviteter og buffer." : "Create a realistic weekend trip budget covering flights, accommodation, transfers, food, activities and contingency.",
-    alternates: { canonical: `/${lang}/guides/weekend-trip-budget`, languages: { "nb-NO": "/no/guides/weekend-trip-budget", en: "/en/guides/weekend-trip-budget", "x-default": "/no/guides/weekend-trip-budget" } },
+    alternates: { canonical: `/${lang}/guides/weekend-trip-budget`, languages: { "nb-NO": "/no/guides/weekend-trip-budget", "en-GB": "/en/guides/weekend-trip-budget", "x-default": "/no/guides/weekend-trip-budget" } },
   };
 }
 
@@ -36,11 +37,12 @@ export default async function WeekendTripBudgetPage({ params }: PageProps) {
   const no = lang === "no";
   const other = no ? "en" : "no";
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "HowTo", name: no ? "Slik lager du budsjett for en weekendtur" : "How to build a weekend trip budget", inLanguage: no ? "nb-NO" : "en", step: costs.map((item) => ({ "@type": "HowToStep", name: no ? item.no : item.en, text: no ? item.noText : item.enText })) },
+    { "@type": "HowTo", name: no ? "Slik lager du budsjett for en weekendtur" : "How to build a weekend trip budget", inLanguage: no ? "nb-NO" : "en-GB", step: costs.map((item) => ({ "@type": "HowToStep", name: no ? item.no : item.en, text: no ? item.noText : item.enText })) },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item.qNo : item.qEn, acceptedAnswer: { "@type": "Answer", text: no ? item.aNo : item.aEn } })) },
   ] };
 
   return <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="weekend-trip-budget" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     <header className="border-b border-white/10 bg-[#102f2b] text-white"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8"><Link href={`/${lang}`}><Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} priority className="h-auto w-[185px] sm:w-[225px]" /></Link><div className="flex items-center gap-4"><Link href={`/${lang}/guides`} className="text-sm font-bold">{no ? "Guider" : "Guides"}</Link><Link href={`/${other}/guides/weekend-trip-budget`} className="rounded-full border border-white/40 px-4 py-2 text-sm font-bold">{no ? "EN" : "NO"}</Link></div></div></header>
 

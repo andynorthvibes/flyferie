@@ -1,3 +1,4 @@
+import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -82,7 +83,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Check the total price, insurance, deposit, fuel policy and collection point before booking a rental car.",
     alternates: {
       canonical: `/${lang}/guides/car-rental`,
-      languages: { "nb-NO": "/no/guides/car-rental", en: "/en/guides/car-rental", "x-default": "/no/guides/car-rental" },
+      languages: { "nb-NO": "/no/guides/car-rental", "en-GB": "/en/guides/car-rental", "x-default": "/no/guides/car-rental" },
     },
   };
 }
@@ -99,7 +100,7 @@ export default async function CarRentalGuidePage({ params }: PageProps) {
         "@type": "Article",
         headline: norwegian ? "Leiebil på ferie – dette bør du sjekke" : "Renting a car on holiday – what to check",
         description: norwegian ? "Flyferies praktiske guide til tryggere valg av leiebil." : "Flyferie's practical guide to making a better rental car choice.",
-        inLanguage: norwegian ? "nb-NO" : "en",
+        inLanguage: norwegian ? "nb-NO" : "en-GB",
         publisher: { "@type": "Organization", name: "Flyferie.no" },
       },
       {
@@ -115,6 +116,7 @@ export default async function CarRentalGuidePage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+      <GuideBreadcrumbSchema lang={lang === "no" ? "no" : "en"} slug="car-rental" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <header className="border-b border-white/10 bg-[#102f2b] text-white">

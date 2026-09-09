@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Slik velger du reisemål for en weekendtur | Flyferie.no" : "How to choose a destination for a weekend trip | Flyferie.no",
     description: no ? "Velg reisemål for weekendturen ved å sammenligne reisetid, flytider, budsjett, sesong, bystørrelse og opplevelser." : "Choose a weekend destination by comparing journey time, flight times, budget, season, city size and experiences.",
-    alternates: { canonical: `/${lang}/guides/choose-weekend-destination`, languages: { "nb-NO": "/no/guides/choose-weekend-destination", en: "/en/guides/choose-weekend-destination", "x-default": "/no/guides/choose-weekend-destination" } },
+    alternates: { canonical: `/${lang}/guides/choose-weekend-destination`, languages: { "nb-NO": "/no/guides/choose-weekend-destination", "en-GB": "/en/guides/choose-weekend-destination", "x-default": "/no/guides/choose-weekend-destination" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function ChooseWeekendDestinationPage({ params }: PageProps
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/choose-weekend-destination`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Slik velger du reisemål for en weekendtur" : "How to choose a destination for a weekend trip", description: no ? "En praktisk guide til å sammenligne reisemål for en kort tur." : "A practical guide to comparing destinations for a short trip.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Slik velger du reisemål for en weekendtur" : "How to choose a destination for a weekend trip", description: no ? "En praktisk guide til å sammenligne reisemål for en kort tur." : "A practical guide to comparing destinations for a short trip.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Velg reisemål" : "Choose a destination", item: pageUrl }] },
   ] };

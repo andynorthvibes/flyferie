@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Direktefly eller mellomlanding? Slik velger du | Flyferie.no" : "Direct flight or connection? How to choose | Flyferie.no",
     description: no ? "Sammenlign direktefly og mellomlanding ut fra pris, total reisetid, separate billetter, byttetid og reisefølge." : "Compare direct flights and connections by price, total journey time, separate tickets, transfer time and travellers.",
-    alternates: { canonical: `/${lang}/guides/direct-flight-or-connection`, languages: { "nb-NO": "/no/guides/direct-flight-or-connection", en: "/en/guides/direct-flight-or-connection", "x-default": "/no/guides/direct-flight-or-connection" } },
+    alternates: { canonical: `/${lang}/guides/direct-flight-or-connection`, languages: { "nb-NO": "/no/guides/direct-flight-or-connection", "en-GB": "/en/guides/direct-flight-or-connection", "x-default": "/no/guides/direct-flight-or-connection" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function DirectFlightOrConnectionPage({ params }: PageProps
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/direct-flight-or-connection`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Direktefly eller mellomlanding?" : "Direct flight or connection?", description: no ? "En praktisk sammenligning av direktefly og flyreise med mellomlanding." : "A practical comparison of direct flights and connecting journeys.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Direktefly eller mellomlanding?" : "Direct flight or connection?", description: no ? "En praktisk sammenligning av direktefly og flyreise med mellomlanding." : "A practical comparison of direct flights and connecting journeys.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Direktefly eller mellomlanding" : "Direct flight or connection", item: pageUrl }] },
   ] };

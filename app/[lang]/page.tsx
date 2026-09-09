@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Discover city breaks, hidden gems, mystery trips and inspiring destinations across Europe and Thailand.",
     alternates: {
       canonical: `/${lang}`,
-      languages: { "nb-NO": "/no", en: "/en", "x-default": "/no" },
+      languages: { "nb-NO": "/no", "en-GB": "/en", "x-default": "/no" },
     },
   };
 }

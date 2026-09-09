@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: norwegian ? "Når bør du bestille flybilletter? | Flyferie.no" : "When should you book flights? | Flyferie.no",
     description: norwegian ? "Lær hvordan du følger flypriser, bruker prisvarsler og vurderer når det er riktig å bestille." : "Learn how to track airfares, use price alerts and decide when it makes sense to book.",
-    alternates: { canonical: `/${lang}/guides/when-to-book-flights`, languages: { "nb-NO": "/no/guides/when-to-book-flights", en: "/en/guides/when-to-book-flights", "x-default": "/no/guides/when-to-book-flights" } },
+    alternates: { canonical: `/${lang}/guides/when-to-book-flights`, languages: { "nb-NO": "/no/guides/when-to-book-flights", "en-GB": "/en/guides/when-to-book-flights", "x-default": "/no/guides/when-to-book-flights" } },
   };
 }
 
@@ -36,7 +36,7 @@ export default async function WhenToBookFlightsPage({ params }: PageProps) {
   const other = norwegian ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/when-to-book-flights`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: norwegian ? "Når bør du bestille flybilletter?" : "When should you book flights?", description: norwegian ? "En praktisk guide til tidspunkt, prisvarsler og fleksibilitet." : "A practical guide to timing, price alerts and flexibility.", inLanguage: norwegian ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: norwegian ? "Når bør du bestille flybilletter?" : "When should you book flights?", description: norwegian ? "En praktisk guide til tidspunkt, prisvarsler og fleksibilitet." : "A practical guide to timing, price alerts and flexibility.", inLanguage: norwegian ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: norwegian ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: norwegian ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: norwegian ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: norwegian ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: norwegian ? "Når bør du bestille flybilletter?" : "When should you book flights?", item: pageUrl }] },
   ] };

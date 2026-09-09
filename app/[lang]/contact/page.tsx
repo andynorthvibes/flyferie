@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "Contact Flyferie with questions, feedback, corrections or partnership enquiries.",
     alternates: {
       canonical: `/${lang}/contact`,
-      languages: { "nb-NO": "/no/contact", en: "/en/contact", "x-default": "/no/contact" },
+      languages: { "nb-NO": "/no/contact", "en-GB": "/en/contact", "x-default": "/no/contact" },
     },
   };
 }

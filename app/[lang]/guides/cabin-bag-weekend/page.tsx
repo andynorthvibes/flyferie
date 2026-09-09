@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Weekendtur med håndbagasje – slik pakker du lett | Flyferie.no" : "Weekend trip with cabin baggage – how to pack light | Flyferie.no",
     description: no ? "Pakk til weekendtur med håndbagasje ved å planlegge antrekk, redusere toalettsaker og kontrollere reglene." : "Pack for a weekend trip with cabin baggage by planning outfits, reducing toiletries and checking the rules.",
-    alternates: { canonical: `/${lang}/guides/cabin-bag-weekend`, languages: { "nb-NO": "/no/guides/cabin-bag-weekend", en: "/en/guides/cabin-bag-weekend", "x-default": "/no/guides/cabin-bag-weekend" } },
+    alternates: { canonical: `/${lang}/guides/cabin-bag-weekend`, languages: { "nb-NO": "/no/guides/cabin-bag-weekend", "en-GB": "/en/guides/cabin-bag-weekend", "x-default": "/no/guides/cabin-bag-weekend" } },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function CabinBagWeekendPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/cabin-bag-weekend`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Weekendtur med håndbagasje" : "A weekend trip with cabin baggage", description: no ? "En praktisk guide til å pakke lett for en kort tur." : "A practical guide to packing light for a short trip.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Weekendtur med håndbagasje" : "A weekend trip with cabin baggage", description: no ? "En praktisk guide til å pakke lett for en kort tur." : "A practical guide to packing light for a short trip.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Weekendtur med håndbagasje" : "Weekend trip with cabin baggage", item: pageUrl }] },
   ] };

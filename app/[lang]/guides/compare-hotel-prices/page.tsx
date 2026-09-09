@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: norwegian ? "Slik sammenligner du hotellpriser riktig | Flyferie.no" : "How to compare hotel prices properly | Flyferie.no",
     description: norwegian ? "Sammenlign hotellpriser ut fra romtype, skatter, gebyrer, betaling, avbestilling og beliggenhet." : "Compare hotel prices by room type, taxes, fees, payment, cancellation and location.",
-    alternates: { canonical: `/${lang}/guides/compare-hotel-prices`, languages: { "nb-NO": "/no/guides/compare-hotel-prices", en: "/en/guides/compare-hotel-prices", "x-default": "/no/guides/compare-hotel-prices" } },
+    alternates: { canonical: `/${lang}/guides/compare-hotel-prices`, languages: { "nb-NO": "/no/guides/compare-hotel-prices", "en-GB": "/en/guides/compare-hotel-prices", "x-default": "/no/guides/compare-hotel-prices" } },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function CompareHotelPricesPage({ params }: PageProps) {
   const other = norwegian ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/compare-hotel-prices`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: norwegian ? "Slik sammenligner du hotellpriser riktig" : "How to compare hotel prices properly", description: norwegian ? "En praktisk guide til reell sammenligning av hotellpriser." : "A practical guide to making a fair hotel price comparison.", inLanguage: norwegian ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: norwegian ? "Slik sammenligner du hotellpriser riktig" : "How to compare hotel prices properly", description: norwegian ? "En praktisk guide til reell sammenligning av hotellpriser." : "A practical guide to making a fair hotel price comparison.", inLanguage: norwegian ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: norwegian ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: norwegian ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: norwegian ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: norwegian ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: norwegian ? "Sammenlign hotellpriser" : "Compare hotel prices", item: pageUrl }] },
   ] };

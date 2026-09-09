@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: no ? "Weekendtur alene – guide til din første soloreise | Flyferie.no" : "Solo weekend trip – a guide to your first solo journey | Flyferie.no",
     description: no ? "Planlegg en weekendtur alene med riktig reisemål, hotellområde, aktiviteter, nettilgang og en enkel trygghetsplan." : "Plan a solo weekend trip with the right destination, hotel area, activities, internet access and a simple safety plan.",
-    alternates: { canonical: `/${lang}/guides/solo-weekend-trip`, languages: { "nb-NO": "/no/guides/solo-weekend-trip", en: "/en/guides/solo-weekend-trip", "x-default": "/no/guides/solo-weekend-trip" } },
+    alternates: { canonical: `/${lang}/guides/solo-weekend-trip`, languages: { "nb-NO": "/no/guides/solo-weekend-trip", "en-GB": "/en/guides/solo-weekend-trip", "x-default": "/no/guides/solo-weekend-trip" } },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function SoloWeekendTripPage({ params }: PageProps) {
   const other = no ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/solo-weekend-trip`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: no ? "Weekendtur alene" : "Solo weekend trip", description: no ? "En praktisk guide til en kort soloreise." : "A practical guide to a short solo journey.", inLanguage: no ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: no ? "Weekendtur alene" : "Solo weekend trip", description: no ? "En praktisk guide til en kort soloreise." : "A practical guide to a short solo journey.", inLanguage: no ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: no ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: no ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: no ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: no ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: no ? "Weekendtur alene" : "Solo weekend trip", item: pageUrl }] },
   ] };

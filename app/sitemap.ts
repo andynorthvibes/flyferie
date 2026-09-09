@@ -16,7 +16,7 @@ function entry(path: string, priority: number, changeFrequency: MetadataRoute.Si
     alternates: {
       languages: {
         "nb-NO": `${siteUrl}${norwegianPath}`,
-        en: `${siteUrl}${englishPath}`,
+        "en-GB": `${siteUrl}${englishPath}`,
         "x-default": `${siteUrl}${norwegianPath}`,
       },
     },

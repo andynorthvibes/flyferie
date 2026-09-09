@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: norwegian ? "Slik velger du riktig hotell og område | Flyferie.no" : "How to choose the right hotel and area | Flyferie.no",
     description: norwegian ? "Velg hotell ut fra beliggenhet, transport, romtype, anmeldelser, vilkår og totalpris." : "Choose a hotel by location, transport, room type, reviews, conditions and total price.",
-    alternates: { canonical: `/${lang}/guides/choose-hotel-area`, languages: { "nb-NO": "/no/guides/choose-hotel-area", en: "/en/guides/choose-hotel-area", "x-default": "/no/guides/choose-hotel-area" } },
+    alternates: { canonical: `/${lang}/guides/choose-hotel-area`, languages: { "nb-NO": "/no/guides/choose-hotel-area", "en-GB": "/en/guides/choose-hotel-area", "x-default": "/no/guides/choose-hotel-area" } },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function ChooseHotelAreaPage({ params }: PageProps) {
   const other = norwegian ? "en" : "no";
   const pageUrl = `https://flyferie.no/${lang}/guides/choose-hotel-area`;
   const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", headline: norwegian ? "Slik velger du riktig hotell og område" : "How to choose the right hotel and area", description: norwegian ? "En praktisk guide til hotellvalg før reisen." : "A practical guide to choosing accommodation before a trip.", inLanguage: norwegian ? "nb-NO" : "en", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
+    { "@type": "Article", headline: norwegian ? "Slik velger du riktig hotell og område" : "How to choose the right hotel and area", description: norwegian ? "En praktisk guide til hotellvalg før reisen." : "A practical guide to choosing accommodation before a trip.", inLanguage: norwegian ? "nb-NO" : "en-GB", url: pageUrl, publisher: { "@id": "https://flyferie.no/#organization" } },
     { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: norwegian ? item[0] : item[1], acceptedAnswer: { "@type": "Answer", text: norwegian ? item[2] : item[3] } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: norwegian ? "Forside" : "Home", item: `https://flyferie.no/${lang}` }, { "@type": "ListItem", position: 2, name: norwegian ? "Guider" : "Guides", item: `https://flyferie.no/${lang}/guides` }, { "@type": "ListItem", position: 3, name: norwegian ? "Velg hotell og område" : "Choose a hotel and area", item: pageUrl }] },
   ] };

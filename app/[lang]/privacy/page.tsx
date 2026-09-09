@@ -80,13 +80,6 @@ export default async function PrivacyPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
-        <div className="mx-auto flex max-w-6xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
-        </div>
-      </footer>
     </main>
   );
 }

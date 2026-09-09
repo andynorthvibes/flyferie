@@ -280,7 +280,7 @@ export default async function ThailandPage({ params }: PageProps) {
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[.2em] text-[#ffd078] sm:text-sm">{norwegian ? "Flyferies egne øyeblikk" : "Flyferie's own moments"}</p>
             <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Fra Bangkok til øyene" : "From Bangkok to the islands"}</h2>
-            <p className="mt-4 text-lg leading-8 text-white/72">{norwegian ? "Alle bildene er tatt av Flyferie på reisene våre i Thailand. Her er stedene vi selv ville bygget turen rundt." : "Every photo was taken by Flyferie during our own journeys in Thailand. These are the places we would build the trip around."}</p>
+            <p className="mt-4 text-lg leading-8 text-white/72">{norwegian ? "Alle bildene i denne seksjonen er tatt av Flyferie på våre egne reiser i Thailand. Her er stedene vi selv ville bygget turen rundt." : "Every photo in this section was taken by Flyferie during our own journeys in Thailand. These are the places we would build the trip around."}</p>
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
@@ -370,13 +370,6 @@ export default async function ThailandPage({ params }: PageProps) {
           <p className="mt-2">Flyferie · {norwegian ? "Foto: Bangkok, Ao Nang, Krabi, Railay, Koh Hong, Koh Lao Lading og Phi Phi" : "Photo: Bangkok, Ao Nang, Krabi, Railay, Koh Hong, Koh Lao Lading and Phi Phi"}</p>
         </div>
       </section>
-
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
-        </div>
-      </footer>
     </main>
   );
 }

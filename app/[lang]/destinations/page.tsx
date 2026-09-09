@@ -139,13 +139,6 @@ export default async function AllDestinationsPage({ params }: PageProps) {
           <div className="flex shrink-0 flex-wrap gap-3"><Link href={`/${lang}/guides/choose-weekend-destination`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Få hjelp til å velge" : "Get help choosing"} →</Link><Link href={`/${lang}/guides`} className="inline-flex w-fit rounded-full border border-[#17332f]/25 bg-white px-6 py-3.5 font-bold">{norwegian ? "Se alle guider" : "Explore all guides"} →</Link></div>
         </div>
       </section>
-
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
-        </div>
-      </footer>
     </main>
   );
 }

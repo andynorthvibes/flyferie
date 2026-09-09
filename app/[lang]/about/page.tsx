@@ -107,19 +107,6 @@ export default async function AboutPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <div className="flex flex-col gap-2 text-sm sm:items-end">
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <Link href={`/${lang}/contact`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">{norwegian ? "Kontakt oss" : "Contact us"}</Link>
-              <Link href={`/${lang}/privacy`} className="font-bold text-white/85 transition hover:text-[#f4c16d]">{norwegian ? "Personvern" : "Privacy"}</Link>
-            </div>
-            <p>© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

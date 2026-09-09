@@ -185,9 +185,9 @@ export default async function CheapFlightsGuidePage({ params }: PageProps) {
 
       <section className="px-5 py-12 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[30px] bg-[#f4d7a1] p-6 sm:p-10 lg:p-12">
-          <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d]">{norwegian ? "Fly­sammenligning kommer" : "Flight comparison coming soon"}</p>
-          <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Skyscanner-søknaden er til behandling" : "The Skyscanner application is under review"}</h2>
-          <p className="mt-4 max-w-3xl leading-7 text-[#365b55]">{norwegian ? "Når samarbeidet er godkjent, legger vi inn en tydelig merket søkelenke her. Rådene i guiden er uavhengige av hvilken søketjeneste eller hvilket flyselskap du bruker." : "Once the partnership is approved, a clearly labelled search link will be added here. The guidance remains independent of the search service or airline you use."}</p>
+          <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d]">{norwegian ? "Før du bestiller" : "Before you book"}</p>
+          <h2 className="display mt-3 text-[38px] font-bold leading-tight sm:text-5xl">{norwegian ? "Sammenlign hele reisen – ikke bare billettprisen" : "Compare the complete journey, not only the fare"}</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-[#365b55]">{norwegian ? "Sjekk totalprisen med bagasje, flyplasstransport, reisetid og eventuelle mellomlandinger før du bestemmer deg. Den billigste billetten er ikke alltid det beste valget." : "Check the total cost including baggage, airport transfers, travel time and any connections before deciding. The cheapest ticket is not always the best choice."}</p>
         </div>
       </section>
 
@@ -215,13 +215,6 @@ export default async function CheapFlightsGuidePage({ params }: PageProps) {
           <div className="flex shrink-0 flex-wrap gap-3"><Link href={`/${lang}/guides/when-to-book-flights`} className="inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258]">{norwegian ? "Når bør du bestille?" : "When should you book?"} →</Link><Link href={`/${lang}/guides/choose-flight-times`} className="inline-flex w-fit rounded-full border border-[#17332f]/25 bg-white px-6 py-3.5 font-bold">{norwegian ? "Velg gode flytider" : "Choose good flight times"} →</Link></div>
         </div>
       </section>
-
-      <footer className="bg-[#102f2b] px-5 py-10 text-white/65">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/flyferie-logo-v9.png" alt="Flyferie.no" width={480} height={200} className="h-auto w-[210px] sm:w-[240px]" />
-          <p className="text-sm">© 2026 Flyferie.no · {norwegian ? "Reiseinspirasjon for nye opplevelser" : "Travel inspiration for new experiences"}</p>
-        </div>
-      </footer>
     </main>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -100,6 +101,7 @@ export default function RootLayout({
       <body className={`${dmSans.variable} ${fraunces.variable} antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
         {children}
+        <SiteFooter />
         <Analytics />
         <SpeedInsights />
       </body>

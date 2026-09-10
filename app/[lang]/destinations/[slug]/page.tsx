@@ -268,7 +268,7 @@ export default async function DestinationPage({ params }: PageProps) {
               <div className="mt-7 grid gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-3">
                 {media && guide.weekend.map((item, index) => (
                   <article key={item.timeEn} className="overflow-hidden rounded-[28px] border border-white/15 bg-white/[.06]">
-                    <figure className="relative h-48 sm:h-56">
+                    <figure className="city-weekend-photo relative h-48 sm:h-56">
                       <Image
                         src={media.weekend[index].src}
                         alt={norwegian ? media.weekend[index].altNo : media.weekend[index].altEn}

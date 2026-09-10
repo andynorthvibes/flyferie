@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "./editorial-pilot.css";
 import Image from "next/image";
 import { copy, destinations, type Lang } from "@/lib/content";
 import { christmasMarketHero, destinationMedia } from "@/lib/destination-media";
@@ -32,7 +33,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <main>
+    <main className="editorial-home">
       <header className="absolute inset-x-0 top-0 z-20 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-5 sm:py-6 lg:px-8">
           <Link href={`/${lang}`} aria-label="Flyferie.no – forsiden" className="flex items-center">
@@ -48,10 +49,10 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </header>
 
-      <section className="hero-image relative overflow-hidden text-white sm:min-h-[760px]">
+      <section className="hero-image travel-hero relative overflow-hidden text-white sm:min-h-[760px]">
         <div className="hero-glow" />
-        <div className="mx-auto flex max-w-7xl items-center px-5 pb-10 pt-28 sm:min-h-[760px] sm:pb-28 lg:px-8">
-          <div className="rise relative z-10 max-w-3xl">
+        <div className="travel-hero-layout mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="travel-hero-copy relative z-10">
             <p className="mb-4 text-xs font-bold uppercase tracking-[.22em] text-[#ffd28a] sm:mb-5 sm:text-sm sm:tracking-[.24em]">{t.eyebrow}</p>
             <h1 className="display text-[44px] font-bold leading-[.96] tracking-tight drop-shadow-lg sm:text-7xl lg:text-[92px]">{t.title}</h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-white/90 sm:mt-7 sm:text-xl sm:leading-8">{t.intro}</p>
@@ -60,8 +61,19 @@ export function SiteHome({ lang }: { lang: Lang }) {
               <Link href={`/${lang}/guides/hidden-gems`} className="rounded-full border border-white/60 bg-white/10 px-6 py-3.5 font-bold backdrop-blur-sm transition hover:bg-white/20">{t.inspiration}</Link>
             </div>
           </div>
+          <div className="travel-collage">
+            <svg className="travel-route" viewBox="0 0 600 600" fill="none" aria-hidden="true"><path d="M20 450C-20 200 580 620 535 190S100 40 180 180" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 9" /><circle cx="180" cy="180" r="6" fill="currentColor" /></svg>
+            {["krakow", "tbilisi", "rome"].map((slug, index) => {
+              const photo = hero(slug);
+              const place = bySlug[slug];
+              return <Link className={`travel-postcard travel-postcard-${index + 1}`} key={slug} href={`/${lang}/destinations/${slug}`}>
+                <div className="travel-postcard-photo"><Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 767px) 55vw, (max-width: 1023px) 45vw, 340px" preload={index === 0} className="object-cover" /></div>
+                <div className="travel-postcard-caption"><span><small>{lang === "no" ? place.countryNo : place.countryEn}</small><strong>{cityName(slug, place.name)}</strong></span><span aria-hidden="true">↗</span></div>
+              </Link>;
+            })}
+          </div>
         </div>
-        <div className="relative z-10 sm:absolute sm:bottom-0 sm:left-0 sm:right-0">
+        <div className="travel-categories relative z-10">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-px overflow-hidden rounded-t-[28px] bg-white/20 sm:grid-cols-3 lg:rounded-t-[34px]">
             {[
               [lang === "no" ? "Weekend med gjengen" : "Weekend with friends", "Berlin · Krakow · Gdansk", "#utforsk"],
@@ -183,7 +195,8 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="bg-[#f4d7a1] px-5 py-12 text-[#17332f] lg:px-8 lg:py-14">
+      <div className="home-planning-collection">
+      <section className="home-planning-lead bg-[#f4d7a1] px-5 py-12 text-[#17332f] lg:px-8 lg:py-14">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.22em] text-[#b94f3d] sm:text-sm">{lang === "no" ? "Planlegg smartere" : "Plan smarter"}</p>
@@ -198,7 +211,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
+      <section className="home-planning-card bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.22em] text-[#e16f59] sm:text-sm">{lang === "no" ? "Fra idé til avreise" : "From idea to departure"}</p>
@@ -209,7 +222,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
+      <section className="home-planning-card overflow-hidden bg-[#fffaf1] px-5 py-12 text-[#17332f] sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 rounded-[30px] border border-[#17332f]/10 bg-white p-6 shadow-sm sm:p-9 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:p-12">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.22em] text-[#e16f59] sm:text-sm">{lang === "no" ? "Pakk smartere" : "Pack smarter"}</p>
@@ -237,6 +250,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      </div>
       <section className="bg-[#173f39] px-5 py-12 text-white lg:px-8 lg:py-14">
         <div className="mx-auto grid max-w-7xl gap-7 rounded-[30px] border border-white/15 bg-white/[.07] p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center lg:p-11">
           <div>
@@ -303,7 +317,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
               const photo = hero(place.slug);
               return (
                 <Link key={place.slug} href={thailandDestinationGuideSlugs.has(place.slug) ? `/${lang}/destinations/${place.slug}` : `/${lang}/guides/thailand`} className="group relative min-h-[380px] overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-xl sm:min-h-[430px] sm:rounded-[34px]">
-                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1023px) 100vw, (max-width: 1280px) 33vw, 400px" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/25 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <p className="text-sm font-bold uppercase tracking-[.18em] text-[#ffd28a]">Thailand</p>

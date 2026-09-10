@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./editorial-site.css";
 :root { --ink: #17332f; --forest: #174f46; --sea: #1e776e; --sand: #f7f0e3; --sun: #f4b860; --coral: #e87963; --cream: #fffaf1; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

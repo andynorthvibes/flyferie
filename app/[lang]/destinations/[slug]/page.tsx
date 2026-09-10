@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/components/editorial-pilot.css";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -130,7 +131,7 @@ export default async function DestinationPage({ params }: PageProps) {
 
 
   return (
-    <main className="min-h-screen bg-[#fffaf1] text-[#17332f]">
+    <main className="editorial-city min-h-screen bg-[#fffaf1] text-[#17332f]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <header className="border-b border-white/10 bg-[#102f2b]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-5 sm:py-5">
@@ -342,7 +343,7 @@ export default async function DestinationPage({ params }: PageProps) {
           )}
 
           {recommendations.length > 0 && (
-            <section className="bg-[#f5e8d3]">
+            <section className="personal-places bg-[#f5e8d3]">
               <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
                 <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
                   {norwegian ? "Personlige anbefalinger" : "Personal recommendations"}
@@ -371,6 +372,9 @@ export default async function DestinationPage({ params }: PageProps) {
                           className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/55 via-transparent to-transparent" />
+                        <span className="absolute left-4 top-4 rounded-full bg-[#fffaf1] px-3 py-2 text-xs font-bold text-[#17332f]">
+                          {norwegian ? "Besøkt av Flyferie" : "Visited by Flyferie"}
+                        </span>
                         <figcaption className="absolute bottom-4 left-5 text-xs font-medium text-white/90">
                           {norwegian ? "Foto" : "Photo"}: Flyferie
                         </figcaption>

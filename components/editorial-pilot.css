@@ -1,0 +1,193 @@
+/* Scoped pilot: no changes to other destination or guide pages. */
+.editorial-home, .editorial-city {
+  --editorial-border: #17332f20;
+}
+.editorial-home .display, .editorial-city .display {
+  text-wrap: balance;
+  letter-spacing: -.025em;
+}
+.editorial-home p, .editorial-city p { text-wrap: pretty; }
+.editorial-home a:focus-visible, .editorial-city a:focus-visible {
+  outline: 3px solid #b94f3d;
+  outline-offset: 5px;
+}
+.editorial-home #utforsk { padding-top: 64px; padding-bottom: 72px; }
+.editorial-home #utforsk > .grid { gap: 28px; }
+/* Preserve the entire linked card and its content; lift text off the photo. */
+.editorial-home #utforsk > .grid > a {
+  display: flex;
+  flex-direction: column;
+  padding-top: 240px;
+  background: #fffdf8;
+  color: #17332f;
+  border: 1px solid var(--editorial-border);
+  border-radius: 20px;
+  box-shadow: 0 6px 24px #17332f08;
+}
+.editorial-home #utforsk > .grid > a > img {
+  height: 240px !important;
+  bottom: auto !important;
+}
+.editorial-home #utforsk > .grid > a > div.absolute.inset-0 { display: none; }
+.editorial-home #utforsk > .grid > a > span { color: white; }
+.editorial-home #utforsk > .grid > a > div.absolute.bottom-0 {
+  position: relative;
+  padding: 24px;
+  background: #fffdf8;
+}
+.editorial-home #utforsk > .grid > a > div.absolute.bottom-0 > p:first-child { color: #48645f; }
+.editorial-home #utforsk > .grid > a > div.absolute.bottom-0 > div { background: var(--editorial-border); }
+.editorial-home #utforsk > .grid > a > div.absolute.bottom-0 > p:last-child { color: #1e776e; }
+.editorial-home .destination-strip { gap: 18px; padding-bottom: 20px; }
+.editorial-home .destination-strip h3 { font-size: 18px; }
+.editorial-city section[aria-labelledby="quick-answer-heading"] > div > div {
+  background: #f5efdf;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: none;
+}
+.editorial-city section[aria-labelledby="quick-answer-heading"] dl > div { border-radius: 12px; }
+.editorial-city ol { gap: 0; }
+.editorial-city ol > li {
+  border: 0;
+  border-radius: 0;
+  border-top: 2px solid #d6a85e;
+  background: transparent;
+  padding: 24px 20px;
+}
+.editorial-city ol > li h3 { line-height: 1.4; }
+@media (max-width: 767px) {
+  .editorial-home #utforsk { padding-top: 40px; padding-bottom: 48px; }
+  .editorial-home #utforsk > .grid > a { padding-top: 220px; }
+  .editorial-home #utforsk > .grid > a > img { height: 220px !important; }
+  .editorial-home .display, .editorial-city .display { line-height: 1.08; }
+  .editorial-city ol > li { border-top: 0; border-left: 2px solid #d6a85e; margin-left: 8px; padding: 10px 0 24px 24px; }
+  .editorial-city ol > li:last-child { padding-bottom: 8px; }
+}
+.editorial-home .travel-hero {
+  background-image: linear-gradient(90deg, rgba(8,39,36,.94) 0%, rgba(12,48,44,.72) 44%, rgba(12,48,44,.12) 78%), url("/hero-flyferie.png");
+  background-position: center;
+  background-size: cover;
+  min-height: 0;
+}
+.travel-hero-layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: center; padding-top: 160px; padding-bottom: 60px; }
+.travel-hero-copy { animation: travel-arrive .7s ease-out both; }
+.editorial-home .travel-hero-copy h1 { font-size: clamp(54px, 6vw, 84px); line-height: 1.02; letter-spacing: -.045em; text-shadow: none; }
+.travel-hero-copy > p:last-of-type { max-width: 490px; font-size: 18px; line-height: 1.75; }
+.travel-collage { position: relative; height: 520px; isolation: isolate; }
+.travel-route { position: absolute; inset: -6%; width: 112%; height: 112%; color: #f4c16d80; pointer-events: none; }
+.travel-postcard { position: absolute; display: block; padding: 7px; background: #fffaf1; color: #17332f; border-radius: 18px; box-shadow: 0 24px 60px #0005; transition: transform .3s, box-shadow .3s; animation: travel-arrive .8s ease-out both; }
+.travel-postcard-1 { width: 61%; left: 0; top: 2%; transform: rotate(-7deg); z-index: 2; }
+.travel-postcard-2 { width: 49%; right: 0; top: 34%; transform: rotate(8deg); z-index: 3; animation-delay: .12s; }
+.travel-postcard-3 { width: 43%; left: 7%; bottom: 0; transform: rotate(-3deg); z-index: 4; animation-delay: .24s; }
+.travel-postcard-photo { position: relative; aspect-ratio: 1.25; overflow: hidden; border-radius: 12px; }
+.travel-postcard-1 .travel-postcard-photo { aspect-ratio: 1.05; }
+.travel-postcard-caption { display: flex; align-items: center; justify-content: space-between; padding: 10px 9px 7px; gap: 8px; }
+.travel-postcard-caption small { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: #48645f; }
+.travel-postcard-caption strong { display: block; font-family: Georgia, serif; font-size: 23px; line-height: 1.2; }
+.travel-postcard-caption > span:last-child { font-size: 25px; }
+.travel-postcard:focus-visible { z-index: 5; outline-color: #ffd28a !important; }
+.travel-categories { padding: 0 20px; }
+.editorial-home .travel-categories > div { border: 1px solid #ffffff26; border-bottom: 0; background: #ffffff26; border-radius: 24px 24px 0 0; }
+.editorial-home .travel-categories a { background: #ffffff08; padding-top: 24px; padding-bottom: 24px; }
+.editorial-home .travel-categories a:hover { background: #ffffff14; }
+@keyframes travel-arrive { from { opacity: 0; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
+@media (hover: hover) {
+  .travel-postcard:hover { transform: rotate(0deg) translateY(-7px); z-index: 5; box-shadow: 0 32px 70px #0006; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .travel-hero-layout { gap: 16px; padding-top: 140px; }
+  .travel-collage { height: 440px; }
+  .travel-postcard-caption strong { font-size: 20px; }
+}
+@media (max-width: 767px) {
+  .travel-hero-layout { grid-template-columns: 1fr; gap: 22px; padding-top: 114px; padding-bottom: 32px; }
+  .editorial-home .travel-hero-copy h1 { font-size: clamp(44px, 11vw, 68px); max-width: 560px; }
+  .travel-hero-copy > p:last-of-type { font-size: 16px; line-height: 1.65; }
+  .travel-collage { height: clamp(280px, 76vw, 440px); width: 100%; max-width: 500px; margin: 0 auto; }
+  .travel-postcard-1 { width: 52%; left: 3%; top: 4%; }
+  .travel-postcard-2 { width: 43%; right: 2%; top: 23%; }
+  .travel-postcard-3 { width: 38%; left: 20%; bottom: 0; }
+  .travel-postcard-caption { padding: 7px 5px 4px; }
+  .travel-postcard-caption strong { font-size: 18px; }
+  .travel-postcard-caption small { font-size: 8px; }
+  .editorial-home .travel-categories a { padding: 16px 20px; }
+}
+.editorial-home .home-planning-collection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+  margin: auto;
+  padding: 48px 32px;
+}
+.editorial-home .home-planning-lead {
+  grid-column: 1 / -1;
+  padding: 32px;
+  border-radius: 24px;
+  background: linear-gradient(115deg, #f4d7a1, #f8e8cb);
+}
+.editorial-home .home-planning-lead h2 { font-size: clamp(30px, 3.2vw, 42px); }
+.editorial-home .home-planning-card { padding: 0; background: transparent; }
+.editorial-home .home-planning-card > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: none;
+}
+.editorial-home .home-planning-card h2 { font-size: clamp(30px, 3vw, 38px); line-height: 1.12; }
+.editorial-home .home-planning-collection p:not(:first-child) { font-size: 16px; line-height: 1.75; }
+.editorial-home .home-planning-card > div > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.editorial-home .home-planning-card a { width: fit-content; }
+.editorial-home #utforsk { padding-top: 48px; padding-bottom: 52px; }
+.editorial-home .home-planning-collection a:focus-visible { outline-offset: 4px; }
+@media (max-width: 767px) {
+  .editorial-home .home-planning-collection { grid-template-columns: 1fr; padding: 32px 20px; gap: 16px; }
+  .editorial-home .home-planning-lead, .editorial-home .home-planning-card > div { padding: 24px; border-radius: 20px; }
+  .editorial-home #utforsk { padding-top: 32px; padding-bottom: 40px; }
+  .editorial-home #inspiration { padding-top: 36px; padding-bottom: 36px; }
+}
+/* Shared editorial finish for destination pages and the remaining home sections. */
+.editorial-city h1 { overflow-wrap: anywhere; }
+.editorial-city h2 { letter-spacing: -.025em; text-wrap: balance; }
+.editorial-city h3 { text-wrap: balance; }
+.editorial-city > section:first-of-type > div { padding-top: 52px; padding-bottom: 56px; }
+.editorial-city section > .max-w-6xl { padding-top: 48px; padding-bottom: 48px; }
+.editorial-city .personal-places article { display: flex; flex-direction: column; border-radius: 22px; box-shadow: 0 8px 28px #17332f08; }
+.editorial-city .personal-places article > div { display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+.editorial-city .personal-places article > div > p:last-of-type { margin-bottom: 20px; }
+.editorial-city .personal-places article > div > a { margin-top: auto; }
+.editorial-city .personal-places h3 { font-family: Georgia, serif; font-size: 28px; letter-spacing: -.02em; }
+.editorial-city a:focus-visible { outline-color: #d18d32; }
+.editorial-home .destination-strip { scrollbar-width: thin; scrollbar-color: #9fb5aa #f2eee5; scroll-padding-inline: 20px; }
+.editorial-home .destination-strip > a { border: 1px solid #17332f1a; box-shadow: 0 5px 18px #17332f12; }
+.editorial-home #inspiration > div { gap: 20px; }
+.editorial-home #inspiration a { border: 1px solid #ffffff20; border-radius: 24px; }
+.editorial-home #thailand { padding-top: 48px; padding-bottom: 52px; }
+.editorial-home #thailand > .relative > .grid { gap: 20px; }
+.editorial-home #thailand > .relative > .grid > a { min-height: 340px; border-radius: 24px; box-shadow: 0 8px 26px #17332f20; }
+.editorial-home #thailand h3 { font-size: clamp(30px, 3vw, 42px); }
+.editorial-home > section:not(.travel-hero):not(#alle-byer):not(#utforsk):not(#inspiration):not(#thailand) { padding-top: 36px; padding-bottom: 36px; }
+.editorial-home > section:not(.travel-hero) > .grid { border-radius: 24px; }
+@media (min-width: 1024px) {
+  .editorial-home #thailand > .relative > .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .editorial-home #thailand > .relative > .grid > a { min-height: 360px; }
+}
+@media (max-width: 767px) {
+  .editorial-city > section:first-of-type > div { padding-top: 28px; padding-bottom: 32px; }
+  .editorial-city section > .max-w-6xl { padding-top: 32px; padding-bottom: 32px; }
+  .editorial-city h2.display { font-size: 32px; line-height: 1.13; }
+  .editorial-city .personal-places article > div { padding: 22px; }
+  .editorial-home #thailand { padding-top: 36px; padding-bottom: 36px; }
+  .editorial-home #thailand > .relative > .grid { margin-top: 28px; gap: 16px; }
+  .editorial-home #thailand > .relative > .grid > a { min-height: 310px; border-radius: 20px; }
+  .editorial-home > section:not(.travel-hero):not(#alle-byer):not(#utforsk):not(#inspiration):not(#thailand) { padding-top: 28px; padding-bottom: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .editorial-home *, .editorial-city * { animation: none !important; transition: none !important; }
+}

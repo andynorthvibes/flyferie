@@ -1,0 +1,78 @@
+/* Guide, directory and information pages. The home/city designs remain scoped separately. */
+main:not(.editorial-home):not(.editorial-city) {
+  --reading-width: 68ch;
+}
+main:not(.editorial-home):not(.editorial-city) :is(h1,h2,h3) {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+main:not(.editorial-home):not(.editorial-city) .display { letter-spacing: -.035em; }
+main:not(.editorial-home):not(.editorial-city) p { text-wrap: pretty; }
+main:not(.editorial-home):not(.editorial-city) > section { padding-block: 44px; }
+main:not(.editorial-home):not(.editorial-city) > section:first-of-type { padding-block: 52px; }
+main:not(.editorial-home):not(.editorial-city) h1.display {
+  font-size: clamp(42px, 5.4vw, 72px);
+  line-height: 1.06;
+  max-width: 20ch;
+}
+main:not(.editorial-home):not(.editorial-city) h2.display {
+  font-size: clamp(30px, 3.2vw, 42px);
+  line-height: 1.15;
+}
+main:not(.editorial-home):not(.editorial-city) article h2.display {
+  font-size: 27px;
+  line-height: 1.2;
+}
+main:not(.editorial-home):not(.editorial-city) > section:first-of-type p:not(.uppercase):not(.display) {
+  max-width: var(--reading-width);
+  font-size: 18px;
+  line-height: 1.75;
+}
+main:not(.editorial-home):not(.editorial-city) article {
+  border-radius: 20px;
+  box-shadow: 0 4px 18px #17332f06;
+}
+main:not(.editorial-home):not(.editorial-city) article[class*="p-6"] { padding: 24px; }
+main:not(.editorial-home):not(.editorial-city) article p { line-height: 1.75; }
+main:not(.editorial-home):not(.editorial-city) .grid > a[class*="border"] {
+  border-radius: 20px;
+  box-shadow: 0 4px 18px #17332f06;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+main:not(.editorial-home):not(.editorial-city) .grid > a[class*="border"]:hover {
+  border-color: #1e776e60;
+  box-shadow: 0 8px 24px #17332f10;
+}
+main:not(.editorial-home):not(.editorial-city) table { border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+main:not(.editorial-home):not(.editorial-city) :is(th,td) { padding: 14px 16px; vertical-align: top; }
+main:not(.editorial-home):not(.editorial-city) tbody tr + tr { border-top: 1px solid #17332f18; }
+main:not(.editorial-home):not(.editorial-city) details { border-radius: 16px; }
+main:not(.editorial-home):not(.editorial-city) summary { cursor: pointer; line-height: 1.5; }
+main:not(.editorial-home):not(.editorial-city) a.rounded-full { min-height: 44px; }
+/* Shared keyboard, anchor and footer treatment, without new scripts. */
+:where(main, footer) :is(a,button,summary,input,select):focus-visible {
+  outline: 3px solid #d18d32;
+  outline-offset: 4px;
+}
+main [id] { scroll-margin-top: 24px; }
+body > footer { border-top: 1px solid #ffffff20; padding-block: 36px; }
+body > footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+body > footer nav ul { gap: 4px 24px; }
+body > footer p { line-height: 1.7; max-width: 60ch; }
+@media (max-width: 767px) {
+  main:not(.editorial-home):not(.editorial-city) > section { padding-block: 30px; }
+  main:not(.editorial-home):not(.editorial-city) > section:first-of-type { padding-block: 32px; }
+  main:not(.editorial-home):not(.editorial-city) h1.display { font-size: clamp(36px, 9vw, 52px); }
+  main:not(.editorial-home):not(.editorial-city) h2.display { font-size: 30px; }
+  main:not(.editorial-home):not(.editorial-city) article h2.display { font-size: 25px; }
+  main:not(.editorial-home):not(.editorial-city) > section:first-of-type p:not(.uppercase):not(.display) { font-size: 16px; line-height: 1.7; }
+  main:not(.editorial-home):not(.editorial-city) article[class*="p-6"] { padding: 20px; }
+  main:not(.editorial-home):not(.editorial-city) .grid { row-gap: 16px; }
+  main:not(.editorial-home):not(.editorial-city) :is(th,td) { padding: 12px; }
+  body > footer { padding-block: 28px; }
+  body > footer nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  main *, footer * { animation: none !important; transition: none !important; }
+}

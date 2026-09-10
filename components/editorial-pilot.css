@@ -197,6 +197,12 @@
   .editorial-city > section:first-of-type figure > div.absolute { display: none; }
   .editorial-city .city-weekend-photo > figcaption,
   .editorial-city > section:first-of-type figure > figcaption { position: static; padding: 10px 16px; margin: 0; color: #ffffffd9; font-size: 11px; line-height: 1.5; }
+/* Equal desktop image stages preserve portraits without stretching the cards. */
+@media (min-width: 1024px) {
+  .editorial-city .city-weekend-photo { display: grid; grid-template-rows: 360px 64px; }
+  .editorial-city .city-weekend-photo > img { height: 360px !important; object-fit: contain; background: #102f2b; }
+  .editorial-city .city-weekend-photo > figcaption { display: flex; align-items: center; padding: 10px 16px; }
+}
 /* Mobile refinement based on the supplied iPhone screenshots. */
 @media (max-width: 767px) {
   .editorial-home #inspiration a[href$="/destinations/skopje"] > div.absolute.inset-0:first-of-type {

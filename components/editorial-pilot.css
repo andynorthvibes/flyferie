@@ -190,6 +190,9 @@
 }
 /* Mobile refinement based on the supplied iPhone screenshots. */
 @media (max-width: 767px) {
+  .editorial-home #inspiration a[href$="/destinations/skopje"] > div.absolute.inset-0:first-of-type {
+    background: linear-gradient(90deg, rgba(16,47,43,.94), rgba(16,47,43,.65));
+  }
   .editorial-home .travel-hero-layout { padding-top: 96px; gap: 18px; }
   .editorial-home .travel-hero-copy > p:first-child { margin-bottom: 12px; }
   .editorial-home .travel-hero-copy > p:last-of-type { margin-top: 16px; }

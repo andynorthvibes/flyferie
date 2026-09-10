@@ -213,7 +213,7 @@ export default async function ChristmasMarketsPage({ params }: PageProps) {
         </div>
       </header>
 
-      <section className="relative min-h-[650px] overflow-hidden text-white sm:min-h-[720px]">
+      <section className="christmas-hero relative min-h-[650px] overflow-hidden text-white sm:min-h-[720px]">
         <Image src={hero.src} alt={norwegian ? hero.altNo : hero.altEn} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#102f2b]/95 via-[#102f2b]/75 to-[#102f2b]/20" />
         <div className="relative mx-auto flex min-h-[650px] max-w-7xl items-end px-5 py-12 sm:min-h-[720px] sm:items-center sm:py-20 lg:px-8">

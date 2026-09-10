@@ -60,6 +60,8 @@ body > footer nav a { display: inline-flex; align-items: center; min-height: 44p
 body > footer nav ul { gap: 4px 24px; }
 body > footer p { line-height: 1.7; max-width: 60ch; }
 @media (max-width: 767px) {
+  main > section.christmas-hero:first-of-type { min-height: 0; padding-block: 0; }
+  main > section.christmas-hero > div.relative { min-height: 0; padding-top: 40px; padding-bottom: 40px; }
   main:not(.editorial-home):not(.editorial-city) > section { padding-block: 30px; }
   main:not(.editorial-home):not(.editorial-city) > section:first-of-type { padding-block: 32px; }
   main:not(.editorial-home):not(.editorial-city) h1.display { font-size: clamp(36px, 9vw, 52px); }

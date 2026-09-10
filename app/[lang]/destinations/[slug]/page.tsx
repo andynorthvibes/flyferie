@@ -6,7 +6,9 @@ import { destinations } from "@/lib/content";
 import { allDestinationGuides as destinationGuides } from "@/lib/all-destination-guides";
 import { destinationMedia } from "@/lib/destination-media";
 import { localRecommendations } from "@/lib/local-recommendations";
+import { destinationAnswerContent } from "@/lib/destination-answer-content";
 import { DestinationTravelTools } from "@/components/destination-travel-tools";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 
 type PageProps = {
   params: Promise<{ lang: string; slug: string }>;
@@ -70,6 +72,7 @@ export default async function DestinationPage({ params }: PageProps) {
 
   const media = destinationMedia[slug];
   const recommendations = localRecommendations[slug] ?? [];
+  const answerContent = destinationAnswerContent[slug];
   const imageCredits = media
     ? Array.from(new Map([media.hero, ...media.weekend].map((photo) => [photo.sourceUrl || photo.photographer, photo])).values())
     : [];
@@ -197,6 +200,36 @@ export default async function DestinationPage({ params }: PageProps) {
 
       {guide ? (
         <>
+          {answerContent && (
+            <section className="border-b border-[#17332f]/10 bg-white" aria-labelledby="quick-answer-heading">
+              <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
+                <div className="grid gap-7 rounded-[28px] border border-[#17332f]/10 bg-[#edf4ef] p-6 shadow-sm sm:p-8 lg:grid-cols-[1.2fr_.8fr] lg:gap-10 lg:p-10">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e16f59]">
+                      {norwegian ? "Kort fortalt" : "At a glance"}
+                    </p>
+                    <h2 id="quick-answer-heading" className="display mt-3 text-[34px] font-bold leading-tight sm:text-4xl">
+                      {norwegian ? `Er ${displayName} verdt en weekendtur?` : `Is ${displayName} worth a weekend trip?`}
+                    </h2>
+                    <p className="mt-4 text-lg leading-8 text-[#365b55]">
+                      {norwegian ? answerContent.verdictNo : answerContent.verdictEn}
+                    </p>
+                  </div>
+                  <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                    <div className="rounded-[20px] bg-white p-5">
+                      <dt className="text-xs font-bold uppercase tracking-[.16em] text-[#1e776e]">{norwegian ? "Beste tid" : "Best time"}</dt>
+                      <dd className="mt-2 font-bold leading-6">{norwegian ? answerContent.bestTimeNo : answerContent.bestTimeEn}</dd>
+                    </div>
+                    <div className="rounded-[20px] bg-white p-5">
+                      <dt className="text-xs font-bold uppercase tracking-[.16em] text-[#1e776e]">{norwegian ? "Viktig å vite" : "Important to know"}</dt>
+                      <dd className="mt-2 leading-6 text-[#48645f]">{norwegian ? answerContent.caveatNo : answerContent.caveatEn}</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </section>
+          )}
+
           <section className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
             <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
               {norwegian ? "Passer særlig for" : "Especially good for"}
@@ -263,6 +296,50 @@ export default async function DestinationPage({ params }: PageProps) {
               </div>
             </div>
           </section>
+
+          {answerContent && (
+            <section className="border-b border-[#17332f]/10 bg-white">
+              <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
+                      {norwegian ? "Klar rute" : "Ready-made route"}
+                    </p>
+                    <h2 className="display mt-2 max-w-3xl text-[36px] font-bold leading-tight sm:text-5xl">
+                      {norwegian ? "En gjennomførbar dag – stopp for stopp" : "A realistic day—stop by stop"}
+                    </h2>
+                  </div>
+                  <TrackedExternalLink
+                    eventName="map_click"
+                    eventData={{ destination: displayName, placement: "day_route" }}
+                    href={answerContent.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-fit rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#24544d]"
+                  >
+                    {norwegian ? "Åpne ruten i Google Maps" : "Open route in Google Maps"} →
+                  </TrackedExternalLink>
+                </div>
+                <ol className="mt-8 grid gap-4 md:grid-cols-5">
+                  {answerContent.routeStops.map((stop, index) => (
+                    <li key={`${stop.timeEn}-${stop.place}`} className="relative rounded-[22px] border border-[#17332f]/10 bg-[#fffaf1] p-5">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-sm font-bold text-[#b94f3d]">{norwegian ? stop.timeNo : stop.timeEn}</span>
+                        <span className="text-xs font-bold text-[#17332f]/35">{String(index + 1).padStart(2, "0")}</span>
+                      </div>
+                      <h3 className="mt-3 text-lg font-bold">{stop.place}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[#48645f]">{norwegian ? stop.noteNo : stop.noteEn}</p>
+                    </li>
+                  ))}
+                </ol>
+                <p className="mt-5 text-sm leading-6 text-[#48645f]">
+                  {norwegian
+                    ? "Tidene er forslag. Kontroller åpningstider, billetter og lokal transport før avreise."
+                    : "Times are suggestions. Check opening hours, tickets and local transport before travelling."}
+                </p>
+              </div>
+            </section>
+          )}
 
           {recommendations.length > 0 && (
             <section className="bg-[#f5e8d3]">

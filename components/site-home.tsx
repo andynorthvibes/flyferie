@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { copy, destinations, type Lang } from "@/lib/content";
 import { christmasMarketHero, destinationMedia } from "@/lib/destination-media";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 
 const featuredSlugs = ["berlin", "krakow", "rome", "barcelona", "gdansk", "nice"];
 const moreEuropeSlugs = ["amsterdam", "manchester", "milan", "madrid", "malaga", "copenhagen", "helsinki", "gothenburg"];
@@ -272,14 +273,16 @@ export function SiteHome({ lang }: { lang: Lang }) {
               {lang === "no" ? "Les Flyferies leiebilguide" : "Read Flyferie's car rental guide"} →
             </Link>
           </div>
-          <a
+          <TrackedExternalLink
+            eventName="affiliate_click"
+            eventData={{ partner: "discovercars", placement: "homepage" }}
             href="https://www.discovercars.com/?a_aid=flyferie"
             target="_blank"
             rel="sponsored noopener noreferrer"
             className="inline-flex w-fit rounded-full bg-[#f4b860] px-6 py-3.5 font-bold text-[#17332f] transition hover:bg-[#ffd08b]"
           >
             {lang === "no" ? "Sammenlign leiebiler" : "Compare rental cars"} →
-          </a>
+          </TrackedExternalLink>
         </div>
       </section>
 

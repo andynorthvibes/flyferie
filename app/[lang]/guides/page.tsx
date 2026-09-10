@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 type PageProps = { params: Promise<{ lang: string }> };
 
 const guides = [
+  { slug: "berlin-or-krakow", category: "inspire", no: "Berlin eller Krakow?", en: "Berlin or Krakow?", noText: "Sammenlign prisnivå, uteliv, mat, historie og korte avstander.", enText: "Compare budget, nightlife, food, history and short distances.", featured: true },
   { slug: "plan-weekend-trip", category: "plan", no: "Slik planlegger du en weekendtur", en: "How to plan a weekend trip", noText: "Fra valg av by og budsjett til fly, aktiviteter og avreise.", enText: "From choosing a city and budget to flights, activities and departure.", featured: true },
   { slug: "choose-weekend-destination", category: "plan", no: "Slik velger du reisemål for weekendturen", en: "How to choose a weekend destination", noText: "Sammenlign reisetid, budsjett, sesong og hva dere vil oppleve.", enText: "Compare travel time, budget, season and what you want to experience." },
   { slug: "surprise-trip", category: "plan", no: "Slik arrangerer du blåtur", en: "How to plan a surprise trip", noText: "Hold reisemålet hemmelig og de praktiske rammene tydelige.", enText: "Keep the destination secret and the practical boundaries clear.", featured: true },

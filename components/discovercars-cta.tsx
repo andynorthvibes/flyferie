@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 
 type DiscoverCarsCtaProps = {
   lang: "no" | "en";
@@ -26,9 +27,9 @@ export function DiscoverCarsCta({ lang, variant = "full", showGuideLink = false 
             : "DiscoverCars compares offers from multiple rental companies. Check the total price, deposit, insurance and fuel policy before choosing."}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <a href={discoverCarsUrl} target="_blank" rel="sponsored noopener noreferrer" className="inline-flex rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1e6258]">
+          <TrackedExternalLink eventName="affiliate_click" eventData={{ partner: "discovercars", placement: "guide_compact" }} href={discoverCarsUrl} target="_blank" rel="sponsored noopener noreferrer" className="inline-flex rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1e6258]">
             {norwegian ? "Sammenlign leiebiler" : "Compare rental cars"} →
-          </a>
+          </TrackedExternalLink>
           {showGuideLink ? (
             <Link href={`/${lang}/guides/car-rental`} className="inline-flex rounded-full border border-[#17332f]/25 bg-white px-5 py-3 text-sm font-bold">
               {norwegian ? "Les leiebilguiden" : "Read the rental car guide"} →
@@ -55,9 +56,9 @@ export function DiscoverCarsCta({ lang, variant = "full", showGuideLink = false 
               : "DiscoverCars compares offers from multiple rental companies. Always check the supplier, total price and terms of the specific offer before booking."}
           </p>
         </div>
-        <a href={discoverCarsUrl} target="_blank" rel="sponsored noopener noreferrer" className="mt-6 inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258] lg:mt-0">
+        <TrackedExternalLink eventName="affiliate_click" eventData={{ partner: "discovercars", placement: "guide_full" }} href={discoverCarsUrl} target="_blank" rel="sponsored noopener noreferrer" className="mt-6 inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258] lg:mt-0">
           {norwegian ? "Sammenlign leiebiler" : "Compare rental cars"} →
-        </a>
+        </TrackedExternalLink>
       </div>
     </section>
   );

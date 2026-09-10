@@ -1,4 +1,5 @@
 import { GuideBreadcrumbSchema } from "@/components/guide-breadcrumb-schema";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -188,14 +189,16 @@ export default async function EsimGuidePage({ params }: PageProps) {
                 : "Amigo eSIM offers data plans for different countries and regions. Check coverage, data allowance, validity, price and activation rules before ordering."}
             </p>
           </div>
-          <a
+          <TrackedExternalLink
+            eventName="affiliate_click"
+            eventData={{ partner: "amigo_esim", placement: "esim_guide" }}
             href={amigoEsimUrl}
             target="_blank"
             rel="sponsored noopener noreferrer"
             className="mt-6 inline-flex w-fit rounded-full bg-[#17332f] px-6 py-3.5 font-bold text-white transition hover:bg-[#1e6258] lg:mt-0"
           >
             {norwegian ? "Se eSIM-pakker hos Amigo" : "View eSIM plans at Amigo"} →
-          </a>
+          </TrackedExternalLink>
         </div>
       </section>
 

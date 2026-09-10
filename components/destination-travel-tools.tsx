@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 
 type Props = {
   lang: "no" | "en";
@@ -38,9 +39,9 @@ export function DestinationTravelTools({ lang, destination }: Props) {
                 : "Compare several rental companies and check the deposit, insurance, fuel policy and final price."}
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href={discoverCarsUrl} target="_blank" rel="sponsored noopener noreferrer" className="rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1e6258]">
+              <TrackedExternalLink eventName="affiliate_click" eventData={{ partner: "discovercars", destination, placement: "destination_tools" }} href={discoverCarsUrl} target="_blank" rel="sponsored noopener noreferrer" className="rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1e6258]">
                 {norwegian ? "Søk hos DiscoverCars" : "Search DiscoverCars"} →
-              </a>
+              </TrackedExternalLink>
               <Link href={`/${lang}/guides/car-rental`} className="rounded-full border border-[#17332f]/20 px-5 py-3 text-sm font-bold">
                 {norwegian ? "Les leiebilguiden" : "Read the car rental guide"}
               </Link>
@@ -58,9 +59,9 @@ export function DestinationTravelTools({ lang, destination }: Props) {
                 : "Check destination coverage and compare data allowance, validity and activation rules before travelling."}
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href={amigoEsimUrl} target="_blank" rel="sponsored noopener noreferrer" className="rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1e6258]">
+              <TrackedExternalLink eventName="affiliate_click" eventData={{ partner: "amigo_esim", destination, placement: "destination_tools" }} href={amigoEsimUrl} target="_blank" rel="sponsored noopener noreferrer" className="rounded-full bg-[#17332f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1e6258]">
                 {norwegian ? "Se pakker hos Amigo" : "View plans at Amigo"} →
-              </a>
+              </TrackedExternalLink>
               <Link href={`/${lang}/guides/esim`} className="rounded-full border border-[#17332f]/20 px-5 py-3 text-sm font-bold">
                 {norwegian ? "Les eSIM-guiden" : "Read the eSIM guide"}
               </Link>

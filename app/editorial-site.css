@@ -67,6 +67,8 @@ body > footer p { line-height: 1.7; max-width: 60ch; }
   main:not(.editorial-home):not(.editorial-city) article h2.display { font-size: 25px; }
   main:not(.editorial-home):not(.editorial-city) > section:first-of-type p:not(.uppercase):not(.display) { font-size: 16px; line-height: 1.7; }
   main:not(.editorial-home):not(.editorial-city) article[class*="p-6"] { padding: 20px; }
+  main:not(.editorial-home):not(.editorial-city) > section:first-of-type h1 + p { margin-top: 18px; }
+  main:not(.editorial-home):not(.editorial-city) > section:first-of-type .uppercase { margin-top: 24px; }
   main:not(.editorial-home):not(.editorial-city) .grid { row-gap: 16px; }
   main:not(.editorial-home):not(.editorial-city) :is(th,td) { padding: 12px; }
   body > footer { padding-block: 28px; }

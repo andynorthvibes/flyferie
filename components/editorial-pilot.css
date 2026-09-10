@@ -188,6 +188,18 @@
   .editorial-home #thailand > .relative > .grid > a { min-height: 310px; border-radius: 20px; }
   .editorial-home > section:not(.travel-hero):not(#alle-byer):not(#utforsk):not(#inspiration):not(#thailand) { padding-top: 28px; padding-bottom: 28px; }
 }
+/* Mobile refinement based on the supplied iPhone screenshots. */
+@media (max-width: 767px) {
+  .editorial-home .travel-hero-layout { padding-top: 96px; gap: 18px; }
+  .editorial-home .travel-hero-copy > p:first-child { margin-bottom: 12px; }
+  .editorial-home .travel-hero-copy > p:last-of-type { margin-top: 16px; }
+  .editorial-home .travel-hero-copy > div { margin-top: 22px; gap: 10px; }
+  .editorial-home .travel-hero-copy > div > a { padding: 12px 16px; font-size: 14px; min-height: 44px; }
+  .editorial-city > section:first-of-type > div { gap: 24px; }
+  .editorial-city > section:first-of-type h1 + p { font-size: 17px; line-height: 1.65; margin-top: 16px; }
+  .editorial-city > section:first-of-type h1 { line-height: 1.05; }
+  .editorial-city > section:first-of-type figure > figcaption { left: 16px; right: 16px; bottom: 16px; line-height: 1.5; }
+}
 @media (prefers-reduced-motion: reduce) {
   .editorial-home *, .editorial-city * { animation: none !important; transition: none !important; }
 }

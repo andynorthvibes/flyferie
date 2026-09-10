@@ -188,8 +188,7 @@
   .editorial-home #thailand > .relative > .grid > a { min-height: 310px; border-radius: 20px; }
   .editorial-home > section:not(.travel-hero):not(#alle-byer):not(#utforsk):not(#inspiration):not(#thailand) { padding-top: 28px; padding-bottom: 28px; }
 }
-/* Mobile refinement based on the supplied iPhone screenshots. */
-@media (max-width: 767px) {
+/* Preserve full destination photographs at every viewport width. */
   .editorial-city .city-weekend-photo,
   .editorial-city > section:first-of-type figure { height: auto; min-height: 0; background: #173f39; }
   .editorial-city .city-weekend-photo > img,
@@ -198,6 +197,8 @@
   .editorial-city > section:first-of-type figure > div.absolute { display: none; }
   .editorial-city .city-weekend-photo > figcaption,
   .editorial-city > section:first-of-type figure > figcaption { position: static; padding: 10px 16px; margin: 0; color: #ffffffd9; font-size: 11px; line-height: 1.5; }
+/* Mobile refinement based on the supplied iPhone screenshots. */
+@media (max-width: 767px) {
   .editorial-home #inspiration a[href$="/destinations/skopje"] > div.absolute.inset-0:first-of-type {
     background: linear-gradient(90deg, rgba(16,47,43,.94), rgba(16,47,43,.65));
   }

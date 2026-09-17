@@ -27,7 +27,7 @@ export function DestinationDiscoveries({ slug, lang, name }: { slug: string; lan
                   <p>{category === "see" ? (no ? "En opplevelse å sette av tid til" : "An experience worth making time for") : (no ? "Et sted å ta en matpause" : "Somewhere to stop for food")}</p>
                 </div>
                 <p className="discovery-kind">{item.kind[lang]}</p>
-                <h3>{item.name}</h3>
+                <h3>{item.name[lang]}</h3>
                 <p className="discovery-description">{item.description[lang]}</p>
                 <TrackedExternalLink
                   href={item.source.url}

@@ -4,7 +4,7 @@
  */
 export type LocalizedText = { no: string; en: string };
 export type Discovery = {
-  name: string;
+  name: LocalizedText;
   kind: LocalizedText;
   description: LocalizedText;
   source: { name: string; url: string };
@@ -17,8 +17,8 @@ export type DestinationDiscovery = {
   slow: LocalizedText;
 };
 const text = (no: string, en: string): LocalizedText => ({ no, en });
-const tip = (name: string, kindNo: string, kindEn: string, no: string, en: string, source: string, url: string): Discovery =>
-  ({ name, kind: text(kindNo, kindEn), description: text(no, en), source: { name: source, url } });
+const tip = (name: string | LocalizedText, kindNo: string, kindEn: string, no: string, en: string, source: string, url: string): Discovery =>
+  ({ name: typeof name === "string" ? text(name, name) : name, kind: text(kindNo, kindEn), description: text(no, en), source: { name: source, url } });
 const guide = (introNo: string, introEn: string, see: Discovery, eat: Discovery, slowNo: string, slowEn: string): DestinationDiscovery =>
   ({ checked: "2026-09-17", intro: text(introNo, introEn), see, eat, slow: text(slowNo, slowEn) });
 
@@ -47,14 +47,14 @@ export const destinationDiscoveries: Record<string, DestinationDiscovery> = {
   madrid: guide(
     "Madrid er både de store kunstsamlingene og livet mellom dem. Planlegg én museumsøkt, og gi lunsjen lov til å vare.",
     "Madrid is about the great art collections and the life between them. Plan one museum session and let lunch take its time.",
-    tip("Prado og Retiro", "Kunst og park", "Art and a park", "Kombiner en avgrenset runde i Prado med en pause i Retiro. Museet er kjent for blant annet Velázquez og Goya; velg noen høydepunkter fremfor hele samlingen.", "Pair a focused visit to the Prado with a break in Retiro. The museum includes works by Velázquez and Goya; pick a few highlights rather than the entire collection.", "Madrid Destino", "https://www.esmadrid.com/en/madrid-top-10"),
+    tip(text("Prado og Retiro", "Prado and Retiro"), "Kunst og park", "Art and a park", "Kombiner en avgrenset runde i Prado med en pause i Retiro. Museet er kjent for blant annet Velázquez og Goya; velg noen høydepunkter fremfor hele samlingen.", "Pair a focused visit to the Prado with a break in Retiro. The museum includes works by Velázquez and Goya; pick a few highlights rather than the entire collection.", "Madrid Destino", "https://www.esmadrid.com/en/madrid-top-10"),
     tip("Casa Lucio", "Restaurant · Cava Baja", "Restaurant · Cava Baja", "Et tradisjonelt restaurantstopp i Cava Baja. Se menyen og reserver direkte hvis du vil bygge kvelden rundt en sittende middag fremfor å vandre mellom småbarer.", "A traditional restaurant stop on Cava Baja. Check the menu and book directly if you prefer an evening built around a sit-down dinner rather than bar-hopping.", "Casa Lucio", "https://casalucio.es/"),
     "Vårt turforslag: ta Plaza Mayor før eller etter rushet, og la sidegatene styre resten av turen. Unngå å bestille aktiviteter tett på en lang middag.",
     "Our suggestion: see Plaza Mayor outside the busiest part of the day, then follow the side streets. Avoid scheduling an activity immediately after a leisurely dinner."),
   malaga: guide(
     "Málaga blir ekstra fin når kultur og sjøluft får dele dagen. Legg den mest aktive delen tidlig, og spar litt energi til kvelden.",
     "Málaga works beautifully when culture and sea air share the day. Put the most active part first and save some energy for the evening.",
-    tip("Alcazaba og Gibralfaro", "Festningsanlegg og utsikt", "Fortifications and views", "To historiske anlegg som kan gi dagen både arkitektur og utsikt. Les kommunens besøksinformasjon og planlegg for bakker, pauser og sol – ikke bare avstanden på kartet.", "Two historic sites that bring architecture and views into the same day. Read the city's visiting information and allow for hills, shade breaks and sun, not just map distance.", "Málaga kommune", "https://alcazabaygibralfaro.malaga.eu/en/"),
+    tip(text("Alcazaba og Gibralfaro", "Alcazaba and Gibralfaro"), "Festningsanlegg og utsikt", "Fortifications and views", "To historiske anlegg som kan gi dagen både arkitektur og utsikt. Les kommunens besøksinformasjon og planlegg for bakker, pauser og sol – ikke bare avstanden på kartet.", "Two historic sites that bring architecture and views into the same day. Read the city's visiting information and allow for hills, shade breaks and sun, not just map distance.", "Málaga kommune", "https://alcazabaygibralfaro.malaga.eu/en/"),
     tip("Antigua Casa de Guardia", "Vintaverna · småretter", "Wine tavern · small plates", "En historisk taverna på Alameda Principal med Málaga-viner fra fat og blant annet sjømat og syltede småretter. Tenk et kort stopp, ikke nødvendigvis en full restaurantmiddag.", "A historic tavern on Alameda Principal serving Málaga wines from barrels alongside seafood and pickled bites. Think of a short stop rather than necessarily a full restaurant dinner.", "Antigua Casa de Guardia", "https://antiguacasadeguardia.com/"),
     "Vårt turforslag: avslutt med en rolig tur ved havnen. La den siste timen være uten bestillinger, så får utsikten og reisefølget litt plass.",
     "Our suggestion: finish with an easy harbour walk. Leave the last hour unbooked so there is room for the view and your travelling companions."),
@@ -82,7 +82,7 @@ export const destinationDiscoveries: Record<string, DestinationDiscovery> = {
   nice: guide(
     "Nice trenger ikke et tett program. La gamlebyen, en lokal smårett og sjøluften få være dagens tre viktigste planer.",
     "Nice does not need a crowded itinerary. Let the old town, a local bite and the sea air be your three main plans.",
-    tip("Gamlebyen og Promenade des Anglais", "Byvandring og sjøfront", "Old town and seafront", "Kombiner de tettere gatene i gamlebyen med den åpne strandpromenaden. Turistkontorets Nice-guide gir flere forslag hvis du vil legge til museum eller en parkpause.", "Pair the old town's narrower streets with the open seafront promenade. The tourist board's Nice guide offers more ideas if you want a museum or a park break.", "Nice Côte d’Azur Tourisme", "https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/"),
+    tip(text("Gamlebyen og Promenade des Anglais", "Old town and Promenade des Anglais"), "Byvandring og sjøfront", "Old town and seafront", "Kombiner de tettere gatene i gamlebyen med den åpne strandpromenaden. Turistkontorets Nice-guide gir flere forslag hvis du vil legge til museum eller en parkpause.", "Pair the old town's narrower streets with the open seafront promenade. The tourist board's Nice guide offers more ideas if you want a museum or a park break.", "Nice Côte d’Azur Tourisme", "https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/"),
     tip("Chez Pipo", "Socca · ved havneområdet", "Socca · near the port", "Et konkret sted å prøve socca, den lokale kikertpannekaken. Her passer et enkelt matstopp godt inn mellom en tur i gamlebyen og havneområdet.", "A specific place to try socca, the local chickpea pancake. A simple food stop can fit neatly between an old-town walk and time around the port.", "Chez Pipo", "https://www.chezpipo.fr/fr/"),
     "Vårt turforslag: spar en del av sjøfronten til ettermiddagen og finn en plass å sitte. Det er lov å la neste severdighet vente.",
     "Our suggestion: save part of the seafront for the afternoon and find somewhere to sit. The next sight can wait."),
@@ -131,7 +131,7 @@ export const destinationDiscoveries: Record<string, DestinationDiscovery> = {
   oslo: guide(
     "Oslo er fin når du veksler mellom inne og ute. Velg kunst eller museum, og la vannet eller elven bli neste stopp.",
     "Oslo works well when you alternate indoors and out. Choose art or a museum, then make the waterfront or river your next stop.",
-    tip("Nasjonalmuseet", "Kunst, arkitektur og design", "Art, architecture and design", "Velg en del av samlingen eller en aktuell utstilling fremfor å forsøke alt. Museumsbesøket kan bli dagens hovedinnslag, med en pause ved sjøen etterpå.", "Choose part of the collection or a current exhibition rather than trying to see everything. Make the museum the day's main event, with a waterfront break afterwards.", "Nasjonalmuseet", "https://www.nasjonalmuseet.no/en/"),
+    tip(text("Nasjonalmuseet", "The National Museum"), "Kunst, arkitektur og design", "Art, architecture and design", "Velg en del av samlingen eller en aktuell utstilling fremfor å forsøke alt. Museumsbesøket kan bli dagens hovedinnslag, med en pause ved sjøen etterpå.", "Choose part of the collection or a current exhibition rather than trying to see everything. Make the museum the day's main event, with a waterfront break afterwards.", "Nasjonalmuseet", "https://www.nasjonalmuseet.no/en/"),
     tip("Mathallen Oslo", "Mathall · Vulkan", "Food hall · Vulkan", "Flere butikker og spisesteder samlet på Vulkan. Et fleksibelt matstopp for reisefølger med forskjellige ønsker; se den enkelte aktørens meny og åpningstid.", "Several shops and places to eat together at Vulkan. A flexible food stop for groups with different tastes; check individual menus and opening hours.", "Mathallen Oslo", "https://mathallenoslo.no/"),
     "Vårt turforslag: kombiner Vulkan med en rusletur langs Akerselva. Det gir en annen side av Oslo enn bare havnepromenaden.",
     "Our suggestion: pair Vulkan with a walk beside the Akerselva. It shows another side of Oslo beyond the harbour promenade."),
@@ -201,7 +201,7 @@ export const destinationDiscoveries: Record<string, DestinationDiscovery> = {
   "ao-nang": guide(
     "Ao Nang fungerer fint som base, men hver dag trenger ikke en båttur. Bland en utflukt med strandtid og en kveld uten hastverk.",
     "Ao Nang works well as a base, but not every day needs a boat trip. Mix an outing with beach time and an unhurried evening.",
-    tip("Railay og Phra Nang", "Båtutflukt", "Boat outing", "Kysten ved Railay er en naturlig utflukt fra Ao Nang. Avklar båt, retur og værforhold lokalt; ikke legg siste mulige retur tett opp mot en annen bestilling.", "The Railay coast is a natural outing from Ao Nang. Confirm boats, return arrangements and weather locally; avoid putting the last possible return close to another booking.", "Tourism Authority of Thailand", "https://www.tourismthailand.org/Destinations/Provinces/Krabi/344"),
+    tip(text("Railay og Phra Nang", "Railay and Phra Nang"), "Båtutflukt", "Boat outing", "Kysten ved Railay er en naturlig utflukt fra Ao Nang. Avklar båt, retur og værforhold lokalt; ikke legg siste mulige retur tett opp mot en annen bestilling.", "The Railay coast is a natural outing from Ao Nang. Confirm boats, return arrangements and weather locally; avoid putting the last possible return close to another booking.", "Tourism Authority of Thailand", "https://www.tourismthailand.org/Destinations/Provinces/Krabi/344"),
     tip("The Hilltop Ao Nang", "Restaurant med utsikt", "Restaurant with a view", "Et alternativ når middagen gjerne må ha utsikt over bukten. Restauranten ligger i høyden; avklar bord og transport, og ikke planlegg ut fra at alt er en kort strandtur unna.", "An option when you would like bay views with dinner. The restaurant sits uphill; confirm your table and transport rather than assuming it is a short beachside walk away.", "The Hilltop Ao Nang", "https://www.thehilltopaonang.com/"),
     "Vårt turforslag: hold en formiddag ledig ved stranden. Velg skygge og korte turer i varmen fremfor å gjøre alle feriedager til utfluktsdager.",
     "Our suggestion: keep a morning free by the beach. Choose shade and short walks in the heat rather than making every holiday day an excursion."),
@@ -216,7 +216,7 @@ export const destinationDiscoveries: Record<string, DestinationDiscovery> = {
     "Hua Hin passer godt for en ferie med litt mindre logistikk. Strandpause på dagen og en markedsrunde på kvelden kan være nok.",
     "Hua Hin suits a holiday with a little less logistics. A beach break by day and a market outing in the evening can be enough.",
     tip("Cicada Market", "Kunst, håndverk og musikk", "Art, crafts and music", "Et kveldsmarked med kreative innslag i Khao Takiab-området. Det er ikke et marked du bør regne med hver kveld; sjekk åpningsdager og program for besøket ditt.", "An evening market with creative activities in the Khao Takiab area. Do not assume it runs every night; check opening days and the programme for your visit.", "Cicada Market", "https://www.cicadamarket.com/"),
-    tip("Matområdet på Cicada", "Markedsmat", "Market food", "Gjør matbodene til en del av samme besøk, fremfor å legge inn ekstra transport for middag. Se utvalget før du velger; dette er et marked, ikke én restaurant.", "Make the food stalls part of the same visit instead of adding another journey for dinner. Look around before choosing; this is a market, not a single restaurant.", "Cicada Market", "https://www.cicadamarket.com/"),
+    tip(text("Matområdet på Cicada", "Cicada food market"), "Markedsmat", "Market food", "Gjør matbodene til en del av samme besøk, fremfor å legge inn ekstra transport for middag. Se utvalget før du velger; dette er et marked, ikke én restaurant.", "Make the food stalls part of the same visit instead of adding another journey for dinner. Look around before choosing; this is a market, not a single restaurant.", "Cicada Market", "https://www.cicadamarket.com/"),
     "Vårt turforslag: la neste morgen være uten tidlig avtale. En liten strandtur og en lang frokost gir en god kontrast til markedskvelden.",
     "Our suggestion: leave the next morning without an early appointment. A short beach walk and a long breakfast make a pleasant contrast to the market evening."),
   "koh-samui": guide(
@@ -229,7 +229,7 @@ export const destinationDiscoveries: Record<string, DestinationDiscovery> = {
   "phi-phi": guide(
     "På Phi Phi betyr plasseringen mye for feriefølelsen. Planlegg mat og transport rundt der du bor, og gi sjøen litt slingringsmonn.",
     "On Phi Phi, location makes a real difference to the holiday. Plan meals and transport around where you stay, leaving some flexibility for sea conditions.",
-    tip("Phi Phi-øyene", "Øyopplevelser", "Island experiences", "Bruk den offisielle Krabi-guiden som utgangspunkt, og avklar konkrete båtruter lokalt. Nasjonalparkområder kan ha skiftende adgangsregler; ikke anta at alle bukter alltid er åpne.", "Use the official Krabi guide as a starting point and confirm specific boat routes locally. National park areas can have changing access rules; do not assume every bay is always open.", "Tourism Authority of Thailand", "https://www.tourismthailand.org/Destinations/Provinces/Krabi/344"),
+    tip(text("Phi Phi-øyene", "Phi Phi Islands"), "Øyopplevelser", "Island experiences", "Bruk den offisielle Krabi-guiden som utgangspunkt, og avklar konkrete båtruter lokalt. Nasjonalparkområder kan ha skiftende adgangsregler; ikke anta at alle bukter alltid er åpne.", "Use the official Krabi guide as a starting point and confirm specific boat routes locally. National park areas can have changing access rules; do not assume every bay is always open.", "Tourism Authority of Thailand", "https://www.tourismthailand.org/Destinations/Provinces/Krabi/344"),
     tip("Mala Kitchen · OUTRIGGER", "Hotellrestaurant · Laem Tong", "Resort restaurant · Laem Tong", "Et alternativ ved Laem Tong med thai- og internasjonale retter. Dette er ikke et sentralt Tonsai-stopp: bekreft åpning, adgang for ikke-boende og eventuell båttransport direkte med resorten.", "An option at Laem Tong serving Thai and international dishes. This is not a central Tonsai stop: confirm opening, access for non-residents and any boat transport directly with the resort.", "OUTRIGGER Phi Phi Island Resort", "https://www.outrigger.com/thailand/outrigger-phi-phi-island-resort/food--drinks"),
     "Vårt turforslag: la den siste dagen være nær overnattingsstedet og avreisebåten. Litt ekstra margin er mer behagelig enn en siste utflukt med knapp retur.",
     "Our suggestion: keep the last day close to your accommodation and departure boat. A little spare time feels better than one final outing with a tight return."),

@@ -11,7 +11,7 @@ type HomePhoto = {
 // source blob hashes are recorded in public/home-destinations/provenance.json.
 // These are presentation images; destination-guide photo credits stay separate.
 export const homeDestinationPhotos: Record<string, HomePhoto> = {
-  krakow: { src: "/home-destinations/krakow.jpg", altNo: "Mariakirken og markedsplassen i Krakow sett ovenfra", altEn: "St Mary's Basilica and Krakow's Main Square seen from above", position: "35% 50%" },
+  krakow: { src: "/home-destinations/krakow.jpg", altNo: "Rådhustårnet og markedsplassen i Krakow sett ovenfra", altEn: "The Town Hall Tower and Krakow's Main Square seen from above", position: "15% 50%" },
   berlin: { src: "/home-destinations/berlin.jpg", altNo: "Brandenburger Tor i varmt kveldslys", altEn: "Brandenburg Gate in warm evening light" },
   rome: { src: "/home-destinations/rome.jpg", altNo: "Colosseums buer og fasade i Roma", altEn: "The arches and façade of the Colosseum in Rome", position: "50% 45%" },
   barcelona: { src: "/home-destinations/barcelona.jpg", altNo: "Sagrada Família bak trærne og dammen i Barcelona", altEn: "Sagrada Família behind the trees and pond in Barcelona", position: "50% 40%" },

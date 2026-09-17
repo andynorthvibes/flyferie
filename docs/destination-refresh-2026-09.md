@@ -32,11 +32,18 @@ Also corrected the Gdańsk street-photo caption. Original files were not deleted
 - Page metadata and structured-data generation code are unchanged. Hero image references naturally reflect the intentional photo replacements. Affiliate/travel-tool components, tracking implementation, contact address, language routing and existing guide content are unchanged.
 - No runtime fetches from source websites, new third-party scripts, packages or client-side UI framework were introduced. New source-click events reuse the existing tracking component.
 
-## Still requires preview review
+## Preview review completed after recovery
 
-The available remote browser cannot open this environment's localhost (`ERR_BLOCKED_BY_CLIENT`). Do not call the new layout visually verified or claim a Core Web Vitals improvement from the build alone.
+The original local preview was unavailable to the remote browser. Recovery found GitHub PR #1 and the successful Vercel preview. Its source tree (`e2dcc4b94090da878f4e707e1957650213b5411f`) exactly matched the recovered staged files.
 
-Before production merge, inspect `/no/destinations/tbilisi`, `/no/destinations/krakow`, `/no/destinations/amsterdam`, `/no/destinations/monaco`, `/en/destinations/phi-phi` and the destination index at 390 px and 1440 px. Check source links, keyboard focus, collapsed source notes, image framing and the unchanged personal recommendations. Measure performance on a deployed preview if required.
+- Inspected Tbilisi, Krakow, Amsterdam, Monaco, English Phi Phi and the destination index at 390 px and desktop widths, including 1440 px. No horizontal overflow or failed loaded images in the inspected pages.
+- Responsive checks used same-origin browser frames on an isolated preview branch. The review fixture is not part of the production change. This is layout testing, not a physical-device or Core Web Vitals measurement.
+- Checked jump navigation, visible keyboard focus, expandable source notes, Amsterdam's replacement museum image and Krakow's preserved personal photos/recommendations.
+- Review caught untranslated descriptive headings in the English tips. Names now support both languages; proper venue names remain unchanged. The coverage check now requires both title translations.
+- Review caught awkward wrapping of Amsterdam on small destination cards. Adjusted mobile type size/padding and matched responsive image sizes to the two-column layout; confirmed the correction in the updated preview.
+- Re-ran production build, TypeScript, ESLint, all 60 destination HTTP checks and whitespace checks after the fixes: passed.
+- Rechecked the Monaco market relocation and OUTRIGGER dining source pages directly. These current primary sources support the cautious wording already used.
+- Final application tree before this documentation update: `2ff734e68d96cd0853197624460c3940bc44499b` (GitHub commit `d19465b0409fd8833d4e38496558c552557416b2`). Follow-up preview with the same application files: `flyferie-g64yjs68w-hotellpris.vercel.app`.
 
 ## Maintenance
 

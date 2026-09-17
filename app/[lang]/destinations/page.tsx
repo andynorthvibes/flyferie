@@ -111,7 +111,7 @@ export default async function AllDestinationsPage({ params }: PageProps) {
           <p className="mt-6 text-xs font-bold uppercase tracking-[.2em] text-[#f4c16d] sm:mt-7 sm:text-sm sm:tracking-[.22em]">{norwegian ? "Finn din neste tur" : "Find your next trip"}</p>
           <h1 className="display mt-2 text-[44px] font-bold leading-none sm:mt-3 sm:text-7xl">{norwegian ? "Alle reisemål" : "All destinations"}</h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/75 sm:mt-5 sm:text-lg sm:leading-8">
-            {norwegian ? "Hele Flyferie samlet på ett sted – alfabetisk, oversiktlig og klart for nye byer etter hvert som vi bygger flere guider." : "Every Flyferie destination in one place – alphabetical, easy to browse and ready to grow as we add new guides."}
+            {norwegian ? "Finn et sted du får lyst til å bli litt lenger. Utforsk byliv, strender, severdigheter og matstopp – med konkrete tips og tid til å bare være på ferie." : "Find somewhere you will want to linger. Explore city life, beaches, sights and food stops – with practical ideas and time to simply be on holiday."}
           </p>
         </div>
       </section>
@@ -164,11 +164,11 @@ function DestinationCard({ lang, place, name }: { lang: Lang; place: (typeof des
 
   return (
     <Link href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-[230px] overflow-hidden rounded-[20px] bg-[#17332f] text-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:min-h-[330px] sm:rounded-[26px]">
-      <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw" className="object-cover transition duration-500 group-hover:scale-[1.04]" />
+      <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw" className="object-cover transition duration-500 group-hover:scale-[1.04]" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/25 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6">
         <p className="text-xs text-white/70 sm:text-sm">{lang === "no" ? place.countryNo : place.countryEn}</p>
-        <h3 className="display mt-1 text-[25px] font-bold leading-tight sm:text-3xl">{name}</h3>
+        <h3 className="display mt-1 text-[clamp(1rem,5vw,1.5625rem)] font-bold leading-tight sm:text-3xl">{name}</h3>
         <p className="mt-2 text-xs font-bold sm:mt-3 sm:text-sm">{lang === "no" ? "Les reiseguiden" : "Read the travel guide"} →</p>
       </div>
     </Link>

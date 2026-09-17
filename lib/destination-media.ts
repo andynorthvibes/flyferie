@@ -50,8 +50,8 @@ export const destinationMedia: Record<string, DestinationMedia> = {
       },
       {
         "src": "/destinations/tbilisi/weekend-2.jpg",
-        "altNo": "Narikala-festningen",
-        "altEn": "Narikala Fortress",
+        "altNo": "Taubanen og gamle Tbilisi sett fra Narikala",
+        "altEn": "Cable cars and old Tbilisi seen from Narikala",
         "photographer": "Marcin Konsek",
         "license": "CC BY-SA 4.0",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016_Tbilisi,_Widoki_z_Twierdzy_Narikala_(14).jpg"
@@ -552,7 +552,15 @@ Object.assign(destinationMedia, {
   },
   madrid: {
     ...destinationMedia.madrid,
-    hero: destinationMedia.madrid.weekend[0]
+    hero: destinationMedia.madrid.weekend[0],
+    weekend: [destinationMedia.madrid.weekend[0], destinationMedia.madrid.weekend[1], {
+      src: "/destinations/madrid/cava-baja-discovery.jpg",
+      altNo: "Cava Baja pyntet til Fiestas de la Paloma i Madrid",
+      altEn: "Cava Baja decorated for Fiestas de la Paloma in Madrid",
+      photographer: "Javier Pérez Montes",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_01.jpg"
+    }]
   },
   malaga: {
     ...destinationMedia.malaga,
@@ -567,11 +575,25 @@ Object.assign(destinationMedia, {
   },
   helsinki: {
     ...destinationMedia.helsinki,
-    hero: destinationMedia.helsinki.weekend[2]
+    hero: {
+      src: "/destinations/helsinki/cathedral-discovery.jpg",
+      altNo: "Helsingfors domkirke i vintersol",
+      altEn: "Helsinki Cathedral in winter sunshine",
+      photographer: "Niera",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Helsinki_Cathedral_2023-01-05.jpg"
+    }
   },
   copenhagen: {
     ...destinationMedia.copenhagen,
-    hero: destinationMedia.copenhagen.weekend[2]
+    hero: {
+      src: "/destinations/copenhagen/nyhavn-discovery.jpg",
+      altNo: "Fargerike hus og båter i Nyhavn i København",
+      altEn: "Colourful houses and boats at Nyhavn in Copenhagen",
+      photographer: "kallerna",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Nyhavn_2023.jpg"
+    }
   },
   manchester: {
     ...destinationMedia.manchester,
@@ -586,7 +608,7 @@ Object.assign(destinationMedia, {
     weekend: [
       flyferiePhoto("/destinations/manchester/flyferie-1.jpg", "United Trinity-statuen ved Old Trafford", "The United Trinity statue at Old Trafford"),
       flyferiePhoto("/destinations/manchester/flyferie-2.jpg", "Old Trafford fra tribunen", "Old Trafford from the stands"),
-      flyferiePhoto("/destinations/manchester/flyferie-3.jpg", "Kanalene i Manchester", "Manchester canals")
+      destinationMedia.manchester.weekend[2]
     ]
   },
   berlin: {
@@ -608,7 +630,7 @@ Object.assign(destinationMedia, {
     },
     weekend: [
       destinationMedia.tbilisi.weekend[0],
-      flyferiePhoto("/destinations/tbilisi/flyferie-2.jpg", "Utsikt over Tbilisi", "View across Tbilisi"),
+      destinationMedia.tbilisi.weekend[1],
       flyferiePhoto("/destinations/tbilisi/flyferie-3.jpg", "Tbilisi opplyst om kvelden", "Tbilisi illuminated at night")
     ]
   },
@@ -630,7 +652,14 @@ Object.assign(destinationMedia, {
   },
   amsterdam: {
     hero: flyferiePhoto("/destinations/amsterdam/flyferie-hero-v2.jpg", "Kanal og kanalhus i Amsterdam", "Canal and canal houses in Amsterdam"),
-    weekend: [destinationMedia.amsterdam.weekend[0], destinationMedia.amsterdam.weekend[1], flyferiePhoto("/destinations/amsterdam/flyferie-3.jpg", "Amsterdam i julelys", "Amsterdam in Christmas lights")]
+    weekend: [destinationMedia.amsterdam.weekend[0], {
+      src: "/destinations/amsterdam/rijksmuseum-discovery.jpg",
+      altNo: "Rijksmuseums sørfasade i Amsterdam",
+      altEn: "The south façade of the Rijksmuseum in Amsterdam",
+      photographer: "Trougnouf (Benoit Brummer)",
+      license: "CC BY 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:South_facade_of_the_Rijksmuseum_Amsterdam_(DSCF0528).jpg"
+    }, flyferiePhoto("/destinations/amsterdam/flyferie-3.jpg", "Amsterdam i julelys", "Amsterdam in Christmas lights")]
   },
   nice: {
     hero: flyferiePhoto("/destinations/nice/flyferie-hero.jpg", "Havnen og åsene i Nice", "Nice harbour and hills"),
@@ -713,7 +742,7 @@ Object.assign(destinationMedia, {
     weekend: [
       flyferiePhoto("/destinations/gdansk/weekend-1.jpg", "Motława-elven og museumsskipet", "Motława River and museum ship"),
       flyferiePhoto("/destinations/gdansk/weekend-2.jpg", "Neptunfontenen i Gdansk", "Neptune Fountain in Gdansk"),
-      flyferiePhoto("/destinations/gdansk/weekend-3.jpg", "Havnepromenaden i Gdansk", "Gdansk waterfront")
+      flyferiePhoto("/destinations/gdansk/weekend-3.jpg", "Gate og historiske fasader i Gdansk", "Street and historic façades in Gdansk")
     ]
   },
   frankfurt: {
@@ -725,7 +754,14 @@ Object.assign(destinationMedia, {
     ]
   },
   hamburg: {
-    hero: flyferiePhoto("/destinations/hamburg/hero.jpg", "Julemarked i Hamburg", "Hamburg Christmas market"),
+    hero: {
+      src: "/destinations/hamburg/harbour-discovery.jpg",
+      altNo: "Elben og havneanleggene i Hamburg",
+      altEn: "The Elbe and Hamburg's harbour facilities",
+      photographer: "Dietmar Rabich",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Hamburg,_Hafen_--_2023_--_6626-9.jpg"
+    },
     weekend: [
       flyferiePhoto("/destinations/hamburg/weekend-1.jpg", "Fotballkamp i Hamburg", "Football match in Hamburg"),
       flyferiePhoto("/destinations/hamburg/weekend-2.jpg", "Tysk mat og øl i Hamburg", "German food and beer in Hamburg"),

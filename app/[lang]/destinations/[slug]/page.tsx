@@ -10,6 +10,7 @@ import { localRecommendations } from "@/lib/local-recommendations";
 import { destinationAnswerContent } from "@/lib/destination-answer-content";
 import { DestinationTravelTools } from "@/components/destination-travel-tools";
 import { TrackedExternalLink } from "@/components/tracked-external-link";
+import { DestinationDiscoveries } from "@/components/destination-discoveries";
 
 type PageProps = {
   params: Promise<{ lang: string; slug: string }>;
@@ -201,6 +202,15 @@ export default async function DestinationPage({ params }: PageProps) {
 
       {guide ? (
         <>
+          <nav className="destination-jump-nav" aria-label={norwegian ? "I denne guiden" : "In this guide"}>
+            <div>
+              <a href="#things-to-see">{norwegian ? "Se og opplev" : "See and explore"}</a>
+              <a href="#places-to-eat">{norwegian ? "Matstopp" : "Food stops"}</a>
+              <a href="#weekend-plan">{norwegian ? "Helgeplan" : "Weekend plan"}</a>
+              {recommendations.length > 0 && <a href="#personal-recommendations">{norwegian ? "Våre egne besøk" : "Our own visits"}</a>}
+              <a href="#stay-and-tips">{norwegian ? "Bo og planlegg" : "Stay and plan"}</a>
+            </div>
+          </nav>
           {answerContent && (
             <section className="border-b border-[#17332f]/10 bg-white" aria-labelledby="quick-answer-heading">
               <div className="mx-auto max-w-6xl px-5 py-10 sm:py-14">
@@ -257,7 +267,9 @@ export default async function DestinationPage({ params }: PageProps) {
             </div>
           </section>
 
-          <section className="bg-[#173f39] text-white">
+          <DestinationDiscoveries slug={slug} lang={lang} name={displayName} />
+
+          <section id="weekend-plan" className="bg-[#173f39] text-white">
             <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
               <p className="text-sm font-bold uppercase tracking-[.2em] text-[#ffd078]">
                 {norwegian ? "Helgeplan" : "Weekend plan"}
@@ -343,7 +355,7 @@ export default async function DestinationPage({ params }: PageProps) {
           )}
 
           {recommendations.length > 0 && (
-            <section className="personal-places bg-[#f5e8d3]">
+            <section id="personal-recommendations" className="personal-places bg-[#f5e8d3]">
               <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
                 <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">
                   {norwegian ? "Personlige anbefalinger" : "Personal recommendations"}
@@ -403,7 +415,7 @@ export default async function DestinationPage({ params }: PageProps) {
             </section>
           )}
 
-          <section className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
+          <section id="stay-and-tips" className="mx-auto max-w-6xl px-5 py-12 sm:py-16 lg:py-20">
             <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[.2em] text-[#e16f59]">

@@ -56,9 +56,9 @@ export const localRecommendations: Record<string, LocalRecommendation[]> = {
       categoryNo: "Cocktailbar, restaurant og klubb",
       categoryEn: "Cocktail bar, restaurant and club",
       descriptionNo:
-        "Et livlig stopp for gode drinker midt på Rynek Główny. Stedet fungerer både som restaurant, cocktailbar og klubb.",
+        "Et livlig stopp for gode drinker i Krakow. Stedet fungerer både som restaurant, cocktailbar og klubb.",
       descriptionEn:
-        "A lively stop for good drinks on Rynek Główny. The venue combines a restaurant, cocktail bar and club.",
+        "A lively stop for good drinks in Krakow. The venue combines a restaurant, cocktail bar and club.",
       image: "/destinations/krakow/recommendations/miedzymiastowa.jpg",
       imageAltNo: "Cocktailer hos Międzymiastowa i Krakow",
       imageAltEn: "Cocktails at Międzymiastowa in Krakow",

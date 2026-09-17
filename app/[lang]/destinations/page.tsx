@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { destinations, type Lang } from "@/lib/content";
-import { destinationMedia } from "@/lib/destination-media";
+import { getHomeDestinationPhoto } from "@/lib/home-destination-media";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
@@ -160,11 +160,11 @@ function DestinationGrid({ lang, title, places, displayName }: { lang: Lang; tit
 }
 
 function DestinationCard({ lang, place, name }: { lang: Lang; place: (typeof destinations)[number]; name: string }) {
-  const photo = place.slug === "manchester" ? destinationMedia.manchester.weekend[1] : destinationMedia[place.slug].hero;
+  const photo = getHomeDestinationPhoto(place.slug);
 
   return (
     <Link href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-[230px] overflow-hidden rounded-[20px] bg-[#17332f] text-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:min-h-[330px] sm:rounded-[26px]">
-      <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw" className="object-cover transition duration-500 group-hover:scale-[1.04]" />
+      <Image src={photo.src} style={{ objectPosition: photo.position }} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw" className="object-cover transition duration-500 group-hover:scale-[1.04]" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/25 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6">
         <p className="text-xs text-white/70 sm:text-sm">{lang === "no" ? place.countryNo : place.countryEn}</p>

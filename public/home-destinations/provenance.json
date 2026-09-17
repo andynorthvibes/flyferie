@@ -1,0 +1,92 @@
+[
+  {
+    "destination": "krakow",
+    "path": "/home-destinations/krakow.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/krakow.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/krakow.jpg",
+    "gitBlobSha": "8a9deecfb0e99c7e04bec04e193b20f62a816fe0",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "berlin",
+    "path": "/home-destinations/berlin.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/berlin.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/berlin.jpg",
+    "gitBlobSha": "1667584ac95125914b2b451d3454beb5248257c7",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "rome",
+    "path": "/home-destinations/rome.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/roma.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/roma.jpg",
+    "gitBlobSha": "37ec0d4ef61da4d5cfdf8f22345a8125b324b68c",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "barcelona",
+    "path": "/home-destinations/barcelona.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/barcelona.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/barcelona.jpg",
+    "gitBlobSha": "a0b283be85e3efdaa938abfbb9eb48fc109508df",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "nice",
+    "path": "/home-destinations/nice.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/nice.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/nice.jpg",
+    "gitBlobSha": "911b2a8888a2d90f63566284e3034d065535b999",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "amsterdam",
+    "path": "/home-destinations/amsterdam.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/amsterdam.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/amsterdam.jpg",
+    "gitBlobSha": "9664cb667de57dc7643fd30109bcd090c52cde5b",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "milan",
+    "path": "/home-destinations/milan.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/milano.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/milano.jpg",
+    "gitBlobSha": "3c579e850aa6828cd36c35ebe98fb561dd686e99",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "copenhagen",
+    "path": "/home-destinations/copenhagen.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/kobenhavn.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/kobenhavn.jpg",
+    "gitBlobSha": "9f9e86b4b2a561062fe3d82164ce85f9f12c001b",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "oslo",
+    "path": "/home-destinations/oslo.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/oslo.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/oslo.jpg",
+    "gitBlobSha": "2908a4ad99b802e08d9f207bfce32bec6ab617bb",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  },
+  {
+    "destination": "bangkok",
+    "path": "/home-destinations/bangkok.jpg",
+    "reusedFrom": "https://www.hotellpris.no/destinations/bangkok.jpg",
+    "sourceRepository": "andynorthvibes/hotellpris",
+    "sourcePath": "public/destinations/bangkok.jpg",
+    "gitBlobSha": "b72436837182c788f6a0eeb4437c5f35c66d43f1",
+    "modifications": "None; original file copied unchanged. Display cropping uses CSS."
+  }
+]

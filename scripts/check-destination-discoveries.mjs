@@ -15,6 +15,7 @@ for (const slug of slugs) {
     for (const field of [entry.intro, entry.slow, entry.see.kind, entry.see.description, entry.eat.kind, entry.eat.description]) {
       assert.ok(field[lang]?.length > 5, `${slug}: missing ${lang} text`);
     }
+    assert.ok(entry.see.name[lang]?.trim() && entry.eat.name[lang]?.trim(), `${slug}: missing ${lang} title`);
   }
   for (const item of [entry.see, entry.eat]) {
     assert.equal(new URL(item.source.url).protocol, 'https:');

@@ -1,0 +1,42 @@
+[
+  {
+    "path": "public/destinations/helsinki/cathedral-discovery.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Helsinki_Cathedral_2023-01-05.jpg",
+    "artistHtml": "<a href=\"//commons.wikimedia.org/wiki/User:Niera\" title=\"User:Niera\">Niera</a>",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized and JPEG compressed; no crop."
+  },
+  {
+    "path": "public/destinations/copenhagen/nyhavn-discovery.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Nyhavn_2023.jpg",
+    "artistHtml": "<a href=\"//commons.wikimedia.org/wiki/User:Kallerna\" title=\"User:Kallerna\">kallerna</a>",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized and JPEG compressed; no crop."
+  },
+  {
+    "path": "public/destinations/hamburg/harbour-discovery.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Hamburg,_Hafen_--_2023_--_6626-9.jpg",
+    "artistHtml": "<bdi><a href=\"https://www.wikidata.org/wiki/Q34788025\" class=\"extiw\" title=\"d:Q34788025\"><span title=\"German photographer and mathematician\">Dietmar Rabich</span></a></bdi>",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized and JPEG compressed; no crop."
+  },
+  {
+    "path": "public/destinations/madrid/cava-baja-discovery.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_01.jpg",
+    "artistHtml": "<a href=\"//commons.wikimedia.org/wiki/User:Nerve_net\" title=\"User:Nerve net\">Javier Pérez Montes</a>",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized and JPEG compressed; no crop."
+  },
+  {
+    "path": "public/destinations/amsterdam/rijksmuseum-discovery.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:South_facade_of_the_Rijksmuseum_Amsterdam_(DSCF0528).jpg",
+    "artistHtml": "<a href=\"//commons.wikimedia.org/wiki/User:Trougnouf\" title=\"User:Trougnouf\">Trougnouf (Benoit Brummer)</a>",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "changes": "Resized and JPEG compressed; no crop."
+  }
+]

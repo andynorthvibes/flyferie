@@ -111,7 +111,7 @@ export default async function AllDestinationsPage({ params }: PageProps) {
           <p className="mt-6 text-xs font-bold uppercase tracking-[.2em] text-[#f4c16d] sm:mt-7 sm:text-sm sm:tracking-[.22em]">{norwegian ? "Finn din neste tur" : "Find your next trip"}</p>
           <h1 className="display mt-2 text-[44px] font-bold leading-none sm:mt-3 sm:text-7xl">{norwegian ? "Alle reisemål" : "All destinations"}</h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/75 sm:mt-5 sm:text-lg sm:leading-8">
-            {norwegian ? "Hele Flyferie samlet på ett sted – alfabetisk, oversiktlig og klart for nye byer etter hvert som vi bygger flere guider." : "Every Flyferie destination in one place – alphabetical, easy to browse and ready to grow as we add new guides."}
+            {norwegian ? "Finn et sted du får lyst til å bli litt lenger. Utforsk byliv, strender, severdigheter og matstopp – med konkrete tips og tid til å bare være på ferie." : "Find somewhere you will want to linger. Explore city life, beaches, sights and food stops – with practical ideas and time to simply be on holiday."}
           </p>
         </div>
       </section>

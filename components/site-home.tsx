@@ -3,6 +3,7 @@ import "./editorial-pilot.css";
 import Image from "next/image";
 import { copy, destinations, type Lang } from "@/lib/content";
 import { christmasMarketHero, destinationMedia } from "@/lib/destination-media";
+import { getHomeDestinationPhoto } from "@/lib/home-destination-media";
 import { TrackedExternalLink } from "@/components/tracked-external-link";
 
 const featuredSlugs = ["berlin", "krakow", "rome", "barcelona", "gdansk", "nice"];
@@ -19,10 +20,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
   const europe = destinations.filter((place) => !thailandSlugs.includes(place.slug));
   const thailand = thailandSlugs.map((slug) => bySlug[slug]);
   const cityName = (slug: string, fallback: string) => lang === "en" ? fallback : ({ milan: "Milano", copenhagen: "København", gothenburg: "Gøteborg", rome: "Roma" } as Record<string, string>)[slug] ?? fallback;
-  const hero = (slug: string) => {
-    if (slug === "manchester") return destinationMedia.manchester.weekend[1];
-    return destinationMedia[slug].hero;
-  };
+  const hero = getHomeDestinationPhoto;
   const nav = [
     [lang === "no" ? "Reisemål" : "Destinations", `/${lang}/destinations`],
     [lang === "no" ? "Favoritter" : "Favourites", "#utforsk"],
@@ -63,11 +61,11 @@ export function SiteHome({ lang }: { lang: Lang }) {
           </div>
           <div className="travel-collage">
             <svg className="travel-route" viewBox="0 0 600 600" fill="none" aria-hidden="true"><path d="M20 450C-20 200 580 620 535 190S100 40 180 180" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 9" /><circle cx="180" cy="180" r="6" fill="currentColor" /></svg>
-            {["krakow", "tbilisi", "rome"].map((slug, index) => {
+            {["krakow", "copenhagen", "rome"].map((slug, index) => {
               const photo = hero(slug);
               const place = bySlug[slug];
               return <Link className={`travel-postcard travel-postcard-${index + 1}`} key={slug} href={`/${lang}/destinations/${slug}`}>
-                <div className="travel-postcard-photo"><Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 767px) 55vw, (max-width: 1023px) 45vw, 340px" preload={index === 0} className="object-cover" /></div>
+                <div className="travel-postcard-photo"><Image src={photo.src} style={{ objectPosition: photo.position }} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 767px) 55vw, (max-width: 1023px) 45vw, 340px" preload={index === 0} className="object-cover" /></div>
                 <div className="travel-postcard-caption"><span><small>{lang === "no" ? place.countryNo : place.countryEn}</small><strong>{cityName(slug, place.name)}</strong></span><span aria-hidden="true">↗</span></div>
               </Link>;
             })}
@@ -103,7 +101,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
               const photo = hero(place.slug);
               return (
                 <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative aspect-[4/5] w-[44vw] max-w-[170px] shrink-0 snap-start overflow-hidden rounded-2xl bg-[#17332f] text-white shadow-sm sm:w-[176px]">
-                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="176px" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image src={photo.src} style={{ objectPosition: photo.position }} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="176px" className="object-cover transition duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/95 via-transparent to-black/5" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <p className="text-[11px] text-white/70">{lang === "no" ? place.countryNo : place.countryEn}</p>
@@ -130,7 +128,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
             const photo = hero(place.slug);
             return (
               <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative min-h-[300px] overflow-hidden rounded-[24px] bg-[#17332f] text-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:min-h-80 sm:rounded-[28px]">
-                <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+                <Image src={photo.src} style={{ objectPosition: photo.position }} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/35 to-black/5" />
                 <span className="absolute left-6 top-6 rounded-full bg-[#17332f]/75 px-3 py-1.5 text-xs font-bold backdrop-blur-sm">{lang === "no" ? place.tagNo : place.tagEn}</span>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -156,7 +154,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
               const photo = hero(place.slug);
               return (
                 <Link key={place.slug} href={`/${lang}/destinations/${place.slug}`} className="group relative aspect-[4/5] w-[44vw] max-w-[170px] shrink-0 snap-start overflow-hidden rounded-2xl bg-[#17332f] text-white shadow-sm sm:w-[176px]">
-                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="176px" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image src={photo.src} style={{ objectPosition: photo.position }} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="176px" className="object-cover transition duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b]/95 via-transparent to-black/5" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <p className="text-[11px] text-white/70">{lang === "no" ? place.countryNo : place.countryEn}</p>
@@ -317,7 +315,7 @@ export function SiteHome({ lang }: { lang: Lang }) {
               const photo = hero(place.slug);
               return (
                 <Link key={place.slug} href={thailandDestinationGuideSlugs.has(place.slug) ? `/${lang}/destinations/${place.slug}` : `/${lang}/guides/thailand`} className="group relative min-h-[380px] overflow-hidden rounded-[28px] bg-[#17332f] text-white shadow-xl sm:min-h-[430px] sm:rounded-[34px]">
-                  <Image src={photo.src} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1023px) 100vw, (max-width: 1280px) 33vw, 400px" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+                  <Image src={photo.src} style={{ objectPosition: photo.position }} alt={lang === "no" ? photo.altNo : photo.altEn} fill sizes="(max-width: 1023px) 100vw, (max-width: 1280px) 33vw, 400px" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102f2b] via-[#102f2b]/25 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <p className="text-sm font-bold uppercase tracking-[.18em] text-[#ffd28a]">Thailand</p>
